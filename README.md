@@ -22,7 +22,7 @@ A partir de VS Code :
 
 Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles pour cette extension.
 
-> Mémo : Configurations Header et Footer
+> **Mémo : Configurations header et footer**
 >
 > Header :
 > - Configuration d'origine : `<div style="font-size: 9px; margin-left: 1cm;"> <span class='title'></span></div> <div style="font-size: 9px; margin-left: auto; margin-right: 1cm; ">%%ISO-DATE%%</div>`
@@ -30,7 +30,13 @@ Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles p
 > Footer :
 > - Configuration d'origine : `<div style="font-size: 9px; margin: 0 auto;"> <span class='pageNumber'></span> / <span class='totalPages'></span></div>`
 > - Problème d'affichage des numéros de page :
->     - https://github.com/yzane/vscode-markdown-pdf/issues/262#issuecomment-1646801829 => Configuration `markdown-pdf.margin.bottom` à "1.03cm"
+>     - https://github.com/yzane/vscode-markdown-pdf/issues/262#issuecomment-1646801829
+>       => Configuration `markdown-pdf.margin.bottom` supérieure à "1.03cm"
+>
+> Limitations constatées :
+> - Les feuilles de styles CSS ne s'appliquent pas aux header et footer.
+> - La propriété `background-color` ne s'applique pas.
+> - La propriété `color` s'applique, mais la couleur rendue semble distordue.
 
 
 # Ressources
