@@ -26,10 +26,11 @@ Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles p
 >
 > Header :
 > - Configuration d'origine : `<div style="font-size: 9px; margin-left: 1cm;"> <span class='title'></span></div> <div style="font-size: 9px; margin-left: auto; margin-right: 1cm; ">%%ISO-DATE%%</div>`
-> - Configuration ajustée : `<div style="font-size: 9px; margin: 0 auto;">Cours "Environnements de développement logiciel", Alexis Royer, 2025-2026</div>`
 >
 > Footer :
 > - Configuration d'origine : `<div style="font-size: 9px; margin: 0 auto;"> <span class='pageNumber'></span> / <span class='totalPages'></span></div>`
+> - Problème d'affichage des numéros de page :
+>     - https://github.com/yzane/vscode-markdown-pdf/issues/262#issuecomment-1646801829 => Configuration `markdown-pdf.margin.bottom` à "1.03cm"
 
 
 # Ressources
