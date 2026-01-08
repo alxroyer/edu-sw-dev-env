@@ -17,7 +17,7 @@ d'où l'importance de maîtriser l'environnement de travail pour l'ensemble d'un
 
 ---
 
-Source : https://github/alxroyer/edu-sw-dev-env/blob/fr (TODO)
+Source : [https://github.com/alxroyer/edu-sw-dev-env/](https://github.com/alxroyer/edu-sw-dev-env/blob/fr/Environnements%20de%20d%C3%A9veloppement%20logiciel.md)
 
 ---
 
