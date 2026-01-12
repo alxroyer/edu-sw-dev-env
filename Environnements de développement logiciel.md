@@ -62,16 +62,16 @@ Avant toute chose, il convient de considérer que la mise en oeuvre d'un environ
 est fortement dépendante du type de logiciel développé.
 
 On distingue différents types de logiciels :
-- les applications PC,
-- les applications web,
-- les applications mobile,
-- les logiciels embarqués.
+- <span class="sw-type pc"></span> les applications PC (Windows, Mac, Linux),
+- <span class="sw-type web"></span> les applications web (front et back),
+- <span class="sw-type mobile"></span> les applications mobile (Android, iPhone),
+- <span class="sw-type embedded"></span> les logiciels embarqués.
 
 
 ## 1.2. Technos et langages
 
 Pour chacun des types de logiciels, des technologies différentes peuvent être mises en jeu (liste non exhaustive) :
-- Applications PC :
+- <span class="sw-type pc"></span> Applications PC :
     - Langages :
         - C / C++
         - Java
@@ -85,7 +85,7 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
         - Linux
     - Frameworks :
         - Qt (4)
-- Applications web :
+- <span class="sw-type web"></span> Applications web :
     - Langages :
         - HTML
         - Côté *frontend* :
@@ -101,7 +101,7 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
         - Angular (Javascript)
         - Vue.js (Javascript)
         - Symfony (PHP)
-- Applications mobiles :
+- <span class="sw-type mobile"></span> Applications mobiles :
     - Architectures / systèmes d'exploitation :
         - Android
         - iOS
@@ -115,7 +115,7 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
     - Kits de développement :
         - SDK Android : Software Development Kit
         - NDK Android : Native Development Kit
-- Logiciels embarqués :
+- <span class="sw-type embedded"></span> Logiciels embarqués :
     - Langages :
         - C / C++
         - Go ? à confirmer
@@ -201,24 +201,26 @@ L'usage d'un IDE présente de nombreux intérêts :
 > auquel cas on pourra configurer les IDE pour utiliser cette IA validée par l'entreprise.
 
 On liste ci-après des IDE connus (liste non exhaustive) :
-- Applications PC :
+- <span class="sw-type pc"></span> Applications PC :
     - Visual C++
     - Eclipse : Java, mais aussi C / C++ (version CDT)
     - VS Code : Javascript, mais aussi C++ (extension)
     - JetBrains PyCharm : Python
-- Applications web :
+- <span class="sw-type web"></span> Applications web :
     - VS Code : HTML, Javascript, Typescript, PHP
     - PHPStorm
     - JetBrains IntelliJ : Java
     - JetBrains IDEA Ultimate : tous langages
     - Kustomize : Docker, Kubernetes
-- Applications mobile :
+- <span class="sw-type mobile"></span> Applications mobile :
     - Android Studio
     - JetBrains IntelliJ : Java, Kotlin
     - XCode : iOS
-- Logiciel embarqué :
+- <span class="sw-type embedded"></span> Logiciel embarqué :
     - VS Code : C / C++ (extension), Rust (extension)
     - Eclipse : C / C++ (version CDT)
+
+<div class="practice">TP : <a href="TP%20-%20IDE%20VS%20Code%20C-Cpp.md">Configuration d'un IDE VS Code pour C/C++</a></div>
 
 
 ## 2.2. Debugging
@@ -248,7 +250,7 @@ Parmi les fonctions utiles d'un debugger, on note :
 - la capacité pour certains langages interprété (Python, JS) à pouvoir exécuter des routines à chaud
 - ...
 
-TP : [Configuration d'un IDE VS Code C/C++ et debugging](TP%20-%20IDE%20VS%20Code%20et%20debugging.md)
+<div class="practice">TP : <a href="TP%20-%20Debugging%20VS%20Code%20C-Cpp.md">Debugging C/C++ avec VS Code</a></div>
 
 Dans le cas du debugging d'un logiciel embarqué, la difficulté est de savoir synchroniser
 un IDE/debugger qui tourne sur une machine de développement,
