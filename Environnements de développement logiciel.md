@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/styles.css"></link>
+
 <h1>Environnements de développement logiciel</h1>
 
 ![Banner](images/binary-code-7190628_1280.jpg)

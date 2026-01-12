@@ -1,6 +1,6 @@
 {
     "markdown-pdf.styles": [
-        "styles.css"
+        "css/markdown-pdf.css"
     ],
     "markdown-toc.orderedList": true,
     "markdown-toc.depthFrom": 1,
