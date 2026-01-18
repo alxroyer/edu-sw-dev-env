@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/styles.css"></link>
+
 <h1>Configuration d'un IDE VS Code pour C/C++ en mode remote</h1>
 
 
