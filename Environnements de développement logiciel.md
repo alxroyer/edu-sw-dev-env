@@ -4,7 +4,7 @@
 
 ![Banner](images/binary-code-7190628_1280.jpg)
 
-Alexis ROYER ([https://www.linkedin.com/in/alexis-royer/](https://www.linkedin.com/in/alexis-royer/))
+Alexis ROYER - [https://www.linkedin.com/in/alexis-royer/](https://www.linkedin.com/in/alexis-royer/)
 
 2025-2026
 
@@ -25,7 +25,7 @@ ainsi que les capacités de suivi de version et de travail collaboratif apporté
 
 ---
 
-Source : [https://github.com/alxroyer/edu-sw-dev-env/](https://github.com/alxroyer/edu-sw-dev-env/blob/fr/Environnements%20de%20d%C3%A9veloppement%20logiciel.md)
+Source : [https://github.com/alxroyer/edu-sw-dev-env/](https://github.com/alxroyer/edu-sw-dev-env/)
 
 ---
 
@@ -183,7 +183,7 @@ Toutefois, l'environnement de développement peut contribue à certaines de ces 
 Avant de délivrer et exécuter le logiciel, commençons par mettre en oeuvre les éléments permettant de le construire.
 
 
-## 2.1. IDE (Integrated Development Environment)
+## 2.1. IDE (*Integrated Development Environment*)
 
 Un des premiers outils qu'on est amené à aborder pour faire du développement logiciel est l'IDE.
 
