@@ -1,9 +1,21 @@
+<!-- TOC -->
+
+- [1. Objet du dépôt](#1-objet-du-d%C3%A9p%C3%B4t)
+- [2. Table des matières et numérotation des titres](#2-table-des-mati%C3%A8res-et-num%C3%A9rotation-des-titres)
+- [3. Générer le document PDF](#3-g%C3%A9n%C3%A9rer-le-document-pdf)
+- [4. Ressources](#4-ressources)
+
+<!-- /TOC -->
+
+
+# 1. Objet du dépôt
+
 Ce dépôt contient un cours sur le thème des environnement de développement logiciel.
 
 Accès au cours : voir le fichier [Environnements de développement logiciel.md](Environnements%20de%20d%C3%A9veloppement%20logiciel.md)
 
 
-# Table des matières et numérotation des titres
+# 2. Table des matières et numérotation des titres
 
 A partir de VS Code :
 - Installer l'extension [Auto Markdown TOC](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) par Hunter Tran.
@@ -12,7 +24,7 @@ A partir de VS Code :
 Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles pour cette extension.
 
 
-# Générer le document PDF
+# 3. Générer le document PDF
 
 A partir de VS Code :
 - Installer l'extension [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) par yzane.
@@ -39,7 +51,7 @@ Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles p
 > - La propriété `color` s'applique, mais la couleur rendue semble distordue.
 
 
-# Ressources
+# 4. Ressources
 
 Ressources intéressantes pour la génération de documents PDF à partir de Markdown :
 - https://itsfoss.gitlab.io/post/how-to-convert-markdown-md-files-to-pdf-on-linux/
