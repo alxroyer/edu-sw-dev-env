@@ -23,7 +23,7 @@ Ce dépôt contient un cours sur le thème des environnements de développement 
 
 Accès au cours :
 - [Version Markdown](Environnements%20de%20d%C3%A9veloppement%20logiciel.md)
-- Version PDF (TODO)
+- [Version PDF](Environnements%20de%20d%C3%A9veloppement%20logiciel.pdf)
 
 
 # 2. Markdown
