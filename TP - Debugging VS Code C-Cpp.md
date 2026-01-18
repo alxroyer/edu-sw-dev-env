@@ -21,7 +21,6 @@
 - [4. Pour aller plus loin : questions de sécurité](#4-pour-aller-plus-loin--questions-de-s%C3%A9curit%C3%A9)
 - [5. Annexes](#5-annexes)
     - [5.1. Documentation utile](#51-documentation-utile)
-    - [5.2. Affichage hexadécimal en debug](#52-affichage-hexad%C3%A9cimal-en-debug)
 
 <!-- /TOC -->
 
@@ -140,14 +139,15 @@ VS Code propose un premier élément `*argv`,
 avec une adresse correspondante,
 et une représentation de la chaîne de caractère décrite à cette adresse.
 
-<div class="tip">
-Elargir la fenêtre "Variables" pour voir l'affichage du contenu de la chaîne de caractères après l'adresse.
-</div>
+> 💡 **Astuce : Voir le contenu d'une chaîne de caractères**
+>
+> Elargir la fenêtre "Variables" pour voir l'affichage du contenu de la chaîne de caractères après l'adresse.
 
-<div class="tip">
-Double-cliquer sur la valeur de la chaîne de caractère pour la voir en entier
-ou en copier la valeur.
-</div>
+> 💡 **Astuce : Sélectionner / copier le contenu d'une chaîne de caractères**
+>
+> Double-cliquer sur la valeur de la chaîne de caractère
+> pour la voir en entier lorsque celle-ci dépasse la largeur de la fenêtre,
+> ou en copier la valeur.
 
 La fenêtre "Watch" permet de saisir des expressions pour en consulter les valeurs.
 
@@ -231,12 +231,13 @@ Value of T.i: 0xdeadbeef
 Ajoutons un paramètre d'entrée à notre configuration d'exécution dans VS Code :
 - Ajouter une option `"args": ["hello"]` dans la configuration d'exécution (fichier `.vscode/launch.json`).
 
-  <div class="tip">
-  <p>La clé <code>args</code> prend pour valeur, une liste de chaînes de caractères,
-  d'où les crochets.</p>
-
-  <p>Si on veut renseigner 2 paramètres, on écrit <code>["hello", "you"]</code> par exemple.</p>
-  </div>
+  > 🛈 **Note : Spécifier plusieurs paramètres d'entrée**
+  >
+  > La clé `args` prend pour valeur une liste de chaînes de caractères,
+  > d'où les crochets.
+  >
+  > Si on veut renseigner 2 paramètres,
+  > on peut écrire `["hello", "you"]` par exemple.
 
 - Lancer ou relancer le programme en debug :
     - La valeur de `argc` vaut 2 cette fois.
@@ -269,9 +270,9 @@ Pour ce faire, modifier le fichier `.vscode/launch.json` comme suit :
 - Relancer l'exécution en debug :
     - VS Code commence par demander la saisie d'une valeur pour `arg1`.
 
-      <div class="tip">
-      <p>VS Code affiche le prompt tout en haut de l'IDE.</p>
-      </div>
+      > 🛈 **Note : Affichage du prompt par VS Code**
+      >
+      > VS Code affiche le prompt tout en haut de l'IDE.
 
 Essayer de lancer le programme avec différentes valeurs pour `arg1`.
 Observer les valeurs de `argc` et `argv[1]`.
@@ -304,6 +305,8 @@ En l'occurrence :
 Si on a plus d'appels en chaîne,
 la pile d'appel sera d'autant plus importante.
 
+> 🛈 **Info : Débordement de la pile d'appels**
+>
 > La pile d'appels n'est pas infinie pour autant.
 >
 > Il peut arriver qu'on explose la pile d'appels,
@@ -332,9 +335,14 @@ Un *breakpoint* permet d'interrompre l'exécution normale du programme en debug 
     - Le programme ne passe pas à la ligne suivante `return 0;`,
       mais s'arrête sur le point d'arrêt à l'intérieur de la fonction `f()`.
 
-> Note :
+> 💡 **Astuce : Fenêtre "Beakpoints"**
+>
 > La liste des points d'arrêt positionnés
 > est donnée dans une fenêtre "Breakpoints" en bas à gauche de l'IDE par défaut.
+>
+> A l'occasion, cette fenêtre peut permettre
+> de retrouver les endroits dans le code où on a posé nos différents points d'arrêts,
+> ou supprimer tout ou  partie des points d'arrêts posés.
 
 
 # 3. Debugging des débordements mémoire
@@ -378,12 +386,19 @@ Dérouler les étapes suivantes :
   > Note :
   > Le suffixe `, x` spécifie une affichage en mode hexadécimal.
 
-  <div class="tip">
-  <p>Il est également possible de configurer `gdb`
-  pour afficher toutes les valeurs en hexadécimal.</p>
-
-  <p>Voir les détails en annexes.</p>
-  </div>
+  > 💡 **Astuce : Affichage hexadécimal par défaut**
+  >
+  > Il est également possible de configurer `gdb`
+  > pour afficher toutes les valeurs en hexadécimal dans VS Code.
+  >
+  > Pour ce faire, ajouter une entrée à la configuration `setupCommands`
+  > dans le fichier `.vscode/launch.json` :
+  > ```json
+  > {
+  >     "description": "Enable hexadecimal display by default",
+  >     "text": "set output-radix 16"
+  > }
+  > ```
 
 - Lancer ou relancer le programme en debug,
   avec une chaîne de 64 octets en paramètre d'entrée
@@ -435,23 +450,24 @@ il peut être intéressant d'utiliser des points d'arrêt sur changement de vale
 - Dans la fenêtre "Variables", déplier la variable locale `t`.
   Faire clic droit sur la donnée `t.i`, et sélectionner l'option "Break on Value Change".
 
-  <div class="tip">
-  <p>Faire le clic droit dans la fenêtre "Variables"
-  et non la fenêtre "Watch".</p>
-
-  <p>En effet, la fenêtre "Watch" présentant des résultats de calculs sur demande,
-  elle ne contrôle pas vraiment des zones mémoire.
-  C'est pourquoi la fonction "Break on Value Change" n'est pas présentée dans cette fenêtre.
-  </div>
+  > 🛈 **Note : Fonction "Break on Value Change" attachée à la fenêtre "Variables"**
+  >
+  > Faire le clic droit dans la fenêtre "Variables",
+  > et non dans la fenêtre "Watch".
+  >
+  > En effet, la fenêtre "Watch" présentant des résultats de calculs sur demande,
+  > elle ne contrôle pas vraiment des zones mémoire.
+  > C'est pourquoi la fonction "Break on Value Change" n'est pas accessible dans cette fenêtre.
 
 - Appuyer sur F5 (*Continue*) :
     - L'exécution s'interrompt à l'intérieur de la fonction `strcpy()`.
 
-      > Note :
+      > 🛈 **Note : Visibilité du code de librairie standard**
       >
-      > Comme il s'agit d'une fonction système,
-      > donc du code release (sans symboles de debug) avec lequel on est linké,
-      > le code associé ne sera probablement pas visible.
+      > Comme il s'agit d'une fonction de la librairie standard,
+      > donc du code de librairie système release (sans symboles de debug)
+      > avec lequel on est linké,
+      > le code source associé ne sera probablement pas visible dans VS Code.
       >
       > Mais le contexte d'exécution affiché dans la fenêtre "Call Stack"
       > explicite le fait qu'on s'est arrêté dans la fonction `strcpy().
@@ -502,15 +518,3 @@ Equivalents `strcpy()` sécurisé :
 
 Sécurisation de le compilation avec `gcc` :
 - https://gist.github.com/jrelo/f5c976fdc602688a0fd40288fde6d886
-
-
-## 5.2. Affichage hexadécimal en debug
-
-Pour afficher toutes les valeurs en hexadécimal en debug,
-ajouter une entrée à la configuration `setupCommands` dans le fichier `.vscode/launch.json` :
-```json
-{
-    "description": "Enable hexadecimal display by default",
-    "text": "set output-radix 16"
-}
-```

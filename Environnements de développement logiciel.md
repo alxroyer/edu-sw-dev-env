@@ -196,7 +196,7 @@ L'usage d'un IDE présente de nombreux intérêts :
 - Debugging : Dès lors que c'est possible, permet souvent d'obtenir plein d'informations pour la résolution de bugs.
 - IA : Les IDE intègrent aujourd'hui des fonctions d'IA qui peuvent augmenter la productivité.
 
-> **Attention : IA et confidentialité**
+> ⚠️ **Attention : IA et confidentialité**
 >
 > A ce jour, l'IA fonctionne principalement par alimentation d'informations sur des moteurs s'exécutant sur Internet.
 >
@@ -228,15 +228,21 @@ On liste ci-après des IDE connus (liste non exhaustive) :
     - VS Code : C / C++ (extension), Rust (extension)
     - Eclipse : C / C++ (version CDT)
 
-<div class="practice">TP : <a href="TP%20-%20IDE%20VS%20Code%20C-Cpp.md">Configuration d'un IDE VS Code pour C/C++</a></div>
+> 👷 TP : [Configuration d'un IDE VS Code pour C/C++](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)
 
 
 ## 2.2. Debugging
 
-> Note :
-> On parle de debugging dès à présent, car c'est une des fonctions majeures apportées par un IDE pour les développeurs,
-> mais cela entend qu'on sait exécuter notre logiciel au préalable.
-> Cf. [§ Exécution](#3-ex%C3%A9cution)
+> 🛈 **Note**
+>
+> On parle de debugging dès à présent,
+> car c'est une des fonctions majeures apportées par un IDE
+> facilitant l'investigation et la résolution de bugs logiciels.
+>
+> Cela entend qu'on sait exécuter notre logiciel au préalable
+> (cf. [§ Exécution](#3-ex%C3%A9cution)).
+> La notion reste toutefois abordable
+> en considérant le cas simple des applications PC dans un premier temps.
 
 Les débuggers (tels `gdb`) peuvent généralement s'utiliser en ligne de commande.
 Toutefois, cela reste extrêmement compliqué,
@@ -258,7 +264,7 @@ Parmi les fonctions utiles d'un debugger, on note :
 - la capacité pour certains langages interprété (Python, JS) à pouvoir exécuter des routines à chaud
 - ...
 
-<div class="practice">TP : <a href="TP%20-%20Debugging%20VS%20Code%20C-Cpp.md">Debugging C/C++ avec VS Code</a></div>
+> <span class="sw-type pc"></span> 👷 TP : [Debugging C/C++ avec VS Code](TP%20-%20Debugging%20VS%20Code%20C-Cpp.md)
 
 Dans le cas du debugging d'un logiciel embarqué, la difficulté est de savoir synchroniser
 un IDE/debugger qui tourne sur une machine de développement,
@@ -276,7 +282,7 @@ Pour ce faire, on peut utiliser des moyens spécifiques :
     - Branchement sur un bus série dédié, directement sur le micro-processeur sur la cible.
       Nécessite que les signaux aient été routés sur la carte.
 
-<div class="practice">TODO: TP Debugging C/C++ à distance avec gdbserver</div>
+> <span class="sw-type embedded"></span> 👷 TP : Debugging C/C++ à distance avec gdbserver (TODO)
 
 On note finalement que les investigations par debugging ont leurs limitent :
 - Pas de debugging possible *post-mortem* tant qu'on n'a pas caractérisé les conditions de reproduction d'un problème.
