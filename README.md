@@ -53,6 +53,10 @@ Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles p
 
 # 4. Ressources
 
+Ressources intéressantes pour la syntaxe Markdown :
+- https://www.markdownlang.com/fr/basic/blockquotes.html
+- https://www.utf8icons.com/
+
 Ressources intéressantes pour la génération de documents PDF à partir de Markdown :
 - https://itsfoss.gitlab.io/post/how-to-convert-markdown-md-files-to-pdf-on-linux/
 - https://linuxconfig.org/how-to-convert-markdown-to-pdf-on-linux
