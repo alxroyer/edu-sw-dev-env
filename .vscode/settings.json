@@ -1,0 +1,10 @@
+{
+    "markdown-pdf.styles": [
+        "styles.css"
+    ],
+    "markdown-toc.orderedList": true,
+    "markdown-toc.depthFrom": 1,
+    "markdown-toc.detectAndAutoSetSection": true,
+    "markdown-toc.updateOnSave": true,
+    "markdown-pdf.headerTemplate": "<div style=\"font-size: 9px; margin: 0 auto;\">Cours \"Environnements de développement logiciel\", Alexis Royer, 2025-2026</div>"
+}
