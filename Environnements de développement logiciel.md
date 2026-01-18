@@ -4,7 +4,7 @@
 
 ![Banner](images/binary-code-7190628_1280.jpg)
 
-Par Alexis ROYER ([LinkedIn](https://www.linkedin.com/in/alexis-royer/))
+Alexis ROYER ([https://www.linkedin.com/in/alexis-royer/](https://www.linkedin.com/in/alexis-royer/))
 
 2025-2026
 
@@ -14,8 +14,14 @@ Par Alexis ROYER ([LinkedIn](https://www.linkedin.com/in/alexis-royer/))
 Ce document constitue un cours d'ingénierie logicielle,
 plus particulièrement sur la mise en oeuvre des environnements de développement.
 
-L'environnement de développement contribue à la qualité d'un logiciel, et l'efficience des développements
+L'environnement de développement contribue à l'efficience des activités,
+et par conséquent à la qualité d'un logiciel produit,
 d'où l'importance de maîtriser l'environnement de travail pour l'ensemble d'une équipe.
+
+Ce document est rédigé en format Markdown suivi sous git à dessein,
+pour démontrer le format Markdown
+et comment on peut l'utiliser pour la constitution de documentations techniques,
+ainsi que les capacités de suivi de version et de travail collaboratif apportées par git sur un format texte.
 
 ---
 
@@ -85,6 +91,7 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
         - Linux
     - Frameworks :
         - Qt (4)
+        - React Native (4)
 - <span class="sw-type web"></span> Applications web :
     - Langages :
         - HTML
@@ -100,6 +107,7 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
     - Frameworks :
         - Angular (Javascript)
         - Vue.js (Javascript)
+        - React Native (Javascript) (4)
         - Symfony (PHP)
 - <span class="sw-type mobile"></span> Applications mobiles :
     - Architectures / systèmes d'exploitation :
@@ -119,7 +127,7 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
     - Langages :
         - C / C++
         - Go ? à confirmer
-        - Rust (4)
+        - Rust (3)
     - Systèmes d'exploitation :
         - Linux : couramment utilisé pour réaliser des systèmes embarqués. (5)
         - vxWorks : système d'exploitation dit *temps-réel*, propriétaire, développé par Wind River.
@@ -268,6 +276,8 @@ Pour ce faire, on peut utiliser des moyens spécifiques :
     - Branchement sur un bus série dédié, directement sur le micro-processeur sur la cible.
       Nécessite que les signaux aient été routés sur la carte.
 
+<div class="practice">TODO: TP Debugging C/C++ à distance avec gdbserver</div>
+
 On note finalement que les investigations par debugging ont leurs limitent :
 - Pas de debugging possible *post-mortem* tant qu'on n'a pas caractérisé les conditions de reproduction d'un problème.
 - Il arrive fréquemment que le fait de poser des points d'arrêts provoque des effets de bords
@@ -308,7 +318,7 @@ et avec l'assurance d'utiliser les mêmes versions des outils.
 # 3. Exécution
 
 Dès les premières versions de notre logiciel disponibles,
-il s'avère intéressant de savoir exécuter notre production aux différentes étapes de sa conrtuction :
+il s'avère intéressant de savoir exécuter notre production aux différentes étapes de sa construction :
 - en cours de développement, pour des tests unitaires, ou tests d'intégration libres,
 - sur des versions intermédiaires, pour des tests de non-régression quotidiens par exemple,
 - sur des versions identifiées, pour des campagnes de test avant livraison.
