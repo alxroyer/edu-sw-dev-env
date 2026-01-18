@@ -294,6 +294,16 @@ avec quelques fonctions utiles :
 
 ## 2.5. Industrialisation
 
+La constitution d'images Docker
+embarquant des versions d'outils bien identifiées
+contribue à la maîtrise de l'environnement de développement.
+
+Grâce à ces images,
+on peut répéter facilement une configuration de développement,
+pour chaque membre de l'équipe,
+ainsi que pour la chaîne de CI/CD,
+et avec l'assurance d'utiliser les mêmes versions des outils.
+
 
 # 3. Exécution
 

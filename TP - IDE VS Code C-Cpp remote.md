@@ -3,6 +3,15 @@
 <h1>Configuration d'un IDE VS Code pour C/C++ en mode remote</h1>
 
 
+<!-- TOC -->
+
+- [1. Configuration VS Code en mode remote](#1-configuration-vs-code-en-mode-remote)
+- [2. Annexes](#2-annexes)
+    - [2.1. Documentation utile](#21-documentation-utile)
+
+<!-- /TOC -->
+
+
 Il existe des cas où on souhaite / doit, travailler sur du code accessible à distance via SSH :
 - Postes en Windows lié à la DSI d'entreprise, mais des développements sous Linux, donc sur des machines dédiées.
 - Simplification de la gestion de l'environnement de développement via des conteneurs Dockers.
@@ -19,10 +28,28 @@ en lançant VS Code sur la machine Windows,
 VS Code travaillant via SSH sur la machine distante.
 
 
-# 1. Hello World à distance
+# 1. Configuration VS Code en mode remote
 
-A l'aide de la documentation officielle: https://code.visualstudio.com/docs/languages/cpp#_remote-development,
-reprendre l'exemple du Hello World
-avec une conteneur Docker
-tiré d'une image embarquant une installation mingw
-(bien identifiée et déjà prête, d'où le gain en maîtrise sur l'environnement de développement).
+Créer une image Docker embarquant une installation mingw ou gcc/g++.
+
+A partir de cette image, créer un conteneur disposant du code du [TP - IDE VS Code C-Cpp.md](TP%20-%20IDE%20VS%20Code%20C-Cpp.md).
+
+A l'aide de la documentation officielle,
+configurer VS Code en local de sorte à ce que ce dernier puisse :
+
+- accéder au code,
+- compiler,
+- exécuter,
+- débugguer
+
+à distance dans le conteneur.
+
+TODO : Détailler les étapes.
+
+
+# 2. Annexes
+
+## 2.1. Documentation utile
+
+Documentation officielle VS Code :
+- https://code.visualstudio.com/docs/languages/cpp#_remote-development

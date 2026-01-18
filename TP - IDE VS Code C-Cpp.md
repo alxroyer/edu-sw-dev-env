@@ -11,6 +11,8 @@
     - [2.2. Ajout d'une configuration d'exécution](#22-ajout-dune-configuration-dex%C3%A9cution)
     - [2.3. Recompiler automatiquement avant exécution](#23-recompiler-automatiquement-avant-ex%C3%A9cution)
     - [2.4. Mode debug et release](#24-mode-debug-et-release)
+- [3. Annexes](#3-annexes)
+    - [3.1. Documentation utile](#31-documentation-utile)
 
 <!-- /TOC -->
 
@@ -216,3 +218,11 @@ TODO :
   et exécution du binaire release généré.
     - Faire en sorte que cette dernière soit utilisée
       lorsqu'on appuie sur CTRL+F5.
+
+
+# 3. Annexes
+
+## 3.1. Documentation utile
+
+Documentation officielle VS Code :
+- https://code.visualstudio.com/docs/languages/cpp
