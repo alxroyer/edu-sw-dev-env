@@ -4,7 +4,7 @@
 
 ![Banner](images/binary-code-7190628_1280.jpg)
 
-Alexis ROYER - [https://www.linkedin.com/in/alexis-royer/](https://www.linkedin.com/in/alexis-royer/)
+Alexis ROYER - https://www.linkedin.com/in/alexis-royer/
 
 2025-2026
 
@@ -18,14 +18,14 @@ L'environnement de développement contribue à l'efficience des activités,
 et par conséquent à la qualité d'un logiciel produit,
 d'où l'importance de maîtriser l'environnement de travail pour l'ensemble d'une équipe.
 
+---
+
+Source : https://github.com/alxroyer/edu-sw-dev-env/
+
 Ce document est rédigé en format Markdown suivi sous git à dessein,
 pour démontrer le format Markdown
 et comment on peut l'utiliser pour la constitution de documentations techniques,
 ainsi que les capacités de suivi de version et de travail collaboratif apportées par git sur un format texte.
-
----
-
-Source : [https://github.com/alxroyer/edu-sw-dev-env/](https://github.com/alxroyer/edu-sw-dev-env/)
 
 ---
 
@@ -77,13 +77,14 @@ On distingue différents types de logiciels :
 ## 1.2. Technos et langages
 
 Pour chacun des types de logiciels, des technologies différentes peuvent être mises en jeu (liste non exhaustive) :
-- <span class="sw-type pc"></span> Applications PC :
+- <span class="sw-type pc"></span>
+  Applications PC :
     - Langages :
         - C / C++
         - Java
         - Node.js (1) / Typescript (2)
         - Python
-        - Go ? à confirmer
+        - Go : exemple [esbuild](https://esbuild.github.io/faq/#why-is-esbuild-fast) (6)
         - Rust (3)
     - Systèmes d'exploitation :
         - Windows
@@ -92,7 +93,8 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
     - Frameworks :
         - Qt (4)
         - React Native (4)
-- <span class="sw-type web"></span> Applications web :
+- <span class="sw-type web"></span>
+  Applications web :
     - Langages :
         - HTML
         - Côté *frontend* :
@@ -101,15 +103,18 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
             - Node.js (1) / Typescript (2)
             - Java
             - PHP
-            - Ruby, notamment avec le framework Ruby on Rails
+            - Ruby
             - Python
             - C / C++
+            - Go (6)
     - Frameworks :
         - Angular (Javascript)
         - Vue.js (Javascript)
         - React Native (Javascript) (4)
         - Symfony (PHP)
-- <span class="sw-type mobile"></span> Applications mobiles :
+        - Ruby on Rails
+- <span class="sw-type mobile"></span>
+  Applications mobiles :
     - Architectures / systèmes d'exploitation :
         - Android
         - iOS
@@ -123,16 +128,19 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
     - Kits de développement :
         - SDK Android : Software Development Kit
         - NDK Android : Native Development Kit
-- <span class="sw-type embedded"></span> Logiciels embarqués :
+- <span class="sw-type embedded"></span>
+  Logiciels embarqués :
     - Langages :
         - C / C++
-        - Go ? à confirmer
+        - Go ? à confirmer (6)
         - Rust (3)
     - Systèmes d'exploitation :
         - Linux : couramment utilisé pour réaliser des systèmes embarqués. (5)
         - vxWorks : système d'exploitation dit *temps-réel*, propriétaire, développé par Wind River.
         - µC-OS : OS minimaliste, sans système de fichier, pile IP, ... par défaut.
         - Sans OS : simple boucle de réaction sur événement.
+    - Frameworks / kits de développement :
+        - buildroot
 
 > Notes :
 > - (1) Node.js : extension de Javascript, initialement restreint aux navigateurs, avec exécution par un moteur dédié.
@@ -147,35 +155,76 @@ Pour chacun des types de logiciels, des technologies différentes peuvent être 
 >   c'est-à-dire qu'il ne garantit pas un temps d'exécution pour un traitement donné.
 >   L'occupation mémoire est plus importante que pour un OS minimaliste.
 >   En revanche, il a l'avantage de fournir un écosystème riche de services et d'outils qui peut faciliter les développements.
+> - (6) Go plebiscité pour ses capacités de gestion multi-thread,
+    qui peut avoir son intrêt pour le développement d'applications avec des contraintes de perfs.
+    Langage un peu spécifique, qui nécessite une phase d'apprentissage spécifique.
+
+Le choix du langage et des technologies peut dépendre de plusieurs facteurs :
+- en premier lieu, de la nature du logiciel développé,
+- mais aussi des caractéristiques attendues :
+  performances, empreinte mémoire, look & feel, ...
+- de la culture d'entreprise : compétences disponibles en interne,
+- de la stratégie d'entreprise :
+  volonté d'investir sur telle ou telle technologie,
+  ou de rationaliser les technologies utilisées, ...
+- de la disponibilité des compétences sur le marché de l'emploi :
+  capacité à staffer des équipes, assurer la maintenance dans le temps, ...
+- ...
+
+Quoi qu'il en soit, le langage et les technologies retenus
+conditionnent fortement l'environnement de développement à mettre en place.
+
+> ℹ️ **Vidéos pour le fun**
+>
+> Most popular coding language 2012 - 2024 :
+> https://www.youtube.com/watch?v=viPKPhOUcyU
+>
+> Most Popular Programming Languages 1955 - 2025 :
+> https://www.youtube.com/watch?v=5yAbVkIMl_M
 
 
 ## 1.3. Environnements de développement et qualité logicielle
 
-La norme ISO 9126, remplacée aujourd'hui par l'ISO 25010, identifie différentes dimensions
-pour la caractérisation de la qualité d'un logiciel :
-1. Capacité fonctionnelle
-2. Facilité d'utilisation
-3. Fiabilité
-4. Performance
-5. Maintenabilité
-6. Portabilité
+La norme ISO 9126, ainsi que l'ISO 25010 qui la remplace aujourd'hui,
+identifient différentes dimensions pour la caractérisation de la qualité d'un logiciel.
+Entre autres (1) :
+- Capacité fonctionnelle
+- Facilité d'utilisation
+- Fiabilité
+- Performance
+- Maintenabilité
+- Portabilité
 
 Une partie de ces dimensions reste essentiellement portée par le logciel développé.
 
 Toutefois, l'environnement de développement peut contribue à certaines de ces dimensions, notamment :
 - Fiabilité :
-    - Mettre en oeuvre d'outils d'analyse de code statique, permettant d'éviter des bugs avant même d'exécuter le code.
+    - Mettre en oeuvre des outils d'analyse de code statique, permettant d'éviter des bugs avant même d'exécuter le code.
     - Exécuter régulièrement des tests de non-régression, pour détecter les problèmes au plus tôt.
 - Maintenabilité :
     - Assurer un maximum de confort pour les développeurs, de sorte à faciliter le codage, le debugging...
-      de par le choix des outils pour leurs fonctionnalités, et sans oublier leurs performances !
+      de par le choix des outils, pour leurs fonctionnalités, et sans oublier leurs performances !
       Faire en sorte de limiter les freins aux différentes actions nécessaires à la réalisation d'un logiciel de qualité.
-    - Utiliser un outil de contrôle de version (git).
+    - Faciliter notamment les refactorings, nécessaires à la maintenabilité.
+    - Utiliser un outil de versioning (git).
     - Automatiser les vérifications de qualité (linters, indentation) pour s'assurer d'un certain niveau de lisibilité du code,
       donc un code plus facile à maintenir, à suivre en historique.
 - Portabilité :
-    - Choix de technos cross-platform (à la frontière avec l'environnement de développement).
     - Exécution des tests de non-régression sur les différentes cibles.
+
+> ℹ️ **(1) Accès aux normes ISO**
+>
+> La difficulté des normes ISO est que celles-ci ne sont pas libres d'accès.
+>
+> En effet, le site de référence de l'ISO ne fournit qu'une prévisualisation
+> de la version en cours de la norme ISO 25010 :
+> https://www.iso.org/obp/ui/#iso:std:iso-iec:25010
+>> *To view the full content, you will need to purchase the standard by clicking on the "Buy" button.*
+>
+> Toujours sur le site de référence,
+> difficile de trouver une telle prévisualisation pour l'ISO 9126.
+>
+> La liste simplifiée ci-dessus est tirée de la page Wikipédia https://fr.wikipedia.org/wiki/Qualit%C3%A9_logicielle
 
 
 # 2. Développement
@@ -188,52 +237,96 @@ Avant de délivrer et exécuter le logiciel, commençons par mettre en oeuvre le
 Un des premiers outils qu'on est amené à aborder pour faire du développement logiciel est l'IDE.
 
 L'usage d'un IDE présente de nombreux intérêts :
-- Edition de code : Basique, un simple notepad pourrait faire le job.
-- Coloration syntaxique : Ca change déjà un peu la vie, dans la mesure où ça fluidifie la lecture du code.
-- Complétion : On commence à gagner du temps, en évitant des fautes de frappe donc des erreurs au passage.
-- Refactoring : On gagne encore plus du temps. On n'hésite plus à renommer une variable, une fonction, une classe,
-  pour lui redonner un nom plus adapté, allant dans le sens de la maintenabilité.
-- Debugging : Dès lors que c'est possible, permet souvent d'obtenir plein d'informations pour la résolution de bugs.
-- IA : Les IDE intègrent aujourd'hui des fonctions d'IA qui peuvent augmenter la productivité.
 
-> ⚠️ **Attention : IA et confidentialité**
->
-> A ce jour, l'IA fonctionne principalement par alimentation d'informations sur des moteurs s'exécutant sur Internet.
->
-> L'utilisation de l'IA dans les IDE peut donc être problématique si l'entreprise ne souhaite pas divulguer le code.
->
-> Bien se renseigner sur les usages possibles ou non.
->
-> Possible que l'entreprise dispose d'un contrat de confidentialité avec une IA donnée,
-> voire héberge une solution d'IA *on premise*,
-> auquel cas on pourra configurer les IDE pour utiliser cette IA validée par l'entreprise.
+- Edition de code :
+  Basique, un simple notepad (voire `vi` pour les puristes !)
+  pourrait faire le job.
+
+- Coloration syntaxique :
+  Ca change déjà un peu la vie,
+  dans la mesure où ça fluidifie la lecture du code.
+
+- Navigation :
+  Capacité à aller directement sur le code d'une variable ou d'une fonction,
+  ou dans le code Markdown d'un chapitre donné.
+  Possibilité de gagner du temps,
+  en évitant de scroller et de faire des CTRL+F dans tous les sens
+  quand le code commence à prendre du volume.
+
+- Complétion :
+  La complétion apporte un vrai plus,
+  en évitant des fautes de frappe
+  donc des erreurs chronophages au passage.
+
+  > ⚠️ **Attention : Complétion et fautes d'orthographe**
+  >
+  > Il existe un risque avec la complétion de répliquer
+  > des fautes d'orthographe ou des dyslexies
+  > sur les noms de variables ou de fonctions
+  > dans la totalité de code.
+  >
+  > Le cas échéant, avoir le réflexe d'utiliser les fonction de refactoring
+  > pour corriger le tir.
+
+- Refactoring :
+  On gagne encore plus du temps.
+  On n'hésite plus à renommer une variable, une fonction, une classe,
+  pour lui redonner un nom plus adapté, allant dans le sens de la maintenabilité.
+
+- Edition multi-lignes :
+  Capacité mise à disposition par un certain nombre d'éditeurs de texte,
+  à laquelle on s'habitue très vite dès lors qu'on commence à l'utiliser.
+
+- Debugging :
+  Dès lors que c'est possible,
+  permet d'obtenir plein d'informations utiles
+  dans le cadre de résolution d'un bug.
+  Possibilité également d'utiliser les fonctions de debugging
+  pour tester des injections de fautes.
+
+- IA :
+  Les IDE intègrent aujourd'hui des fonctions d'IA
+  qui peuvent augmenter la productivité.
+
+  > ⚠️ **Attention : IA et confidentialité**
+  >
+  > A ce jour, l'IA fonctionne principalement par communication d'informations sur des moteurs s'exécutant sur Internet.
+  >
+  > L'utilisation de l'IA dans les IDE peut donc être problématique si l'entreprise ne souhaite pas divulguer le code.
+  >
+  > Bien se renseigner sur les usages possibles ou non.
+  >
+  > Possible que l'entreprise dispose d'un contrat de confidentialité avec une IA donnée,
+  > voire héberge une solution d'IA *on premise*,
+  > auquel cas on pourra configurer les IDE pour utiliser cette IA validée par l'entreprise.
 
 On liste ci-après des IDE connus (liste non exhaustive) :
 - <span class="sw-type pc"></span> Applications PC :
     - Visual C++
     - Eclipse : Java, mais aussi C / C++ (version CDT)
-    - VS Code : Javascript, mais aussi C++ (extension)
+    - VS Code : Node.js, Typescript, mais aussi C / C++ (extension)
+    - JetBrains IntelliJ IDEA : Java
     - JetBrains PyCharm : Python
 - <span class="sw-type web"></span> Applications web :
     - VS Code : HTML, Javascript, Typescript, PHP
     - PHPStorm
-    - JetBrains IntelliJ : Java
-    - JetBrains IDEA Ultimate : tous langages
-    - Kustomize : Docker, Kubernetes
+    - JetBrains IntelliJ IDEA : Java
 - <span class="sw-type mobile"></span> Applications mobile :
     - Android Studio
-    - JetBrains IntelliJ : Java, Kotlin
+    - JetBrains IntelliJ IDEA : Java, Kotlin
     - XCode : iOS
 - <span class="sw-type embedded"></span> Logiciel embarqué :
     - VS Code : C / C++ (extension), Rust (extension)
     - Eclipse : C / C++ (version CDT)
 
-> 👷 TP : [Configuration d'un IDE VS Code pour C/C++](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)
+> <span class="sw-type pc"></span> 👷 TP : [Configuration d'un IDE VS Code pour C/C++](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)
+
+> 👷 TP : Refactoring (TODO)
 
 
 ## 2.2. Debugging
 
-> 🛈 **Note**
+> ℹ️ **Note**
 >
 > On parle de debugging dès à présent,
 > car c'est une des fonctions majeures apportées par un IDE
@@ -261,7 +354,7 @@ Parmi les fonctions utiles d'un debugger, on note :
   très utile pour investiguer des problèmes de débordement mémoire
 - la capacité à modifier des valeurs de données :
   utile pour tester des injections de fautes
-- la capacité pour certains langages interprété (Python, JS) à pouvoir exécuter des routines à chaud
+- la capacité pour certains langages interprétés (Python, JS) à pouvoir exécuter des routines à chaud
 - ...
 
 > <span class="sw-type pc"></span> 👷 TP : [Debugging C/C++ avec VS Code](TP%20-%20Debugging%20VS%20Code%20C-Cpp.md)
@@ -285,23 +378,30 @@ Pour ce faire, on peut utiliser des moyens spécifiques :
 > <span class="sw-type embedded"></span> 👷 TP : Debugging C/C++ à distance avec gdbserver (TODO)
 
 On note finalement que les investigations par debugging ont leurs limitent :
-- Pas de debugging possible *post-mortem* tant qu'on n'a pas caractérisé les conditions de reproduction d'un problème.
+- Pas de debugging possible *post-mortem*,
+  i.e. après constat d'un problème après que l'exécution du logiciel soit terminée
+  (cas typique d'une exception ou d'un crash constaté en prod)
+  et tant qu'on n'a pas caractérisé les conditions de reproduction du problème.
 - Il arrive fréquemment que le fait de poser des points d'arrêts provoque des effets de bords
   sur des timeouts qui arrivent à échéance, et donc des effets indésirables empêchant un debugging confortable.
 - Dans le cas des logiciels embarqués, comme le logiciel s'exécute sur une cible autre,
   le debugging est par nature moins facile à mettre en oeuvre.
 - Cas en Python où le débuggueur exécute automatiquement des routines `__repr__()`
-  pour obtenir des représentation des objets à afficher dans l'interface,
+  pour obtenir une représentation des représentation des objets
+  à afficher dans l'IHM de debug,
   ces exécutions surnuméraires pouvant provoquer des effets de bords indésirables selon les cas.
 
 En raison de ces limitations, la bonne vieille technique du debugging "à la trace" ne doit pas être négligée.
 
-Plus encore, il convient de mettre en place un système de trace efficace dès le début du projet,
+Plus encore, il convient de mettre en place un système de logs efficace dès le début du projet,
 avec quelques fonctions utiles :
 - Niveaux de criticité : debug, info, warning, erreur classiquement.
 - Colorisation : savoir faire apparaître les erreurs en rouge a minima.
 - Indentation : utile pour analyser les logs de traitements récursifs.
-- Filtrages : par fonction, module.
+- Filtrages : par fonction, par module.
+
+L'utilisation d'outils tels que Kibana peut également s'avérer utile
+pour exploiter ces logs.
 
 
 ## 2.3. Bibliothèques

@@ -43,11 +43,21 @@ plutôt que de basculer en HTML.
 
 Affichage d'une note informative :
 ```md
-> 🛈 **Info**
+> ℹ️ **Info**
 >
 > Blah blah blah.
 ```
-> 🛈 **Info**
+> ℹ️ **Info**
+>
+> Blah blah blah.
+
+Affichage d'une notion importante :
+```md
+> 📌 **Pinned**
+>
+> Blah blah blah.
+```
+> 📌 **Pinned**
 >
 > Blah blah blah.
 
@@ -61,6 +71,16 @@ Affichage d'une astuce :
 >
 > Blah blah blah.
 
+Affichage d'une question :
+```md
+> ❓ **Question**
+>
+> Blah blah blah.
+```
+> ❓ **Question**
+>
+> Blah blah blah.
+
 Affichage d'un avertissement :
 ```md
 > ⚠️ **Caution**
@@ -71,13 +91,13 @@ Affichage d'un avertissement :
 >
 > Blah blah blah.
 
-Affichage d'une notion importante :
+Affichage d'une erreur :
 ```md
-> 📌 **Important**
+> ❗ **Error**
 >
 > Blah blah blah.
 ```
-> 📌 **Important**
+> ❗ **Error**
 >
 > Blah blah blah.
 

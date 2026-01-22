@@ -231,7 +231,7 @@ Value of T.i: 0xdeadbeef
 Ajoutons un paramètre d'entrée à notre configuration d'exécution dans VS Code :
 - Ajouter une option `"args": ["hello"]` dans la configuration d'exécution (fichier `.vscode/launch.json`).
 
-  > 🛈 **Note : Spécifier plusieurs paramètres d'entrée**
+  > ℹ️ **Note : Spécifier plusieurs paramètres d'entrée**
   >
   > La clé `args` prend pour valeur une liste de chaînes de caractères,
   > d'où les crochets.
@@ -270,7 +270,7 @@ Pour ce faire, modifier le fichier `.vscode/launch.json` comme suit :
 - Relancer l'exécution en debug :
     - VS Code commence par demander la saisie d'une valeur pour `arg1`.
 
-      > 🛈 **Note : Affichage du prompt par VS Code**
+      > ℹ️ **Note : Affichage du prompt par VS Code**
       >
       > VS Code affiche le prompt tout en haut de l'IDE.
 
@@ -305,7 +305,7 @@ En l'occurrence :
 Si on a plus d'appels en chaîne,
 la pile d'appel sera d'autant plus importante.
 
-> 🛈 **Info : Débordement de la pile d'appels**
+> ℹ️ **Info : Débordement de la pile d'appels**
 >
 > La pile d'appels n'est pas infinie pour autant.
 >
@@ -450,7 +450,7 @@ il peut être intéressant d'utiliser des points d'arrêt sur changement de vale
 - Dans la fenêtre "Variables", déplier la variable locale `t`.
   Faire clic droit sur la donnée `t.i`, et sélectionner l'option "Break on Value Change".
 
-  > 🛈 **Note : Fonction "Break on Value Change" attachée à la fenêtre "Variables"**
+  > ℹ️ **Note : Fonction "Break on Value Change" attachée à la fenêtre "Variables"**
   >
   > Faire le clic droit dans la fenêtre "Variables",
   > et non dans la fenêtre "Watch".
@@ -462,7 +462,7 @@ il peut être intéressant d'utiliser des points d'arrêt sur changement de vale
 - Appuyer sur F5 (*Continue*) :
     - L'exécution s'interrompt à l'intérieur de la fonction `strcpy()`.
 
-      > 🛈 **Note : Visibilité du code de librairie standard**
+      > ℹ️ **Note : Visibilité du code de librairie standard**
       >
       > Comme il s'agit d'une fonction de la librairie standard,
       > donc du code de librairie système release (sans symboles de debug)
