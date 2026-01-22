@@ -6,13 +6,14 @@
 <!-- TOC -->
 
 - [1. Objet du dépôt](#1-objet-du-d%C3%A9p%C3%B4t)
-- [2. Markdown](#2-markdown)
-    - [2.1. Boîtes de texte](#21-bo%C3%AEtes-de-texte)
-    - [2.2. Référence de TP](#22-r%C3%A9f%C3%A9rence-de-tp)
-    - [2.3. Autres icônes utiles](#23-autres-ic%C3%B4nes-utiles)
-- [3. Tables des matières et numérotation des titres](#3-tables-des-mati%C3%A8res-et-num%C3%A9rotation-des-titres)
-- [4. Générer les documents PDF](#4-g%C3%A9n%C3%A9rer-les-documents-pdf)
-- [5. Ressources](#5-ressources)
+- [2. Licence](#2-licence)
+- [3. Markdown](#3-markdown)
+    - [3.1. Boîtes de texte](#31-bo%C3%AEtes-de-texte)
+    - [3.2. Référence de TP](#32-r%C3%A9f%C3%A9rence-de-tp)
+    - [3.3. Autres icônes utiles](#33-autres-ic%C3%B4nes-utiles)
+- [4. Tables des matières et numérotation des titres](#4-tables-des-mati%C3%A8res-et-num%C3%A9rotation-des-titres)
+- [5. Générer les documents PDF](#5-g%C3%A9n%C3%A9rer-les-documents-pdf)
+- [6. Ressources](#6-ressources)
 
 <!-- /TOC -->
 
@@ -26,7 +27,12 @@ Accès au cours :
 - [Version PDF](Environnements%20de%20d%C3%A9veloppement%20logiciel.pdf)
 
 
-# 2. Markdown
+# 2. Licence
+
+Voir le [contrat de licence](LICENSE.txt).
+
+
+# 3. Markdown
 
 Dans la mesure du possible,
 on limite l'utilisation du HTML et des feuilles de style,
@@ -39,7 +45,7 @@ Cela permet également de rester en syntaxe Markdown autant que possible,
 plutôt que de basculer en HTML.
 
 
-## 2.1. Boîtes de texte
+## 3.1. Boîtes de texte
 
 Affichage d'une note informative :
 ```md
@@ -102,7 +108,7 @@ Affichage d'une erreur :
 > Blah blah blah.
 
 
-## 2.2. Référence de TP
+## 3.2. Référence de TP
 
 ```md
 > 👷 TP : [Sujet du TP](README.md#22-r%C3%A9f%C3%A9rence-de-tp)
@@ -110,7 +116,7 @@ Affichage d'une erreur :
 > 👷 TP : [Sujet du TP](README.md#22-r%C3%A9f%C3%A9rence-de-tp)
 
 
-## 2.3. Autres icônes utiles
+## 3.3. Autres icônes utiles
 
 | Icône | Signification |
 |-------|---------------|
@@ -118,7 +124,7 @@ Affichage d'une erreur :
 | ❌    | NOK           |
 
 
-# 3. Tables des matières et numérotation des titres
+# 4. Tables des matières et numérotation des titres
 
 A partir de VS Code :
 - Installer l'extension [Auto Markdown TOC](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) par Hunter Tran.
@@ -127,7 +133,7 @@ A partir de VS Code :
 Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles pour cette extension.
 
 
-# 4. Générer les documents PDF
+# 5. Générer les documents PDF
 
 A partir de VS Code :
 - Installer l'extension [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) par yzane.
@@ -154,7 +160,7 @@ Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles p
 > - La propriété `color` s'applique, mais la couleur rendue semble distordue.
 
 
-# 5. Ressources
+# 6. Ressources
 
 Ressources intéressantes pour la syntaxe Markdown :
 - https://www.markdownlang.com/fr/basic/blockquotes.html
