@@ -3,6 +3,12 @@
 <h1>Debugging C/C++ avec VS Code</h1>
 
 
+Ce TP propose un scénario de debugging de code C/C++ avec VS Code.
+
+Il démontre notamment l'utilité des capacités de debugging
+pour investiguer sur des problèmes de débordement mémoire.
+
+
 <!-- TOC -->
 
 - [1. Initialisation d'un projet C/C++](#1-initialisation-dun-projet-cc)
@@ -23,11 +29,6 @@
     - [5.1. Documentation utile](#51-documentation-utile)
 
 <!-- /TOC -->
-
-
-Ce TP met en évidence comment on peut mettre en oeuvre du debugging en C/C++ avec VS Code.
-
-Il met en évidence également comment on peut utiliser les capacités de debugging pour investiguer sur des problèmes de débordement mémoire.
 
 
 # 1. Initialisation d'un projet C/C++

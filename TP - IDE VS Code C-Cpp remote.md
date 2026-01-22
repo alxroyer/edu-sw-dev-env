@@ -3,15 +3,6 @@
 <h1>Configuration d'un IDE VS Code pour C/C++ en mode remote</h1>
 
 
-<!-- TOC -->
-
-- [1. Configuration VS Code en mode remote](#1-configuration-vs-code-en-mode-remote)
-- [2. Annexes](#2-annexes)
-    - [2.1. Documentation utile](#21-documentation-utile)
-
-<!-- /TOC -->
-
-
 Il existe des cas où on souhaite / doit, travailler sur du code accessible à distance via SSH :
 - Postes en Windows lié à la DSI d'entreprise, mais des développements sous Linux, donc sur des machines dédiées.
 - Simplification de la gestion de l'environnement de développement via des conteneurs Dockers.
@@ -26,6 +17,15 @@ et la fluidité n'est souvent pas au rendez-vous.
 VS Code propose également la possibilité de travailler à distance,
 en lançant VS Code sur la machine Windows,
 VS Code travaillant via SSH sur la machine distante.
+
+
+<!-- TOC -->
+
+- [1. Configuration VS Code en mode remote](#1-configuration-vs-code-en-mode-remote)
+- [2. Annexes](#2-annexes)
+    - [2.1. Documentation utile](#21-documentation-utile)
+
+<!-- /TOC -->
 
 
 # 1. Configuration VS Code en mode remote
