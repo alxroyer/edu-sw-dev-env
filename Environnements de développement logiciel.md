@@ -332,6 +332,20 @@ On liste ci-après des IDE connus (liste non exhaustive) :
     - VS Code : C / C++ (extension), Rust (extension)
     - Eclipse : C / C++ (version CDT)
 
+Le tableau ci-après donne un aperçu historisé de l'apparition de certains des IDE précédemment cités :
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| IDE           | Langages   | Description | Historique |
+|---------------|------------|-------------|------------|
+| Turbo Pascal  | Pascal     | L'un des premiers IDE modernes. | 1983 |
+| Visual Studio | C, C++, C# | Développé par Microsoft. | 1997 |
+| NetBeans      | Java, PHP, C/C++ | IDE polyvalent, version Open Source. | 2000 |
+| Eclipse       | Java, C++ (plugin CDT, 2004) | IDE open source, pour Java, en Java, extensible par plugins, réputation de lourdeur. | 2001 |
+| IntelliJ IDEA | Java, ...  | IDE populaire, développé par JetBrains, extensible par plugins. | 2001 |
+| Xcode         | C, Objective-C, Swift | IDE d'Apple pour le développement macOS et iOS. | 2003 |
+| PyCharm       | Python     | Egalement développé par JetBrains. | 2010 |
+| VS Code       | HTML, CSS, JS/Typescript, Markdown, ... | Éditeur de code léger et extensible, développé en JS par Microsoft, écosystème riche de plugins. | 2015 |
+
 > <span class="sw-type pc"></span> 👷 TP : [Configuration d'un IDE VS Code pour C/C++](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)
 
 > 👷 TP : Refactoring (TODO)
