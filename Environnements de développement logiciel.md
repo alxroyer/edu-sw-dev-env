@@ -52,6 +52,19 @@ Mémo:
     - [2.5. Industrialisation](#25-industrialisation)
 - [3. Exécution](#3-ex%C3%A9cution)
 - [4. Assurance qualité](#4-assurance-qualit%C3%A9)
+    - [4.1. Pratiques d'équipe](#41-pratiques-d%C3%A9quipe)
+    - [4.2. Règles de codage](#42-r%C3%A8gles-de-codage)
+    - [4.3. Versionning / Gestion de configuration](#43-versionning--gestion-de-configuration)
+        - [4.3.1. Source control - git](#431-source-control---git)
+        - [4.3.2. Versioning - SemVer](#432-versioning---semver)
+        - [4.3.3. Ticketing](#433-ticketing)
+        - [4.3.4. PLM - Product Lifecicle Management](#434-plm---product-lifecicle-management)
+        - [4.3.5. Archivage](#435-archivage)
+        - [4.3.6. Index de configuration](#436-index-de-configuration)
+    - [4.4. Documentation](#44-documentation)
+        - [4.4.1. GED](#441-ged)
+        - [4.4.2. CMS](#442-cms)
+        - [4.4.3. Formats texte + git](#443-formats-texte--git)
 - [5. Delivery](#5-delivery)
     - [5.1. Enregistrements](#51-enregistrements)
     - [5.2. CI/CD](#52-cicd)
@@ -431,6 +444,42 @@ il s'avère intéressant de savoir exécuter notre production aux différentes �
 
 
 # 4. Assurance qualité
+
+## 4.1. Pratiques d'équipe
+
+
+## 4.2. Règles de codage
+
+
+## 4.3. Versionning / Gestion de configuration
+
+### 4.3.1. Source control - git
+
+
+### 4.3.2. Versioning - SemVer
+
+
+### 4.3.3. Ticketing
+
+
+### 4.3.4. PLM - Product Lifecicle Management
+
+
+### 4.3.5. Archivage
+
+
+### 4.3.6. Index de configuration
+
+
+## 4.4. Documentation
+
+### 4.4.1. GED
+
+
+### 4.4.2. CMS
+
+
+### 4.4.3. Formats texte + git
 
 
 # 5. Delivery
