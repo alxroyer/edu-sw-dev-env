@@ -49,6 +49,9 @@ Mémo:
     - [2.2. Debugging](#22-debugging)
     - [2.3. Bibliothèques](#23-biblioth%C3%A8ques)
     - [2.4. Build](#24-build)
+        - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
+        - [2.4.2. Bundlers](#242-bundlers)
+        - [2.4.3. Gestionnaires de projets](#243-gestionnaires-de-projets)
     - [2.5. Industrialisation](#25-industrialisation)
 - [3. Exécution](#3-ex%C3%A9cution)
 - [4. Assurance qualité](#4-assurance-qualit%C3%A9)
@@ -434,6 +437,15 @@ pour exploiter ces logs.
 ## 2.3. Bibliothèques
 
 ## 2.4. Build
+
+### 2.4.1. Compilateurs / linkers
+
+
+### 2.4.2. Bundlers
+
+
+### 2.4.3. Gestionnaires de projets
+
 
 ## 2.5. Industrialisation
 
