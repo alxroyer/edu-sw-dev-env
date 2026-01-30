@@ -353,7 +353,7 @@ Le tableau ci-après donne un aperçu historisé de l'apparition de certains des
 
 ## 2.2. Debugging
 
-> ℹ️ **Note**
+> ℹ️ **Environnements d'exécution**
 >
 > On parle de debugging dès à présent,
 > car c'est une des fonctions majeures apportées par un IDE
