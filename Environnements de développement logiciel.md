@@ -45,7 +45,7 @@ Mémo:
     - [1.2. Technos et langages](#12-technos-et-langages)
     - [1.3. Environnements de développement et qualité logicielle](#13-environnements-de-d%C3%A9veloppement-et-qualit%C3%A9-logicielle)
 - [2. Développement](#2-d%C3%A9veloppement)
-    - [2.1. IDE Integrated Development Environment](#21-ide-integrated-development-environment)
+    - [2.1. IDE - Integrated Development Environment](#21-ide---integrated-development-environment)
     - [2.2. Debugging](#22-debugging)
     - [2.3. Bibliothèques](#23-biblioth%C3%A8ques)
     - [2.4. Build](#24-build)
@@ -232,7 +232,7 @@ Toutefois, l'environnement de développement peut contribue à certaines de ces 
 Avant de délivrer et exécuter le logiciel, commençons par mettre en oeuvre les éléments permettant de le construire.
 
 
-## 2.1. IDE (*Integrated Development Environment*)
+## 2.1. IDE - Integrated Development Environment
 
 Un des premiers outils qu'on est amené à aborder pour faire du développement logiciel est l'IDE.
 
