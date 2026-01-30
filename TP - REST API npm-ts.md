@@ -197,7 +197,8 @@ S'assurer des configurations suivantes dans ce fichier :
 > (https://aka.ms/tsconfig dans le fichier généré)
 > pour des explications détaillées sur les valeurs de configuration Typescript.
 
-Spécifier également la configuration `"type": "module"` dans le fichier `package.json` :
+Spécifier également la configuration `"type": "module"` dans le fichier `package.json`
+pour déclarer notre projet comme un projet ESM (et non CommonJS) :
 ```json
 {
   "name": "practice-rest-api-npm-ts",
@@ -206,6 +207,14 @@ Spécifier également la configuration `"type": "module"` dans le fichier `packa
   "main": "index.js",
   "type": "module",  // <-- Ligne à rajouter.
 ```
+
+> ℹ️ **ESM v/s CommonJS**
+>
+> CommonJS correspond à une norme JS historique pour la gestion des modules.
+>
+> Depuis ES6 (ES2015), > ESM a été introduit et devient la norme dans le monde JS.
+>
+> Cf. https://www.w3schools.com/nodejs/nodejs_modules_esm.asp pour plus de détails.
 
 
 # 5. Créer le code source de l'API
@@ -259,13 +268,14 @@ il commence à y avoir vraiment du monde là-dedans...
 
 # 7. Configurer les scripts npm
 
-Modifiez le fichier `package.json` pour ajouter les scripts `build`, `start` et `dev` :
+Modifiez le fichier `package.json` pour ajouter les scripts `build`, `start` et `dev`
+dans la section `scripts` déjà existante :
 ```json
 {
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon --exec 'node --loader ts-node/esm src/index.ts'"
   }
 }
 ```
@@ -274,6 +284,18 @@ Modifiez le fichier `package.json` pour ajouter les scripts `build`, `start` et 
 >
 > La commande `npm run xxx` permet d'exécuter le script "xxx"
 > configuré dans le fichier `package.json`.
+
+> ℹ️ **`nodemon` & ESM**
+>
+> Pour un projet en CommonJS, il suffit normalement de configurer le script `dev`
+> avec la ligne `nodemon src/index.ts`.
+>
+> Comme notre projet est un projet ESM, il faut le spécifier à `nodemon`.
+>
+> Pour ce faire, on utilise l'option `--exec`
+> qui nous permet de lancer `node` avec une option `--loader ts-node/esm`.
+>
+> Des complications malheureusement assez fréquentes dans l'écosystème JS.
 
 
 # 8. Exécuter l'API
