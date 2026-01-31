@@ -47,7 +47,10 @@ Mémo:
 - [2. Développement](#2-d%C3%A9veloppement)
     - [2.1. IDE - Integrated Development Environment](#21-ide---integrated-development-environment)
     - [2.2. Debugging](#22-debugging)
-    - [2.3. Bibliothèques](#23-biblioth%C3%A8ques)
+    - [2.3. Bibliothèques de packages](#23-biblioth%C3%A8ques-de-packages)
+        - [2.3.1. Fonctionnement](#231-fonctionnement)
+        - [2.3.2. Juridique](#232-juridique)
+        - [2.3.3. Sécurité](#233-s%C3%A9curit%C3%A9)
     - [2.4. Build](#24-build)
         - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
         - [2.4.2. Bundlers](#242-bundlers)
@@ -434,7 +437,139 @@ L'utilisation d'outils tels que Kibana peut également s'avérer utile
 pour exploiter ces logs.
 
 
-## 2.3. Bibliothèques
+## 2.3. Bibliothèques de packages
+
+### 2.3.1. Fonctionnement
+
+Aujourd'hui, on écrit rarement l'intégralité du code d'un logiciel.
+On repose généralement sur un écosystème riche de frameworks et de librairies.
+
+Ces écosystèmes de frameworks ou librairies s'organisent généralement en deux parties :
+
+- une *registry* en ligne :
+  un site gérant une bibliothèque de librairies.
+
+    - Ces sites permettent de naviguer dans la bibliothèque de librairies,
+      faire des recherches, ...
+    - Chaque librairie est documentée :
+      auteur, versions, dépendances, ...
+    - On peut télécharger chacune des librairies
+      pour les installer *à la main*.
+
+  > ℹ️ **Packages**
+  >
+  > Les frameworks ou librairies pouvant être constitués de différents éléments
+  > (code source, licence, documentation, scripts utiles, ...),
+  > le téléchargement est facilité par le conditonnement dans une archive unique.
+  >
+  > On nomme généralement cette archive un *package*.
+  >
+  > Certaines technos affectent un nom spécifique pour ces packages,
+  > comme Rust qui nomme ses packages des *crates*.
+
+- un programme s'exécutant en local, permettant de :
+
+    - gérer un projet : build, debug, test, ...
+      c'est l'équivalent de ce qu'on peut faire *à la main* avec un Makefile
+      (cf. [§ Gestionnaires de projets](#243-gestionnaires-de-projets)),
+    - déclarer les packages qu'on souhaite utiliser
+      au travers du projet géré par l'outil,
+    - s'interfacer avec la *registry*,
+    - résoudre les dépendances des librairies.
+
+Il existe différents systèmes de packages,
+généralement centrés sur une technologie donnée.
+
+On liste ci-après des systèmes de packages usuels (liste non exhaustive) :
+- <span class="sw-type pc"></span> Applications PC :
+    - JS : npm / yarn / pnpm (1)
+    - Java : maven
+    - Python : pip / venv
+- <span class="sw-type web"></span> Applications web :
+    - JS : npm / yarn / pnpm (1)
+    - PHP : composer
+    - Java : maven
+- <span class="sw-type mobile"></span> Applications mobile :
+    - Android : repo (2)
+    - iOS : `swift package`
+- <span class="sw-type embedded"></span> Logiciel embarqué :
+    - C/Linux : buildroot (3)
+    - Rust : Cargo
+
+Le tableau ci-après donne un aperçu historisé
+de l'apparition de certains des systèmes de packages précédemment cités :
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Langage | Outil projet                  | Registry                               | Historique |
+|---------|-------------------------------|----------------------------------------|------------|
+| Perl    | cpan                          | https://metacpan.org/                  | 1995       |
+| C/Linux | buildroot (3)                 | https://buildroot.org/                 | 2001       |
+| Java    | mvn V1 (2002), V2 (2008)      | https://search.maven.org/ (2005)       | 2002       |
+| Python  | pip, venv                     | https://pypi.org/                      | 2003       |
+| Ruby    | gem                           | https://rubygems.org/                  | 2004       |
+| JS      | npm, yarn (2016), pnpm (2017) | https://www.npmjs.com/                 | 2010       |
+| PHP     | composer                      | https://packagist.org/                 | 2012       |
+| Go      | `go get`                      | https://pkg.go.dev/                    | 2012       |
+| Rust    | cargo                         | https://crates.io/                     | 2014       |
+| Swift   | `swift package`               | https://www.swift.org/package-manager/ | 2016       |
+
+> ℹ️ **Notes**
+>
+> - (1) yarn et pnpm constituent des améliorations de npm.
+>
+>   - yarn, d'après https://yarnpkg.com/ : "Safe, stable, reproducible projects"
+>   - pnpm, d'après https://pnpm.io/ : "Save time. Save disk space. Supercharge your monorepos."
+>
+>   J'ai effectivement pu constater personnellement que npm pouvait avoir des limitations
+>   dans des cas particuliers.
+>
+>   C'était notamment le cas pour la gestion de différentes versions d'un même package
+>   (en l'occurrence React Native)
+>   pour les différentes targets dans un monorepo
+>   (cf. issue [npm#287](https://github.com/npm/rfcs/issues/287)).
+>
+>   En raison de ces difficultés, j'étais passé sur yarn.
+>
+> - (2) `repo` n'est pas vraiment un système de packages,
+>   mais plutôt une extension de git
+>   permettant de manipuler un grand nombre de dépôts dans l'espace projet.
+>
+>   Il n'y a pas vraiment de *registry* en ligne pour `repo`,
+>   mais simplement des dépôts git.
+>
+> - (3) buildroot n'est pas vraiment centré sur un langage,
+>   mais sur des ensembles de librairies et logiciels
+>   pouvant être embarqués dans l'image Linux constituée.
+>
+>   En un sens, cela ressemble plus à des systèmes de packages pour l'OS Linux,
+>   comme rpm (Red Hat Package Manager pour l'origine du nom)
+>   ou apt/dpkg (packages Debian .deb),
+>   à la différence que les packages ne sont pas téléchargés sous forme de binaires,
+>   mais de sources pour être cross-compilés.
+>
+>   On retrouvera classiquement pour Linux beaucoup de code C,
+>   mais pas uniquement.
+
+> 👷 TP : [API REST en JS avec npm](TP%20-%20REST%20API%20npm-ts.md)
+
+> 👷 TP : API REST en Python avec pip et venv (TODO)
+
+> 👷 TP : API REST en PHP avec composer (TODO)
+
+> 👷 TP : [API REST en Rust avec cargo](TP%20-%20REST%20API%20cargo-rust.md)
+
+> 👷 TP : Image Linux avec buildroot (TODO)
+
+Si le fait d'utiliser des librairies tierces permet de faciliter et d'accélérer les développements,
+cela ne va pas sans certains inconvénients.
+On convient d'assurer des points de vigilance
+sur les questions juridiques et sur les questions de sécurité.
+
+
+### 2.3.2. Juridique
+
+### 2.3.3. Sécurité
+
 
 ## 2.4. Build
 
