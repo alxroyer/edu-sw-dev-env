@@ -50,6 +50,9 @@ Mémo:
     - [2.3. Bibliothèques de packages](#23-biblioth%C3%A8ques-de-packages)
         - [2.3.1. Fonctionnement](#231-fonctionnement)
         - [2.3.2. Juridique](#232-juridique)
+            - [2.3.2.1. Licences commerciales](#2321-licences-commerciales)
+            - [2.3.2.2. Licences Open Source](#2322-licences-open-source)
+            - [2.3.2.3. Licences hybrides](#2323-licences-hybrides)
         - [2.3.3. Sécurité](#233-s%C3%A9curit%C3%A9)
     - [2.4. Build](#24-build)
         - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
@@ -567,6 +570,123 @@ sur les questions juridiques et sur les questions de sécurité.
 
 
 ### 2.3.2. Juridique
+
+Toute librairie logicielle vient généralement avec une licence d'utilisation.
+
+Les développeurs ont leur part de responsabilité vis-à-vis des licences tirées
+en fonction des choix de technologies opérés.
+
+
+#### 2.3.2.1. Licences commerciales
+
+Il existe différents modes de facturation :
+- au nombre de développeurs,
+- par famille de produits,
+- au runtime, i.e. par unité produite (souvent le plus coûteux),
+- ...
+
+Lorsque la licence est commerciale, penser à s'acquitter des droits à payer !
+
+Tout oubli de règlement des licences commerciales peut se payer très cher devant les tribunaux,
+notamment lorsqu'on intègre les arriérés, plus probalement des pénalités à la clé !
+
+
+#### 2.3.2.2. Licences Open Source
+
+Attention !
+Open Source ne veut pas dire libre de droits.
+
+Il existe différents types de licences Open Source plus ou moins permissives.
+
+Le premier tableau ci-après donne une liste des principales licences dites permissives.
+
+Ces licences permissives restent compatibles avec le développement d'un logiciel propriétaire,
+à la condition toutefois de se conformer aux termes de la licence.
+
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Licence | Identifiant SPDX (1) | Principales caractéristiques | Exemples |
+|---------|----------------------|------------------------------|----------|
+| [MIT](https://opensource.org/licenses/MIT) *(Massachusetts Institute of Technology)* | [MIT](https://spdx.org/licenses/MIT.html) | Utilisation, modification et distribution libres, y compris dans des projets propriétaires. Seule obligation : conserver la notice de copyright et la décharge de responsabilité. | Ruby on Rails, jQuery |
+| [ISC](https://opensource.org/licenses/ISC) *(Internet Software Consortium)* | [ISC](https://spdx.org/licenses/ISC.html) | Similaire à MIT, mais avec une formulation plus simple. Proposée par défaut dans l'écosystème JS. | npm |
+| [BSD](https://opensource.org/licenses/BSD-2-Clause) *(Berkeley Software Distribution)* | [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html), [BSD-2-Clause](https://spdx.org/licenses/BSD-2-Clause.html), [0BSD](https://spdx.org/licenses/0BSD.html) | Similaire à MIT, mais plus précise en termes de limitation de responsabilité du développeur vis-à-vis des usages faits du logiciel. Existe en différentes versions (nombre de clauses). | FreeBSD, NetBSD |
+| [Apache 2.0](https://opensource.org/licenses/Apache-2.0) | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | Protection contre les brevets et clause de non-responsabilité. Compatible avec la GPLv3. Obligation de conserver les notices de licence et de ne pas utiliser les marques déposées. | Apache HTTP Server, Apache Kafka, une grande partie de code Android |
+
+Le second tableau suivant liste des licences dites *copyleft faible*.
+
+Ce type de licences reste compatible avec le développement d'un logiciel propriétaire,
+mais impose généralement la reversion des modifications qui pourraient être apportées
+dans le code Open Source utilisé.
+
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Licence | Identifiant SPDX (1) | Principales caractéristiques | Exemples |
+|---------|----------------------|------------------------------|----------|
+| [LGPL](https://opensource.org/license/lgpl-3-0) *(Lesser GPL)* | [LGPL-3.0-only](https://spdx.org/licenses/LGPL-3.0-only.html), ... | Permet l’utilisation dans des logiciels propriétaires, mais les modifications de la bibliothèque LGPL doivent rester open source (i.e. obligation de publication des modifications). | GTK |
+| [MPL 2.0](https://opensource.org/license/MPL-2.0) *(Mozilla Public License 2.0)* | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | Copyleft faible par fichier. | Firefox, Thunderbird |
+
+Enfin, le troisième tableau liste des licences dites *copyleft fort* parmi les plus connues.
+
+Ces licences imposent à un logiciel *dérivé* d'adopter lui-même la licence Open Source.
+
+Ce qu'il faut entendre par logiciel *dérivé*
+c'est entre autres le fait de se *linker* avec le logiciel Open Source.
+
+C'est pourquoi on qualifie ces licences de *contaminantes*.
+
+De fait, une librairie avec ce type de licence est généralement incompatible
+avec le développement d'un logiciel propriétaire.
+
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Licence | Identifiant SPDX (1) | Principales caractéristiques | Exemples |
+|---------|----------------------|------------------------------|----------|
+| [GPL](https://opensource.org/license/gpl-3-0) *(GNU General Public License)* | [GPL-2.0-only](https://spdx.org/licenses/GPL-2.0-only.html), [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html), ... | Toute oeuvre dérivée doit être distribuée sous GPL également. La version en vigueur est la V3, mais on trouve également beaucoup de V2. | Linux, gcc |
+| [AGPL](https://opensource.org/license/agpl-v3) *(Affero GPL)* | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html), ... | Similaire à la GPL (licence contaminante), mais étend les obligations aux logiciels utilisés en réseau (SaaS). | itext |
+| [SSPL](https://www.mongodb.com/legal/licensing/server-side-public-license) *(Server Side Public License)* (2) | [SSPL-1.0](https://spdx.org/licenses/SSPL-1.0.html) | Licence créée par MongoDB, inspirée de AGPL. | MongoDB, ElasticSearch |
+
+> ℹ️ **Notes**
+>
+> - (1) [SPDX](https://spdx.dev/) *(System Package Data Exchange)*,
+>   est un standard ouvert permettant de spécifier la décomposition d'un logiciel,
+>   via une SBOM *(Software Bill of Materials)*.
+>
+>   Ce standard propose des codification des licences logicielles
+>   (cf. https://spdx.org/licenses/).
+>
+> - (2) Controverse :
+>   SSPL n'est pas reconnue comme une licence Open Source à part entière
+>   par l'[OSI](https://opensource.org/) *(Open Source Initiative)*.
+>   Cf. https://opensource.org/blog/the-sspl-is-not-an-open-source-license.
+
+> 💡 **SPDX & conformité juridique**
+>
+> Des outils associés au standard SPDX
+> permettent de vérifier la conformité juridique aux licences embarquées.
+>
+> Cf. https://spdx.dev/use/spdx-tools/.
+
+
+#### 2.3.2.3. Licences hybrides
+
+Il arrive régulièrement que des projets Open Source adoptent un *business model* hybride :
+- licence commerciale pour les entreprises,
+- licence Open Source pour les utilisations personnelles, éducatives ou Open Source.
+
+Exemples :
+- Qt :
+  licence [GPL ou LGPL](https://www.qt.io/development/download-open-source)
+  ou [commerciale](https://www.qt.io/pricing).
+- ElasticSearch :
+  licence [SSPL ou AGPLv3](https://www.elastic.co/pricing/faq/licensing)
+  ou [commerciale](https://www.elastic.co/pricing).
+- MongoDB :
+  licence [SSPL](https://www.mongodb.com/legal/licensing/server-side-public-license)
+  ou [commerciale](https://www.mongodb.com/pricing).
+- itext :
+  licence [AGPL](https://itextpdf.com/how-buy/AGPLv3-license)
+  ou [commerciale](https://itextpdf.com/how-buy).
+
 
 ### 2.3.3. Sécurité
 
