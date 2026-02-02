@@ -690,6 +690,49 @@ Exemples :
 
 ### 2.3.3. Sécurité
 
+Embarquer des librairies tiers
+signifie également embarquer les bugs que celles-ci contiennent,
+et pire encore leurs failles de sécurité !
+
+C'est pourquoi il convient de mettre en place une MCS (Maintien en Conditions de Sécurité),
+c'est-à-dire une veille sur les alertes de sécurité et failles publiées.
+
+Sources d'information pour la mise en oeuvre d'une veille MCS:
+- CVE *(Common Vulnerabilities and Exposures)* :
+    - Depuis 1999 (première CVE : [CVE-1999-0001](https://www.cve.org/CVERecord?id=CVE-1999-0001)).
+    - Base de failles de sécurité connues pour les différents logiciels référencés.
+    - Plus de 300 000 CVE en base début février 2025.
+    - Page de recherche : https://www.cve.org/CVERecord/SearchResults
+      (redirection depuis https://cve.mitre.org/).
+- CERT-FR (French Computer Emergency Response Time)
+  de l'[ANSSI](https://cyber.gouv.fr/) (Agence Nationale de la Sécurité des Systèmes d'Information) :
+    - https://www.cert.ssi.gouv.fr/
+
+Pour mener les analyses d'impact liées à l'occurrence d'une alerte de sécurité,
+il est important de se baser sur les fichiers `package-lock.json` ou équivalent,
+de sorte à vérifier la version des librairies effectivement résolue
+par le gestionnaire de packages.
+
+> ❗ **Retex Sha1-Hulud 2.0 (fin novembre 2025)**
+>
+> Fin novembre 2025, le CERT-FR publie l'actualité [CERTFR-2025-ACT-051](https://www.cert.ssi.gouv.fr/actualite/CERTFR-2025-ACT-051/)
+> faisant état d'une "attaque par la chaîne d’approvisionnement de plusieurs paquets NPM".
+>
+> Sujet également documenté sur le site de Microsoft :
+> https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/.
+>
+> Pour faciliter les analyses d'impact, on a pu se baser sur un outil disponible sur GitHub :
+> https://github.com/gensecaihq/Shai-Hulud-2.0-Detector.
+>
+> En observant la [liste des fichiers supportés](https://github.com/gensecaihq/Shai-Hulud-2.0-Detector?tab=readme-ov-file#supported-file-types)
+> par Shai-Hulud 2.0 Detector,
+> on peut voir que cet outil considère les fichiers suivant pour mener l'analyse :
+> - `package.json`,
+> - `package-lock.json`,
+> - `yarn.lock`,
+> - `npm-shrinkwrap.json`,
+> - `pnpm-lock.yaml`.
+
 
 ## 2.4. Build
 
