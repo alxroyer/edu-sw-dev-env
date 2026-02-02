@@ -44,6 +44,9 @@ pour assurer un meilleur affichage possible dans les différents cas de figure :
 Cela permet également de rester en syntaxe Markdown autant que possible,
 plutôt que de basculer en HTML.
 
+De sorte à mieux anticiper le rendu sur GitHub,
+installer l'extension [GitHub Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview) par Matt Bierner.
+
 
 ## 3.1. Boîtes de texte
 
