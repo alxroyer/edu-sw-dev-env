@@ -566,8 +566,21 @@ de l'apparition de certains des systèmes de packages précédemment cités :
 
 Si le fait d'utiliser des librairies tierces permet de faciliter et d'accélérer les développements,
 cela ne va pas sans certains inconvénients.
-On convient d'assurer des points de vigilance
-sur les questions juridiques et sur les questions de sécurité.
+
+> 💡 **Astuce : Privilégier un disque SSD**
+>
+> Comme on peut le voir, certains projets peuvent être amenés à tirer un volume conséquent de packages.
+>
+> Les packages étant enregistrés sur le disque local,
+> cela peut représenter beaucoup d'accès disque.
+>
+> Il peut ainsi être intéressant de privilégier l'utilisation de disques SSD
+> pour éviter des phénomènes de lenteur.
+>
+> J'ai eu l'occasion de constater un vrai gain avec un disque SSD
+> dans certains cas de figure :
+> - multiplicité des dépôts git Android tirés avec la commande `repo`,
+> - volume de packages tirés dans un monorepo JS avec React Native.
 
 
 ### 2.3.2. Juridique
