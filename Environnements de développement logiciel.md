@@ -680,6 +680,19 @@ avec le développement d'un logiciel propriétaire.
 >
 > Cf. https://spdx.dev/use/spdx-tools/.
 
+> ℹ️ **CC - Licences Creative Commons**
+>
+> Proche des licences Open Source,
+> il existe également les licences Creative Commons.
+>
+> Ce type de licence est plutôt dédié à la protection d'oeuvres créatives numériques, littéraires ou artistiques.
+>
+> Cf. https://creativecommons.org/.
+>
+> Note :
+> Ce cours est publié sous licence CC BY-NC-SA.
+> Cf. [LICENSE.txt](LICENSE.txt).
+
 
 #### 2.3.2.3. Licences hybrides
 
