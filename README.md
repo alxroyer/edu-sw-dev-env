@@ -114,9 +114,9 @@ Affichage d'une erreur :
 ## 3.2. Référence de TP
 
 ```md
-> 👷 TP : [Sujet du TP](README.md#22-r%C3%A9f%C3%A9rence-de-tp)
+> 👷🛠️ TP : [Sujet du TP](README.md#22-r%C3%A9f%C3%A9rence-de-tp)
 ```
-> 👷 TP : [Sujet du TP](README.md#22-r%C3%A9f%C3%A9rence-de-tp)
+> 👷🛠️ TP : [Sujet du TP](README.md#22-r%C3%A9f%C3%A9rence-de-tp)
 
 
 ## 3.3. Autres icônes utiles

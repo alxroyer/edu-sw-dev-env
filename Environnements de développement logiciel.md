@@ -356,9 +356,9 @@ Le tableau ci-après donne un aperçu historisé de l'apparition de certains des
 | PyCharm       | Python     | Egalement développé par JetBrains. | 2010 |
 | VS Code       | HTML, CSS, JS/Typescript, Markdown, ... | Éditeur de code léger et extensible, développé en JS par Microsoft, écosystème riche de plugins. | 2015 |
 
-> <span class="sw-type pc"></span> 👷 TP : [Configuration d'un IDE VS Code pour C/C++](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)
+> <span class="sw-type pc"></span> 👷🛠️ TP : [Configuration d'un IDE VS Code pour C/C++](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)
 
-> 👷 TP : Refactoring (TODO)
+> 👷🛠️ TP : Refactoring (TODO)
 
 
 ## 2.2. Debugging
@@ -394,7 +394,7 @@ Parmi les fonctions utiles d'un debugger, on note :
 - la capacité pour certains langages interprétés (Python, JS) à pouvoir exécuter des routines à chaud
 - ...
 
-> <span class="sw-type pc"></span> 👷 TP : [Debugging C/C++ avec VS Code](TP%20-%20Debugging%20VS%20Code%20C-Cpp.md)
+> <span class="sw-type pc"></span> 👷🛠️ TP : [Debugging C/C++ avec VS Code](TP%20-%20Debugging%20VS%20Code%20C-Cpp.md)
 
 Dans le cas du debugging d'un logiciel embarqué, la difficulté est de savoir synchroniser
 un IDE/debugger qui tourne sur une machine de développement,
@@ -412,7 +412,7 @@ Pour ce faire, on peut utiliser des moyens spécifiques :
     - Branchement sur un bus série dédié, directement sur le micro-processeur sur la cible.
       Nécessite que les signaux aient été routés sur la carte.
 
-> <span class="sw-type embedded"></span> 👷 TP : Debugging C/C++ à distance avec gdbserver (TODO)
+> <span class="sw-type embedded"></span> 👷🛠️ TP : Debugging C/C++ à distance avec gdbserver (TODO)
 
 On note finalement que les investigations par debugging ont leurs limitent :
 - Pas de debugging possible *post-mortem*,
@@ -554,15 +554,15 @@ de l'apparition de certains des systèmes de packages précédemment cités :
 >   On retrouvera classiquement pour Linux beaucoup de code C,
 >   mais pas uniquement.
 
-> 👷 TP : [API REST en JS avec npm](TP%20-%20REST%20API%20npm-ts.md)
+> 👷🛠️ TP : [API REST en JS avec npm](TP%20-%20REST%20API%20npm-ts.md)
 
-> 👷 TP : API REST en Python avec pip et venv (TODO)
+> 👷🛠️ TP : API REST en Python avec pip et venv (TODO)
 
-> 👷 TP : API REST en PHP avec composer (TODO)
+> 👷🛠️ TP : API REST en PHP avec composer (TODO)
 
-> 👷 TP : [API REST en Rust avec cargo](TP%20-%20REST%20API%20cargo-rust.md)
+> 👷🛠️ TP : [API REST en Rust avec cargo](TP%20-%20REST%20API%20cargo-rust.md)
 
-> 👷 TP : Image Linux avec buildroot (TODO)
+> 👷🛠️ TP : Image Linux avec buildroot (TODO)
 
 Si le fait d'utiliser des librairies tierces permet de faciliter et d'accélérer les développements,
 cela ne va pas sans certains inconvénients.
