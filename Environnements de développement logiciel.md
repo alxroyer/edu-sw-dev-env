@@ -54,6 +54,7 @@ Mémo:
             - [2.3.2.2. Licences Open Source](#2322-licences-open-source)
             - [2.3.2.3. Licences hybrides](#2323-licences-hybrides)
         - [2.3.3. Sécurité](#233-s%C3%A9curit%C3%A9)
+        - [2.3.4. Utilisation d'un repo local](#234-utilisation-dun-repo-local)
     - [2.4. Build](#24-build)
         - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
         - [2.4.2. Bundlers](#242-bundlers)
@@ -732,6 +733,44 @@ par le gestionnaire de packages.
 > - `yarn.lock`,
 > - `npm-shrinkwrap.json`,
 > - `pnpm-lock.yaml`.
+
+
+### 2.3.5. Utilisation d'un repo local
+
+Les grandes entreprises déploient généralement un serveur intermédiaire
+entre les registries officielles sur Internet et le SI de l'entreprise.
+
+![fezfez](schemas/local-package-repository.drawio.png)
+
+On trouve plusieurs noms possibles pour ce type de serveur intermédiaire :
+- Binary Repository Manager,
+- Artifact Repository,
+- Package Repository,
+- Software Repository,
+- ...
+
+Ce type d'outil permet l'enregistrement de fichiers binaires potentiellement volumineux, tels que :
+- des programmes d'installation,
+- des images de conteneurs ou de machines virtuelles,
+- des résultats de compilations,
+- des données de test,
+- des configurations,
+- des archives,
+- ...
+
+Ces outils peuvent également être configurés en relais de serveurs de packages.
+
+Ce type de déploiement peut présenter les avantages suivants :
+- accélération des téléchargements de packages,
+  par la constitution d'un cache local,
+  et l'apport de résilience en cas de perturbations réseaux avec Internet ;
+- indépendance pour la maintenabilité à long terme :
+  il peut arriver que certains packages disparaissent des registries,
+  et on peut également anticiper que les registries risquent d'être arrêtées à l'avenir ;
+- possibilité de renforts de la sécurité,
+  avec mise en oeuvre de contrôles d'anti-virus sur les packages téléchargés depuis les registries ;
+- capacités d'inventaires logiciels (SBOM),
+  pouvant constituer une réponse aux questions juridiques et de sécurité évoquées précédemment.
 
 
 ## 2.4. Build
