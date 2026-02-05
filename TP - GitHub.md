@@ -18,7 +18,7 @@ Constitue une forme de réseau social des développeurs Open Source.
 
 <!-- TOC -->
 
-- [1. Configuration du compte github](#1-configuration-du-compte-github)
+- [1. Configuration du compte GitHub](#1-configuration-du-compte-github)
     - [1.1. Anonymisation de l'adresse email](#11-anonymisation-de-ladresse-email)
     - [1.2. Configuration d'une clé SSH](#12-configuration-dune-cl%C3%A9-ssh)
 - [2. Issues](#2-issues)
@@ -31,26 +31,27 @@ Constitue une forme de réseau social des développeurs Open Source.
 <!-- /TOC -->
 
 
-# 1. Configuration du compte github
+# 1. Configuration du compte GitHub
 
-Après avoir créé un compte github, il convient de faire quelques configurations.
+Après avoir créé un compte GitHub, il convient de faire quelques configurations.
 
 
 ## 1.1. Anonymisation de l'adresse email
 
-Pour pouvoir créer un commit, git impose la configuration d'un nom et d'un email.
-```bash
-git config user.name
-git config user.email
-```
+> ⚠️ **Risque d'exposition de l'adresse personnelle**
+>
+> Pour pouvoir créer un commit, git impose la configuration d'un nom et d'un email.
+> Cf. [TP - Git base.md](TP%20-%20Git%20base.md).
+>
+> Ces noms et emails sont attachés aux commits, et donc visibles dans l'historique git.
+>
+> Sur une plateforme en ligne telle GitHub,
+> ce fonctionnement a le défaut d'exposer les adresses emails de manière publique,
+> ce qui n'est pas souhaitable si on veut éviter de se faire spammer.
+>
+> C'est pourquoi GitHub propose une fonction permettant d'anonymiser son adresse email.
 
-Ces noms et emails sont attachés aux commits, et donc visibles dans l'historique git.
-
-Ce fonctionnement a le défaut d'exposer les adresses emails de manière publique,
-ce qui n'est pas souhaitable si on veut éviter de se faire spammer.
-
-C'est pourquoi GitHub propose une fonction permettant d'anonymiser son adresse email,
-chose que nous allons activer en premier lieu :
+Activer l'anonymisation de l'adresse email :
 
 - Une fois connecté sur la plateforme, cliquer sur l'icône de son profil en haut à droite,
   puis "Settings" > "Emails".
