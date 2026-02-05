@@ -119,6 +119,12 @@ on utilise la commande `ssh-keygen`.
 > la clé n'est pas directement utilisable.
 > SSH doit être configuré.
 >
+> Pour vérifier que la connexion ssh avec GitHub est fonctionnelle,
+> on pourra utiliser la commande suivante :
+> ```bash
+> ssh -T git@github.com
+> ```
+>
 > **Option 1 : Configuration `~/.ssh/config`**
 >
 > Option la plus simple.
