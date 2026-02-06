@@ -19,12 +19,16 @@ class Matrix:
     def __repr__(self) -> str:
         return repr(self.data)
 
-    # REQ-SYN-100: Stdout matrix output
     def __str__(self) -> str:
+        """
+        REQ-SYN-100: Stdout matrix output
+        """
         return '\n'.join([' '.join(map(lambda x: f"{x:>5}", row)) for row in self.data])
 
-    # REQ-SYN-040: `+` operator
     def __add__(self, other: 'Matrix') -> 'Matrix':
+        """
+        REQ-SYN-040: `+` operator
+        """
         if len(self.data) != len(other.data) or len(self.data[0]) != len(other.data[0]):
             raise ValueError("Matrices must have the same dimensions for addition.")
         return Matrix([
@@ -32,8 +36,10 @@ class Matrix:
             for i in range(len(self.data))
         ])
 
-    # REQ-SYN-050: `-` operator
     def __sub__(self, other: 'Matrix') -> 'Matrix':
+        """
+        REQ-SYN-050: `-` operator
+        """
         if len(self.data) != len(other.data) or len(self.data[0]) != len(other.data[0]):
             raise ValueError("Matrices must have the same dimensions for subtraction.")
         return Matrix([
@@ -41,8 +47,10 @@ class Matrix:
             for i in range(len(self.data))
         ])
 
-    # REQ-SYN-060: `*` operator
     def __mul__(self, other: 'Matrix') -> 'Matrix':
+        """
+        REQ-SYN-060: `*` operator
+        """
         if len(self.data[0]) != len(other.data):
             raise ValueError("Number of columns in the first matrix must equal number of rows in the second matrix for multiplication.")
         return Matrix([[
@@ -55,9 +63,11 @@ class Matrix:
         data = json.loads(json_data)
         return cls(data)
 
-    # REQ-SYN-022: File matrix input
     @classmethod
     def from_file(cls, file_path: str) -> 'Matrix':
+        """
+        REQ-SYN-022: File matrix input
+        """
         with open(file_path, 'r') as file:
             if file_path.endswith('.json'):
                 data = json.load(file)
@@ -67,8 +77,10 @@ class Matrix:
                 raise ValueError("Unsupported file format.")
         return cls(data)
 
-    # REQ-SYN-110: File matrix output
     def to_file(self, file_path: str):
+        """
+        REQ-SYN-110: File matrix output
+        """
         with open(file_path, 'w') as file:
             if file_path.endswith('.json'):
                 json.dump(self.data, file)
@@ -79,6 +91,12 @@ class Matrix:
 
 
 def parse_line(line: str) -> str:
+    """
+    Parses a line from the interactive command line interface.
+
+    :param line: Line to parse.
+    :return: Result message.
+    """
     _match: re.Match[str]
 
     # REQ-SYN-010: Variable assignment
@@ -108,14 +126,22 @@ def parse_line(line: str) -> str:
     raise SyntaxError(f"Invalid syntax {line!r}")
 
 
-# REQ-SYN-020: Matrix value
 def parse_matrix_value(expr: str) -> Matrix:
+    """
+    REQ-SYN-020: Matrix value
+
+    :param expr: Expression to parse.
+    :return: Matrix computed from ``expr``.
+    """
     _match: re.Match[str]
     _tmp_var_name: str
 
-    # REQ-SYN-023: Variable value
-    if expr in variables:
-        return variables[expr]
+    # REQ-SYN-021: JSON matrix input
+    if expr.startswith("[") and expr.endswith("]"):
+        try:
+            return Matrix.from_json(expr)
+        except json.JSONDecodeError:
+            raise ValueError(f"Invalid matrix value: {expr!r}")
 
     # REQ-SYN-022: File matrix input
     _match = re.match(r"^(.*)read\( *\"([^\"]*)\" *\)(.*)$", expr)
@@ -128,6 +154,10 @@ def parse_matrix_value(expr: str) -> Matrix:
         finally:
             del variables[_tmp_var_name]
 
+    # REQ-SYN-023: Variable value
+    if expr in variables:
+        return variables[expr]
+
     # REQ-SYN-030: Parentheses
     _match = re.match(r"^(.*)\([^()]+\)(.*)$", expr)
     if _match:
@@ -137,6 +167,13 @@ def parse_matrix_value(expr: str) -> Matrix:
             return parse_matrix_value(_match.group(1) + _tmp_var_name + _match.group(3))
         finally:
             del variables[_tmp_var_name]
+
+    # REQ-SYN-060: `*` operator
+    _match = re.match(r"^(.*)(\*)(.*)$", expr)
+    if _match:
+        _m1 = parse_matrix_value(_match.group(1).strip())
+        _m2 = parse_matrix_value(_match.group(3).strip())
+        return _m1 * _m2
 
     # REQ-SYN-040: `+` operator
     # REQ-SYN-050: `-` operator
@@ -149,25 +186,13 @@ def parse_matrix_value(expr: str) -> Matrix:
         else:
             return _m1 - _m2
 
-    # REQ-SYN-060: `*` operator
-    _match = re.match(r"^(.*)(\*)(.*)$", expr)
-    if _match:
-        _m1 = parse_matrix_value(_match.group(1).strip())
-        _m2 = parse_matrix_value(_match.group(3).strip())
-        return _m1 * _m2
-
-    # REQ-SYN-021: JSON matrix input
-    if expr.startswith("[") and expr.endswith("]"):
-        try:
-            return Matrix.from_json(expr)
-        except json.JSONDecodeError:
-            raise ValueError(f"Invalid matrix value: {expr!r}")
-
     raise SyntaxError(f"Invalid syntax {repr!r}")
 
 
 def main():
-    # REQ-UI-010: Interactive command line interface
+    """
+    REQ-UI-010: Interactive command line interface
+    """
     print("Matrix command line. Type 'exit' to quit.")
     while True:
         try:
