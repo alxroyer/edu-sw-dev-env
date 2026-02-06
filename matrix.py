@@ -23,6 +23,15 @@ class Matrix:
     def __str__(self) -> str:
         return '\n'.join([' '.join(map(lambda x: f"{x:>5}", row)) for row in self.data])
 
+    # REQ-SYN-040: `+` operator
+    def __add__(self, other: 'Matrix') -> 'Matrix':
+        if len(self.data) != len(other.data) or len(self.data[0]) != len(other.data[0]):
+            raise ValueError("Matrices must have the same dimensions for addition.")
+        return Matrix([
+            [self.data[i][j] + other.data[i][j] for j in range(len(self.data[0]))]
+            for i in range(len(self.data))
+        ])
+
     @classmethod
     def from_json(cls, json_data: str) -> 'Matrix':
         data = json.loads(json_data)
@@ -100,6 +109,13 @@ def parse_matrix_value(expr: str) -> Matrix:
             return parse_matrix_value(_match.group(1) + _tmp_var_name + _match.group(3))
         finally:
             del variables[_tmp_var_name]
+
+    # REQ-SYN-040: `+` operator
+    _match = re.match(r"^(.*)\+(.*)$", expr)
+    if _match:
+        _m1 = parse_matrix_value(_match.group(1).strip())
+        _m2 = parse_matrix_value(_match.group(2).strip())
+        return _m1 + _m2
 
     # REQ-SYN-021: JSON matrix input
     if expr.startswith("[") and expr.endswith("]"):
