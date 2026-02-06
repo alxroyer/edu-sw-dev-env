@@ -128,6 +128,16 @@ def parse_matrix_value(expr: str) -> Matrix:
         finally:
             del variables[_tmp_var_name]
 
+    # REQ-SYN-030: Parentheses
+    _match = re.match(r"^(.*)\([^()]+\)(.*)$", expr)
+    if _match:
+        _tmp_var_name = f"__tmp{len(variables)}"
+        try:
+            variables[_tmp_var_name] = parse_matrix_value(_match.group(2))
+            return parse_matrix_value(_match.group(1) + _tmp_var_name + _match.group(3))
+        finally:
+            del variables[_tmp_var_name]
+
     # REQ-SYN-040: `+` operator
     # REQ-SYN-050: `-` operator
     _match = re.match(r"^(.*)([+-])(.*)$", expr)
