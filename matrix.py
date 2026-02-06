@@ -1,5 +1,50 @@
+import json
+import re
+
+
+VAR_NAME_RGX: str = r"[a-zA-Z_][a-zA-Z_0-9]*"
+
+
+variables = {}
+
+
+class Matrix:
+    def __init__(self, data):
+        self.data = data
+
+    def __repr__(self) -> str:
+        return repr(self.data)
+
+    @classmethod
+    def from_json(cls, json_data: str) -> 'Matrix':
+        data = json.loads(json_data)
+        return cls(data)
+
+
 def parse_line(line: str) -> str:
+    _match: re.Match[str]
+
+    # REQ-SYN-010: Variable assignment
+    _match = re.match(rf"^({VAR_NAME_RGX}) *= *(.*)$", line)
+    if _match:
+        _var_name = _match.group(1)
+        _expr = _match.group(2)
+        variables[_var_name] = parse_matrix_value(_expr)
+        return f"Assigned {_var_name} = {variables[_var_name]!r}"
+
     raise SyntaxError(f"Invalid syntax {line!r}")
+
+
+# REQ-SYN-020: Matrix value
+def parse_matrix_value(expr: str) -> Matrix:
+    # REQ-SYN-021: JSON matrix input
+    if expr.startswith("[") and expr.endswith("]"):
+        try:
+            return Matrix.from_json(expr)
+        except json.JSONDecodeError:
+            raise ValueError(f"Invalid matrix value: {expr!r}")
+
+    raise SyntaxError(f"Invalid syntax {repr!r}")
 
 
 def main():
