@@ -1,5 +1,9 @@
 import json
 import re
+try:
+    import yaml
+except ImportError:
+    print("Warning: Please install PyYAML to read and write from YAML files.")
 
 
 VAR_NAME_RGX: str = r"[a-zA-Z_][a-zA-Z_0-9]*"
@@ -24,6 +28,16 @@ class Matrix:
         data = json.loads(json_data)
         return cls(data)
 
+    # REQ-SYN-110: File matrix output
+    def to_file(self, file_path: str):
+        with open(file_path, 'w') as file:
+            if file_path.endswith('.json'):
+                json.dump(self.data, file)
+            elif file_path.endswith(('.yaml', '.yml')):
+                yaml.safe_dump(self.data, file)
+            else:
+                raise ValueError("Unsupported file format.")
+
 
 def parse_line(line: str) -> str:
     _match: re.Match[str]
@@ -42,6 +56,15 @@ def parse_line(line: str) -> str:
         _expr = _match.group(1)
         _matrix = parse_matrix_value(_expr)
         return str(_matrix)
+
+    # REQ-SYN-110: File matrix output
+    _match = re.match(r"^write\( *(.*) *, *\"([^\"]*)\" *\)$", line)
+    if _match:
+        _expr = _match.group(1)
+        _file_path = _match.group(2)
+        _matrix = parse_matrix_value(_expr)
+        _matrix.to_file(_file_path)
+        return f"{_file_path!r} written with {_matrix!r}"
 
     raise SyntaxError(f"Invalid syntax {line!r}")
 
