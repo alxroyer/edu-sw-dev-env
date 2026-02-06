@@ -85,7 +85,7 @@ the command line is analyzed according to the requirements in the next chapter
 When a non-empty nor blank line is processed,
 a result message is displayed before the next prompt.
 
-## REQ-UI-070: UI Language
+## REQ-UI-070: UI language
 
 The language used in the command line interface is English (UK).
 
@@ -163,7 +163,7 @@ The result is the matrix product of the first matrix by the second one.
 
 ## REQ-SYN-070: Operator priorities
 
-The list below gives operator priorities, from the most to the least prioritory:
+The list below gives operator priorities, from the most to the least prioritied:
 1. `*`
 2. `+` and `-`
 
