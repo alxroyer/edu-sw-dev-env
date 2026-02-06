@@ -28,6 +28,18 @@ class Matrix:
         data = json.loads(json_data)
         return cls(data)
 
+    # REQ-SYN-022: File matrix input
+    @classmethod
+    def from_file(cls, file_path: str) -> 'Matrix':
+        with open(file_path, 'r') as file:
+            if file_path.endswith('.json'):
+                data = json.load(file)
+            elif file_path.endswith(('.yaml', '.yml')):
+                data = yaml.safe_load(file)
+            else:
+                raise ValueError("Unsupported file format.")
+        return cls(data)
+
     # REQ-SYN-110: File matrix output
     def to_file(self, file_path: str):
         with open(file_path, 'w') as file:
@@ -71,9 +83,23 @@ def parse_line(line: str) -> str:
 
 # REQ-SYN-020: Matrix value
 def parse_matrix_value(expr: str) -> Matrix:
+    _match: re.Match[str]
+    _tmp_var_name: str
+
     # REQ-SYN-023: Variable value
     if expr in variables:
         return variables[expr]
+
+    # REQ-SYN-022: File matrix input
+    _match = re.match(r"^(.*)read\( *\"([^\"]*)\" *\)(.*)$", expr)
+    if _match:
+        file_path = _match.group(2)
+        _tmp_var_name = f"__tmp{len(variables)}"
+        try:
+            variables[_tmp_var_name] = Matrix.from_file(file_path)
+            return parse_matrix_value(_match.group(1) + _tmp_var_name + _match.group(3))
+        finally:
+            del variables[_tmp_var_name]
 
     # REQ-SYN-021: JSON matrix input
     if expr.startswith("[") and expr.endswith("]"):
