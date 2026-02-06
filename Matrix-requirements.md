@@ -82,7 +82,7 @@ the command line is analyzed according to the requirements in the next chapter
 
 ## REQ-UI-060: Result messages
 
-When a non empty nor blank line is processed,
+When a non-empty nor blank line is processed,
 a result message is displayed before the next prompt.
 
 ## REQ-UI-070: UI Language
