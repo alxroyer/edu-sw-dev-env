@@ -15,6 +15,10 @@ class Matrix:
     def __repr__(self) -> str:
         return repr(self.data)
 
+    # REQ-SYN-100: Stdout matrix output
+    def __str__(self) -> str:
+        return '\n'.join([' '.join(map(lambda x: f"{x:>5}", row)) for row in self.data])
+
     @classmethod
     def from_json(cls, json_data: str) -> 'Matrix':
         data = json.loads(json_data)
@@ -32,11 +36,22 @@ def parse_line(line: str) -> str:
         variables[_var_name] = parse_matrix_value(_expr)
         return f"Assigned {_var_name} = {variables[_var_name]!r}"
 
+    # REQ-SYN-100: Stdout matrix output
+    _match = re.match(r"^print\((.*)\)$", line)
+    if _match:
+        _expr = _match.group(1)
+        _matrix = parse_matrix_value(_expr)
+        return str(_matrix)
+
     raise SyntaxError(f"Invalid syntax {line!r}")
 
 
 # REQ-SYN-020: Matrix value
 def parse_matrix_value(expr: str) -> Matrix:
+    # REQ-SYN-023: Variable value
+    if expr in variables:
+        return variables[expr]
+
     # REQ-SYN-021: JSON matrix input
     if expr.startswith("[") and expr.endswith("]"):
         try:
