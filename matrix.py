@@ -41,6 +41,15 @@ class Matrix:
             for i in range(len(self.data))
         ])
 
+    # REQ-SYN-060: `*` operator
+    def __mul__(self, other: 'Matrix') -> 'Matrix':
+        if len(self.data[0]) != len(other.data):
+            raise ValueError("Number of columns in the first matrix must equal number of rows in the second matrix for multiplication.")
+        return Matrix([[
+            sum(a * b for a, b in zip(self_row, other_col))
+            for other_col in zip(*other.data)
+        ] for self_row in self.data])
+
     @classmethod
     def from_json(cls, json_data: str) -> 'Matrix':
         data = json.loads(json_data)
@@ -129,6 +138,13 @@ def parse_matrix_value(expr: str) -> Matrix:
             return _m1 + _m2
         else:
             return _m1 - _m2
+
+    # REQ-SYN-060: `*` operator
+    _match = re.match(r"^(.*)(\*)(.*)$", expr)
+    if _match:
+        _m1 = parse_matrix_value(_match.group(1).strip())
+        _m2 = parse_matrix_value(_match.group(3).strip())
+        return _m1 * _m2
 
     # REQ-SYN-021: JSON matrix input
     if expr.startswith("[") and expr.endswith("]"):
