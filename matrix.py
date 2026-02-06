@@ -32,6 +32,15 @@ class Matrix:
             for i in range(len(self.data))
         ])
 
+    # REQ-SYN-050: `-` operator
+    def __sub__(self, other: 'Matrix') -> 'Matrix':
+        if len(self.data) != len(other.data) or len(self.data[0]) != len(other.data[0]):
+            raise ValueError("Matrices must have the same dimensions for subtraction.")
+        return Matrix([
+            [self.data[i][j] - other.data[i][j] for j in range(len(self.data[0]))]
+            for i in range(len(self.data))
+        ])
+
     @classmethod
     def from_json(cls, json_data: str) -> 'Matrix':
         data = json.loads(json_data)
@@ -111,11 +120,15 @@ def parse_matrix_value(expr: str) -> Matrix:
             del variables[_tmp_var_name]
 
     # REQ-SYN-040: `+` operator
-    _match = re.match(r"^(.*)\+(.*)$", expr)
+    # REQ-SYN-050: `-` operator
+    _match = re.match(r"^(.*)([+-])(.*)$", expr)
     if _match:
         _m1 = parse_matrix_value(_match.group(1).strip())
-        _m2 = parse_matrix_value(_match.group(2).strip())
-        return _m1 + _m2
+        _m2 = parse_matrix_value(_match.group(3).strip())
+        if _match.group(2) == "+":
+            return _m1 + _m2
+        else:
+            return _m1 - _m2
 
     # REQ-SYN-021: JSON matrix input
     if expr.startswith("[") and expr.endswith("]"):
