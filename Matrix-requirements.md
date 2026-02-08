@@ -5,7 +5,7 @@
 Conventions:
 - This file is written in Markdown format.
 - Usage of regular meanings for `*`, `+`, `(`, `)` and `\` in regular expression.
-- Requirements are formalized in this document with level 2 title, as following:
+- Requirements are formalized in this document with level 2 titles, as following:
   ```md
   ## <req-id>: <req-title>
 
@@ -18,31 +18,31 @@ Conventions:
 
 <!-- TOC -->
 
-- [1. Interactive command line user interface](#1-interactive-command-line-user-interface)
-    - [1.1. REQ-UI-010: Interactive command line interface](#11-req-ui-010-interactive-command-line-interface)
-    - [1.2. REQ-UI-015: Prompt](#12-req-ui-015-prompt)
-    - [1.3. REQ-UI-020: Left and right arrows](#13-req-ui-020-left-and-right-arrows)
-    - [1.4. REQ-UI-030: HOME and END keys](#14-req-ui-030-home-and-end-keys)
-    - [1.5. REQ-UI-040: BACKSPACE and DELETE keys](#15-req-ui-040-backspace-and-delete-keys)
-    - [1.6. REQ-UI-050: ENTER key](#16-req-ui-050-enter-key)
-    - [1.7. REQ-UI-060: Result messages](#17-req-ui-060-result-messages)
-    - [1.8. REQ-UI-070: UI Language](#18-req-ui-070-ui-language)
-- [2. Command line syntax](#2-command-line-syntax)
-    - [2.1. REQ-SYN-000: Empty and blank lines](#21-req-syn-000-empty-and-blank-lines)
-    - [2.2. REQ-SYN-010: Variable assignment](#22-req-syn-010-variable-assignment)
-    - [2.3. REQ-SYN-020: Matrix value](#23-req-syn-020-matrix-value)
-    - [2.4. REQ-SYN-021: JSON matrix input](#24-req-syn-021-json-matrix-input)
-    - [2.5. REQ-SYN-022: File matrix input](#25-req-syn-022-file-matrix-input)
-    - [2.6. REQ-SYN-023: Variable value](#26-req-syn-023-variable-value)
-    - [2.7. REQ-SYN-030: Parentheses](#27-req-syn-030-parentheses)
-    - [2.8. REQ-SYN-040: + operator](#28-req-syn-040--operator)
-    - [2.9. REQ-SYN-050: - operator](#29-req-syn-050---operator)
-    - [2.10. REQ-SYN-060: * operator](#210-req-syn-060--operator)
-    - [2.11. REQ-SYN-070: Operator priorities](#211-req-syn-070-operator-priorities)
-    - [2.12. REQ-SYN-100: Stdout matrix output](#212-req-syn-100-stdout-matrix-output)
-    - [2.13. REQ-SYN-110: File matrix output](#213-req-syn-110-file-matrix-output)
-- [3. Design requirements](#3-design-requirements)
-    - [3.1. REQ-DESIGN-010: Coding language](#31-req-design-010-coding-language)
+- [Interactive command line user interface](#interactive-command-line-user-interface)
+    - [REQ-UI-010: Interactive command line interface](#req-ui-010-interactive-command-line-interface)
+    - [REQ-UI-015: Prompt](#req-ui-015-prompt)
+    - [REQ-UI-020: Left and right arrows](#req-ui-020-left-and-right-arrows)
+    - [REQ-UI-030: HOME and END keys](#req-ui-030-home-and-end-keys)
+    - [REQ-UI-040: BACKSPACE and DELETE keys](#req-ui-040-backspace-and-delete-keys)
+    - [REQ-UI-050: ENTER key](#req-ui-050-enter-key)
+    - [REQ-UI-060: Result messages](#req-ui-060-result-messages)
+    - [REQ-UI-070: UI language](#req-ui-070-ui-language)
+- [Command line syntax](#command-line-syntax)
+    - [REQ-SYN-000: Empty and blank lines](#req-syn-000-empty-and-blank-lines)
+    - [REQ-SYN-010: Variable assignment](#req-syn-010-variable-assignment)
+    - [REQ-SYN-020: Matrix value](#req-syn-020-matrix-value)
+    - [REQ-SYN-021: JSON matrix input](#req-syn-021-json-matrix-input)
+    - [REQ-SYN-022: File matrix input](#req-syn-022-file-matrix-input)
+    - [REQ-SYN-023: Variable value](#req-syn-023-variable-value)
+    - [REQ-SYN-030: Parentheses](#req-syn-030-parentheses)
+    - [REQ-SYN-040: + operator](#req-syn-040--operator)
+    - [REQ-SYN-050: - operator](#req-syn-050---operator)
+    - [REQ-SYN-060: * operator](#req-syn-060--operator)
+    - [REQ-SYN-070: Operator priorities](#req-syn-070-operator-priorities)
+    - [REQ-SYN-100: Stdout matrix output](#req-syn-100-stdout-matrix-output)
+    - [REQ-SYN-110: File matrix output](#req-syn-110-file-matrix-output)
+- [Design requirements](#design-requirements)
+    - [REQ-DESIGN-010: Coding language](#req-design-010-coding-language)
 
 <!-- /TOC -->
 

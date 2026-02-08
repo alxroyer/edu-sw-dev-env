@@ -1,5 +1,47 @@
 <h1>Matrix test plan</h1>
 
+Test plan for *Matrix*.
+
+Based on [Matrix-requirements.md](./Matrix-requirements.md).
+
+Conventions:
+- This file is written in Markdown format.
+- Tests are formalized in this document with level 2 titles, as following:
+  ```md
+  ## <req-id>(/<req-id>)*: <test-title>
+
+  <test-text>
+  ```
+  `<req-id>` giving the requirement identifiers covered,
+  `<test-title>` being the short title of the test,
+  `<test-text>` being the full text of the test, described with "Action"s and "Expected result"s.
+
+
+<!-- TOC -->
+
+- [Interactive command line user interface](#interactive-command-line-user-interface)
+    - [REQ-UI-010/REQ-UI-015: Interactive command line interface](#req-ui-010req-ui-015-interactive-command-line-interface)
+    - [REQ-UI-050/REQ-UI-060/REQ-UI-070: Result messages & UI language](#req-ui-050req-ui-060req-ui-070-result-messages--ui-language)
+    - [REQ-UI-020/REQ-UI-030/REQ-UI-040: Current line editing](#req-ui-020req-ui-030req-ui-040-current-line-editing)
+- [Command line syntax](#command-line-syntax)
+    - [REQ-SYN-000: Empty and blank lines](#req-syn-000-empty-and-blank-lines)
+    - [REQ-SYN-010: Variable assignment](#req-syn-010-variable-assignment)
+    - [REQ-SYN-100: Stdout matrix output](#req-syn-100-stdout-matrix-output)
+    - [REQ-SYN-020: Matrix value](#req-syn-020-matrix-value)
+    - [REQ-SYN-021: JSON matrix input](#req-syn-021-json-matrix-input)
+    - [REQ-SYN-022: File matrix input](#req-syn-022-file-matrix-input)
+    - [REQ-SYN-110: File matrix output](#req-syn-110-file-matrix-output)
+    - [REQ-SYN-023: Variable value](#req-syn-023-variable-value)
+    - [REQ-SYN-040: + operator](#req-syn-040--operator)
+    - [REQ-SYN-050: - operator](#req-syn-050---operator)
+    - [REQ-SYN-060: * operator](#req-syn-060--operator)
+    - [REQ-SYN-070: Operator priorities](#req-syn-070-operator-priorities)
+    - [REQ-SYN-030: Parentheses](#req-syn-030-parentheses)
+- [Design requirements](#design-requirements)
+    - [REQ-DESIGN-010: Coding language](#req-design-010-coding-language)
+
+<!-- /TOC -->
+
 
 # Interactive command line user interface
 
