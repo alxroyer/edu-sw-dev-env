@@ -4,7 +4,7 @@
 
 
 Ce TP montre comment on peut utiliser git pour investiguer en cas de problème,
-notamment à l'aide des commandes `git blame` et `git bisect`.
+notamment à l'aide des commandes `git blame`, `git bisect` et `git show`.
 
 
 <!-- TOC -->
@@ -411,25 +411,17 @@ Ces tickets peuvent être une source d'information très utile dans ce genre de 
 Ici toutefois, pas de référence de ticket.
 
 Observer le détail des modifications associées à ce commit,
-soit dans gitk, soit avec une commande `git diff` comme suit :
+soit dans gitk, soit avec une commande `git show` comme suit :
 ```bash
-git diff 817413d~1 817413d
+git show 817413d
 ```
-> 💡 **Astuce : `~` dans les références de commits git**
->
-> Le symbole `~` dans les spécifications des références de commit signifie *en arrière*.
-> Le nombre après le symbole `~` donne le nombre de commits à revenir en arrière.
->
-> `HEAD~2` par exemple signifie 2 commits en arrière par rapport à la référence courante du dépôt.
->
-> Dans la commande `git diff` ci-dessus, `~1` signifie donc *commit précédent*.
->
-> Cette commande `git diff` nous permet ainsi de ressortir les différences
-> entre le commit précédant le commit `817413d`
-> et le commit `817413d` lui-même,
-> soit les modifications introduites par le commit `817413d`.
-
 ```diff
+commit 817413d927b981e458ecb9d73ada051529b08539
+Author: Alexis ROYER <41943581+alxroyer@users.noreply.github.com>
+Date:   Fri Feb 6 03:02:45 2026 +0100
+
+    Improve documentation
+
 diff --git a/matrix.py b/matrix.py
 index 0a1ed58..26590b6 100644
 --- a/matrix.py
