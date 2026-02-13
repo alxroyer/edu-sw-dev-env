@@ -405,6 +405,11 @@ Observer le commit log du commit identifié : "Improve documentation".
 Cela nous donne le contexte de l'intention du commit.
 En l'occurrence, et en toute logique, le fait d'améliorer la documentation ne devrait pas changer le fonctionnel.
 
+Pour rappel, le commit log peut également donner des références de tickets associés
+(cf. [TP - Git strategy.md](TP%20-%20Git%20strategy.md)).
+Ces tickets peuvent être une source d'information très utile dans ce genre de situation.
+Ici toutefois, pas de référence de ticket.
+
 Observer le détail des modifications associées à ce commit,
 soit dans gitk, soit avec une commande `git diff` comme suit :
 ```bash
