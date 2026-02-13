@@ -108,10 +108,100 @@ Intérêt :
 - Relecture personnelle
 - Rédaction du commit log au fur et à mesure
 
-Autres frontends intéressants
-- Git Extension
-    - Raccourcis clavier
-    - Permet d'éviter l'erreur du click malencontreux sur "Stage Hunk" en lieu et place de "Stage Lines"
+> ⚠️ **Misclick "Stage Hunk" / "Stage Lines"**
+>
+> Retour d'expérience personnel :
+> `git gui` patit d'un problème d'ergonomie gênant sur l'accès à la fonction "Stage Lines For Commit".
+>
+> La fonction est accessible par clic droit uniquement dans le code,
+> et le menu "Stage Lines For Commit" est situé juste en-dessous du menu "Stage Hunk For Commit".
+>
+> De plus, le gestionnaire de souris pour l'application est un peu sensible.
+>
+> Il arrive donc régulièrement qu'un click malencontreux sur "Stage Hunk For Commit" se fasse
+> en lieu et place de "Stage Lines For Commit" comme attendu.
+>
+> Cette erreur de manipulation a le fâcheux désagrément de faire tomber en *stage*
+> toute une partie de code de façon inattendue.
+> Généralement, cela nous coupe dans notre élan de commit ligne à ligne,
+> ce qui est pénalisant pour l'exercice.
+>
+> 💡 **Solutions palliatives**
+>
+> Options intéressantes pour contourner ce problème :
+>
+> - **[GitExtensions](https://gitextensions.github.io/)**
+>
+>   D'avis personnel, la fenêtre de commit de GitExtensions est une des meilleures
+>   que j'ai eu l'occasion d'utiliser.
+>
+>   Cette interface propose des raccourcis clavier 'S' (pour *stage) et 'U' (pour *unstage*)
+>   très efficaces pour faire du commit ligne à ligne,
+>   et sans risque de misclick avec une fonction "Stage Hunk".
+>
+>   Elle permet également d'éditer le fichier source directement dans la fenêtre de commit,
+>   ce qui est fort pratique dans ce contexte de relecture pouvant amener à des corrections.
+>
+>   Il semble cependant que la procédure d'installation Linux tire beaucoup de contraintes
+>   (cf. https://git-extensions-documentation.readthedocs.io/en/release-2.51/getting_started.html#installation-linux-2-5x-only).
+>   Donc pas très cross-platform, essentiellement envisageable sur Windows.
+>
+>   Enfin, si la fenêtre de commit était pratique,
+>   GitExtensions avait globalement tendance à planter régulièrement.
+>
+> - **[GitKraken Desktop](https://www.gitkraken.com/)**
+>
+>   Dans sa fenêtre de commit,
+>   GitKraken Desktop propose des boutons `+` à gauche du code,
+>   sans fonction "Stage Hunk" à proximité, donc pas de risque de misclick.
+>
+>   Mais la bulle info a tendance à couvrir le code, ce qui gène la lecture et pénalise l'exercice.
+>
+>   Il reste le click droit sur les lignes de code,
+>   sans fonction "Stage Hunk" à proximité encore une fois,
+>   mais moins pratique qu'un bouton directement accessible ou un raccourci clavier.
+>
+>   L'édition de code dans la fenêtre de commit n'est pas disponible en mode *diff*,
+>   et nécessite de basculer en mode *file*,
+>   pour revenir ensuite en mode *diff* pour stager les lignes...
+>   Pas très pratique.
+>
+> - **Patcher `git gui`**
+>
+>   Astuce inspirée de https://stackoverflow.com/questions/32661397/is-there-a-keyboard-shortcut-for-stage-lines-in-git-gui#35543923.
+>
+>   Comme indiqué dans le post *stackoverflow* cité,
+>   le principe est d'ajouter un raccourci clavier à `git gui`
+>   directement dans le code.
+>
+>   En effet, `git gui` est implémenté en [Tcl/Tk](https://www.tcl-lang.org/software/tcltk/),
+>   un langage de script permettant de réaliser des interfaces homme-machine.
+>   Et qui dit langage de script dit qu'on peut modifier le script !
+>
+>   Repérer le script Tcl/Tk de `git gui` :
+>   - Sous Windows : `C:/Program Files (x86)/Git/libexec/git-core/git-gui.tcl` (d'après le post *stackoverflow*)
+>   - Sous Linux : `/usr/lib/git-core/git-gui` (sur ma machine Ubuntu)
+>
+>   Editer le script, et ajouter les lignes suivantes en fin de fichier :
+>   ```tcl/tk
+>   # Inspired from https://stackoverflow.com/questions/32661397/is-there-a-keyboard-shortcut-for-stage-lines-in-git-gui#35543923
+>
+>   bind .   <Key-F4> stagelines
+>
+>   proc stagelines {} {
+>       apply_or_revert_range_or_line %X %Y 0
+>       # for older versions of git-gui, use this line instead:
+>       #apply_range_or_line %X %Y
+>       do_rescan
+>   }
+>   ```
+>
+>   Avec ce patch, la touche F4 devient un raccourci pour les fonctions
+>   "Stage Lines For Commit" et "Unstage Lines From Commit",
+>   ce qui permet d'éviter les risques de misclicks.
+>
+>   En revanche, pas de possibilité d'édition du fichier dans la fenêtre de commit.
+>   Il faut garder son éditeur à portée de main pour les corrections de dernière minute.
 
 
 # Merges & rebases
