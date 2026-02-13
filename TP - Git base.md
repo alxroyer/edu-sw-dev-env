@@ -46,6 +46,31 @@ mais on ne voit pas les branches qui partent de droite et de gauche.
 
 Permet de visualiser rapidement les détails du commit sur lequel on pointe actuellement.
 
+Noter que chaque commit est identifié par un hash,
+en l'occurrence un hash SHA1.
+
+> 💡 **Astuce : nombre de caractères d'un hash de commit**
+>
+> Saisir les X premiers caractères d'un hash de commit suffit.
+>
+> Par exemple, les deux commandes suivantes sont équivalentes :
+> ```bash
+> git checkout 1c0f364
+> git checkout 1c0f3644e0329113608db853e8a3aa3468e99648
+> ```
+>
+> Les plateformes git (telles que GitHub) utilisent régulièrement les 7 premiers caractères uniquement
+>
+> Raccourcir le nombre de caractères peut avoir son intérêt pour la lisibilité,
+> notamment dans les commit logs et les textes des issues.
+
+Check commit vient également avec :
+- un auteur, identifié par un nom et un email,
+- une date,
+- un texte descriptif, qu'on appelle le *commit log*.
+
+Dans gitk, on peut également voir rapidement les modifications apportées par chaque commit.
+
 ## Créer un commit
 
 `git commit`
