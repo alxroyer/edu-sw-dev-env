@@ -49,12 +49,13 @@ Mémo:
     - [2.2. Debugging](#22-debugging)
     - [2.3. Bibliothèques de packages](#23-biblioth%C3%A8ques-de-packages)
         - [2.3.1. Fonctionnement](#231-fonctionnement)
-        - [2.3.2. Juridique](#232-juridique)
-            - [2.3.2.1. Licences commerciales](#2321-licences-commerciales)
-            - [2.3.2.2. Licences Open Source](#2322-licences-open-source)
-            - [2.3.2.3. Licences hybrides](#2323-licences-hybrides)
-        - [2.3.3. Sécurité](#233-s%C3%A9curit%C3%A9)
-        - [2.3.4. Utilisation d'un repo local](#234-utilisation-dun-repo-local)
+        - [2.3.2. Contraintes techniques](#232-contraintes-techniques)
+        - [2.3.3. Contraintes juridiques](#233-contraintes-juridiques)
+            - [2.3.3.1. Licences commerciales](#2331-licences-commerciales)
+            - [2.3.3.2. Licences Open Source](#2332-licences-open-source)
+            - [2.3.3.3. Licences hybrides](#2333-licences-hybrides)
+        - [2.3.4. Risques de sécurité](#234-risques-de-s%C3%A9curit%C3%A9)
+        - [2.3.5. Utilisation d'un repo local](#235-utilisation-dun-repo-local)
     - [2.4. Build](#24-build)
         - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
         - [2.4.2. Bundlers](#242-bundlers)
@@ -567,23 +568,30 @@ de l'apparition de certains des systèmes de packages précédemment cités :
 Si le fait d'utiliser des librairies tierces permet de faciliter et d'accélérer les développements,
 cela ne va pas sans certains inconvénients.
 
+
+### 2.3.2. Contraintes techniques
+
+Comme on peut le voir, certains projets peuvent être amenés à tirer un volume conséquent de packages.
+
+Dans ce genre de situation, de façon assez évidente,
+cela implique des contraintes sur l'espace disque utilisé.
+
+Mais, avec un nombre important de packages utilisés,
+cela augmente également fortement le nombre d'accès disque,
+ce qui peut amener de vraies lenteurs sur les commandes de gestion des packages.
+
 > 💡 **Astuce : Privilégier un disque SSD**
->
-> Comme on peut le voir, certains projets peuvent être amenés à tirer un volume conséquent de packages.
->
-> Les packages étant enregistrés sur le disque local,
-> cela peut représenter beaucoup d'accès disque.
 >
 > Il peut ainsi être intéressant de privilégier l'utilisation de disques SSD
 > pour éviter des phénomènes de lenteur.
 >
-> J'ai eu l'occasion de constater un vrai gain avec un disque SSD
+> J'ai eu l'occasion de constater de vrais gains avec un disque SSD
 > dans certains cas de figure :
 > - multiplicité des dépôts git Android tirés avec la commande `repo`,
 > - volume de packages tirés dans un monorepo JS avec React Native.
 
 
-### 2.3.2. Juridique
+### 2.3.3. Contraintes juridiques
 
 Toute librairie logicielle vient généralement avec une licence d'utilisation.
 
@@ -591,7 +599,7 @@ Les développeurs ont leur part de responsabilité vis-à-vis des licences tiré
 en fonction des choix de technologies opérés.
 
 
-#### 2.3.2.1. Licences commerciales
+#### 2.3.3.1. Licences commerciales
 
 Il existe différents modes de facturation :
 - au nombre de développeurs,
@@ -605,7 +613,7 @@ Tout oubli de règlement des licences commerciales peut se payer très cher deva
 notamment lorsqu'on intègre les arriérés, plus probalement des pénalités à la clé !
 
 
-#### 2.3.2.2. Licences Open Source
+#### 2.3.3.2. Licences Open Source
 
 Attention !
 Open Source ne veut pas dire libre de droits.
@@ -694,7 +702,7 @@ avec le développement d'un logiciel propriétaire.
 > Cf. [LICENSE.txt](LICENSE.txt).
 
 
-#### 2.3.2.3. Licences hybrides
+#### 2.3.3.3. Licences hybrides
 
 Il arrive régulièrement que des projets Open Source adoptent un *business model* hybride :
 - licence commerciale pour les entreprises,
@@ -715,7 +723,7 @@ Exemples :
   ou [commerciale](https://itextpdf.com/how-buy).
 
 
-### 2.3.3. Sécurité
+### 2.3.4. Risques de sécurité
 
 Embarquer des librairies tiers
 signifie également embarquer les bugs que celles-ci contiennent,
