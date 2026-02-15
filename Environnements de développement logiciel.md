@@ -1218,6 +1218,12 @@ A défaut, pour tout ce qu'on n'aura pas réussi à sécuriser avec des moyens t
 ou quand bien même !
 on n'oubliera pas d'être prolixe en documentation utile.
 
+En matière d'industrialisation, on pourra rédiger :
+- des starter kits de documentation, pour la montée en compétence rapide des nouveaux arrivants,
+- des guides d'installation, pour la mise en place de l'environnement de développement,
+- des procédures sous forme de checklists, pour cadrer les opération sensibles (livraison, ...),
+- ...
+
 Se reporter au [§4.5](#45-documentation) pour des conseils sur la gestion de la documentation.
 
 
