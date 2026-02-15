@@ -65,6 +65,10 @@ Mémo:
             - [2.4.4.2. CMake](#2442-cmake)
             - [2.4.4.3. Des configurations de mieux en mieux intégrées](#2443-des-configurations-de-mieux-en-mieux-int%C3%A9gr%C3%A9es)
     - [2.5. Industrialisation](#25-industrialisation)
+        - [2.5.1. Git](#251-git)
+        - [2.5.2. Automatisations : scripting et chaîne CI](#252-automatisations--scripting-et-cha%C3%AEne-ci)
+        - [2.5.3. Conteneurs Docker d'outillages](#253-conteneurs-docker-doutillages)
+        - [2.5.4. Documentation](#254-documentation)
 - [3. Exécution](#3-ex%C3%A9cution)
 - [4. Assurance qualité](#4-assurance-qualit%C3%A9)
     - [4.1. Pratiques d'équipe](#41-pratiques-d%C3%A9quipe)
@@ -76,10 +80,13 @@ Mémo:
         - [4.3.4. PLM - Product Lifecicle Management](#434-plm---product-lifecicle-management)
         - [4.3.5. Archivage](#435-archivage)
         - [4.3.6. Index de configuration](#436-index-de-configuration)
-    - [4.4. Documentation](#44-documentation)
-        - [4.4.1. GED](#441-ged)
-        - [4.4.2. CMS](#442-cms)
-        - [4.4.3. Formats texte + git](#443-formats-texte--git)
+    - [4.4. Automatisation](#44-automatisation)
+        - [4.4.1. Scripting](#441-scripting)
+        - [4.4.2. Chaîne CI/CD](#442-cha%C3%AEne-cicd)
+    - [4.5. Documentation](#45-documentation)
+        - [4.5.1. GED](#451-ged)
+        - [4.5.2. CMS](#452-cms)
+        - [4.5.3. Formats texte + git](#453-formats-texte--git)
 - [5. Delivery](#5-delivery)
     - [5.1. Enregistrements](#51-enregistrements)
     - [5.2. CI/CD](#52-cicd)
@@ -1153,6 +1160,39 @@ et des configurations possibles dans les fichiers associés :
 
 ## 2.5. Industrialisation
 
+Afin d'industrialiser l'environnement de développement,
+on pourra reposer sur différents outils ou pratiques
+permettant d'assurer la maîtrise des éléments.
+
+
+### 2.5.1. Git
+
+L'utilisation de git constitue un socle quasiment systématique pour les développements logiciels aujourd'hui.
+
+Git sert évidemment à suivre l'historique des fichiers source,
+mais également de tous les fichiers projet évoqués précédemment.
+
+De fait, en tirant le dépôt du projet,
+on s'assure d'une répétabilité sur ces éléments.
+
+Se reporter au [§4.3.1](#431-source-control---git) pour une découverte approfondie de l'outil git.
+
+
+### 2.5.2. Automatisations : scripting et chaîne CI
+
+Dès lors qu'on peut automatiser des actions répétitives,
+cela constitue généralement un risque en moins d'erreurs manuelles.
+
+Pour cela, la mise en oeuvre de scripts peut remplir cet objectif.
+
+L'utilisation d'une chaîne CI (*Continuous Integration*)
+permet en plus d'automatiser le déclenchement de scripts (ou de pipelines).
+
+Se reporter au [§4.4](#44-automatisation) pour une présentation détaillée de ces solutions d'automatisation.
+
+
+### 2.5.3. Conteneurs Docker d'outillages
+
 La constitution d'images Docker
 embarquant des versions d'outils bien identifiées
 contribue à la maîtrise de l'environnement de développement.
@@ -1160,8 +1200,25 @@ contribue à la maîtrise de l'environnement de développement.
 Grâce à ces images,
 on peut répéter facilement une configuration de développement,
 pour chaque membre de l'équipe,
-ainsi que pour la chaîne de CI/CD,
+ainsi que pour la chaîne de CI,
 et avec l'assurance d'utiliser les mêmes versions des outils.
+
+Cette approche a par ailleurs l'avantage de pouvoir être suivie dans l'historique git du projet
+par l'intermédiaire de Dockerfiles.
+
+> 👷🛠️ TP : Toolchain SDK Java avec Docker (TODO)
+>
+> Memo :
+> - Démontrer la capacité à upgrader facilement la version du SDK dans le cours du développement.
+
+
+### 2.5.4. Documentation
+
+A défaut, pour tout ce qu'on n'aura pas réussi à sécuriser avec des moyens techniques,
+ou quand bien même !
+on n'oubliera pas d'être prolixe en documentation utile.
+
+Se reporter au [§4.5](#45-documentation) pour des conseils sur la gestion de la documentation.
 
 
 # 3. Exécution
@@ -1201,15 +1258,40 @@ il s'avère intéressant de savoir exécuter notre production aux différentes �
 ### 4.3.6. Index de configuration
 
 
-## 4.4. Documentation
+## 4.4. Automatisation
 
-### 4.4.1. GED
+> ⚠️ **Risque : Automatisation, de la magie à l'obscurantisme**
+>
+> Suite à l'automatisation des tâches,
+> attention à ne pas perdre, au fil du temps, la maîtrise sur ces tâches automatisées.
+>
+> On a pu voir des situations où, en l'absence du serveur Jenkins fournissant un job donné,
+> on n'était plus capable de réaliser l'opération à la main,
+> car on ne savait plus en détails ce que faisait ce job, ou comment il travaillait.
+>
+> Automatiser, c'est bien.
+> Mais attention à ce que la magie ne se transforme pas en obscurantisme !
+>
+> Au moment d'automatiser une tâche,
+> penser à la maintenabilité de l'automatisation :
+> enregistrement fiable (idéalement sous git) et documentation a minima.
 
 
-### 4.4.2. CMS
+### 4.4.1. Scripting
 
 
-### 4.4.3. Formats texte + git
+### 4.4.2. Chaîne CI/CD
+
+
+## 4.5. Documentation
+
+### 4.5.1. GED
+
+
+### 4.5.2. CMS
+
+
+### 4.5.3. Formats texte + git
 
 
 # 5. Delivery
