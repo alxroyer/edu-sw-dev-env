@@ -80,7 +80,8 @@ int main(int argc, char **argv) {
 ```
 
 Ce programme n'a pas d'intérêt particulier autre que celui de manquer de robustesse,
-ce qui nous permettra de tester le [debugging des débordements mémoire](#3-debugging-des-d%C3%A9bordements-m%C3%A9moire) plus tard.
+ce qui nous permettra de tester le debugging des débordements mémoire plus tard
+(cf. [§3](#3-debugging-des-d%C3%A9bordements-m%C3%A9moire)).
 
 > Note :
 > Se reporter au [TP - IDE VS Code C-Cpp.md](TP%20-%20IDE%20VS%20Code%20C-Cpp.md)

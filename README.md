@@ -135,6 +135,10 @@ A partir de VS Code :
 
 Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles pour cette extension.
 
+Pour les références croisées dans le document,
+utiliser le script `check-cross-refs.py' pour détecter les liens invalides,
+en cas de renumérotation des titres notamment.
+
 
 # 5. Générer les documents PDF
 

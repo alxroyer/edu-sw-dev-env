@@ -382,7 +382,7 @@ Le tableau ci-après donne un aperçu historisé de l'apparition de certains des
 > facilitant l'investigation et la résolution de bugs logiciels.
 >
 > Cela entend qu'on sait exécuter notre logiciel au préalable
-> (cf. [§ Exécution](#3-ex%C3%A9cution)).
+> (cf. [§3](#3-ex%C3%A9cution)).
 > La notion reste toutefois abordable
 > en considérant le cas simple des applications PC dans un premier temps.
 
@@ -487,7 +487,7 @@ Ces écosystèmes de frameworks ou librairies s'organisent généralement en deu
 
     - gérer un projet : build, debug, test, ...
       c'est l'équivalent de ce qu'on peut faire *à la main* avec un Makefile
-      (cf. [§ Gestionnaires de projets](#244-gestionnaires-de-projets)),
+      (cf. [§2.4.4](#244-gestionnaires-de-projets)),
     - déclarer les packages qu'on souhaite utiliser
       au travers du projet géré par l'outil,
     - s'interfacer avec la *registry*,
