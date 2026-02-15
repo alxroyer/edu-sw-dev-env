@@ -1279,6 +1279,49 @@ il s'avère intéressant de savoir exécuter notre production aux différentes �
 
 ### 4.4.1. Scripting
 
+La mise en oeuvre de scripts constitue un bon moyen de sécuriser des pratiques.
+
+Parmi les langages de scripting les plus utilisés pour le besoin, on peut citer :
+- Bash
+    - Langage de scripting associé à Linux, et notamment aux commandes Bash.
+    - Disponible également sous Windows avec GitBash,
+      invite de lignes de commandes installée avec git,
+      ce qui est assez naturel pour du développement logiciel.
+    - Syntaxe un peu complexe dès lors qu'on a besoin de faire des traitements algorithmiques.
+- Python :
+    - Plus facile que Bash lorsqu'on commence à avoir des traitements plus complexes.
+    - Nécessite la disponibilité d'un interpréteur Python, et dans une version compatible avec les scripts développés.
+
+> 👷🛠️ TP : Lignes de commande Bash
+>
+> Parcourir les ressources suivantes pour une découverte des lignes de commandes Bash :
+> - https://documentation.ubuntu.com/desktop/en/latest/tutorial/the-linux-command-line-for-beginners/
+> - https://linuxconfig.org/linux-commands-tutorial
+
+> 💡 **Shebang**
+>
+> Sous Linux, la première ligne d'un script correspond habituellement à un *shebang*.
+>
+> *Shebang* pour *She-Bang*, pour `#!`.
+>
+> Permet d'indiquer à l'OS l'interpréteur avec lequel traiter le reste du script.
+> Ainsi, si le script dispose des droits d'exécution, il se comporte comme un programme autonome.
+> Il peut être appelé directement à partir de la ligne de commande Bash,
+> ou à partir d'un autre script,
+> sans avoir à savoir en quel langage il est implémenté.
+>
+> Notes :
+> - L'extension du fichier (*.sh*, *.py*, ...) peut même être retirée.
+> - Sous GitBash, le simple fait de disposer d'un shebang rend un script automatiquement exécutable
+>   (émulation proposée par GitBash en l'absence de permissions de fichiers type Unix sous Windows).
+>
+> On a coutume de passer par un appel `/usr/bin/env` pour une meilleure intégration avec l'OS.
+>
+> Exemples :
+> - `#!/usr/bin/env bash`
+> - `#!/usr/bin/env perl`
+> - `#!/usr/bin/env python`
+
 
 ### 4.4.2. Chaîne CI/CD
 
