@@ -58,8 +58,12 @@ Mémo:
         - [2.3.5. Utilisation d'un repo local](#235-utilisation-dun-repo-local)
     - [2.4. Build](#24-build)
         - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
-        - [2.4.2. Bundlers](#242-bundlers)
-        - [2.4.3. Gestionnaires de projets](#243-gestionnaires-de-projets)
+        - [2.4.2. Bundlers Javascript](#242-bundlers-javascript)
+        - [2.4.3. Transpilation Typescript](#243-transpilation-typescript)
+        - [2.4.4. Gestionnaires de projets](#244-gestionnaires-de-projets)
+            - [2.4.4.1. Makefile, les origines](#2441-makefile-les-origines)
+            - [2.4.4.2. CMake](#2442-cmake)
+            - [2.4.4.3. Des configurations de mieux en mieux intégrées](#2443-des-configurations-de-mieux-en-mieux-int%C3%A9gr%C3%A9es)
     - [2.5. Industrialisation](#25-industrialisation)
 - [3. Exécution](#3-ex%C3%A9cution)
 - [4. Assurance qualité](#4-assurance-qualit%C3%A9)
@@ -476,7 +480,7 @@ Ces écosystèmes de frameworks ou librairies s'organisent généralement en deu
 
     - gérer un projet : build, debug, test, ...
       c'est l'équivalent de ce qu'on peut faire *à la main* avec un Makefile
-      (cf. [§ Gestionnaires de projets](#243-gestionnaires-de-projets)),
+      (cf. [§ Gestionnaires de projets](#244-gestionnaires-de-projets)),
     - déclarer les packages qu'on souhaite utiliser
       au travers du projet géré par l'outil,
     - s'interfacer avec la *registry*,
@@ -505,18 +509,18 @@ Le tableau ci-après donne un aperçu historisé
 de l'apparition de certains des systèmes de packages précédemment cités :
 > Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
 
-| Langage | Outil projet                  | Registry                               | Historique |
-|---------|-------------------------------|----------------------------------------|------------|
-| Perl    | cpan                          | https://metacpan.org/                  | 1995       |
-| C/Linux | buildroot (3)                 | https://buildroot.org/                 | 2001       |
-| Java    | mvn V1 (2002), V2 (2008)      | https://search.maven.org/ (2005)       | 2002       |
-| Python  | pip, venv                     | https://pypi.org/                      | 2003       |
-| Ruby    | gem                           | https://rubygems.org/                  | 2004       |
-| JS      | npm, yarn (2016), pnpm (2017) | https://www.npmjs.com/                 | 2010       |
-| PHP     | composer                      | https://packagist.org/                 | 2012       |
-| Go      | `go get`                      | https://pkg.go.dev/                    | 2012       |
-| Rust    | cargo                         | https://crates.io/                     | 2014       |
-| Swift   | `swift package`               | https://www.swift.org/package-manager/ | 2016       |
+| Langage | Outil projet                  | Fichiers projet                      | Registry                               | Historique |
+|---------|-------------------------------|--------------------------------------|----------------------------------------|------------|
+| Perl    | cpan                          | cpanfile                             | https://metacpan.org/                  | 1995       |
+| C/Linux | buildroot (3)                 | Fichiers *defconfig*                 | https://buildroot.org/                 | 2001       |
+| Java    | mvn V1 (2002), V2 (2008)      | pom.xml                              | https://search.maven.org/ (2005)       | 2002       |
+| Python  | pip, venv                     | requirements.txt, pyproject.toml, pylock.toml (4) | https://pypi.org/         | 2003       |
+| Ruby    | gem                           | Gemfile                              | https://rubygems.org/                  | 2004       |
+| JS      | npm, yarn (2016), pnpm (2017) | package.json, package-lock.json      | https://www.npmjs.com/                 | 2010       |
+| PHP     | composer                      | composer.json, composer.lock         | https://packagist.org/                 | 2012       |
+| Go      | `go get`                      | go.mod, go.sum                       | https://pkg.go.dev/                    | 2012       |
+| Rust    | cargo                         | Cargo.toml, Cargo.lock               | https://crates.io/                     | 2014       |
+| Swift   | `swift package`               | Package.swift, Package.resolved      | https://www.swift.org/package-manager/ | 2016       |
 
 > ℹ️ **Notes**
 >
@@ -554,6 +558,14 @@ de l'apparition de certains des systèmes de packages précédemment cités :
 >
 >   On retrouvera classiquement pour Linux beaucoup de code C,
 >   mais pas uniquement.
+>
+> - (4) Bien que la [PEP 518](https://peps.python.org/pep-0518/) *(Python Enhancement Proposal)*
+>   pour la définition des fichiers `pyproject.toml` date de 2016,
+>   la spécification des fichiers `pylock.toml` date de 2025 seulement
+>   (cf. https://packaging.python.org/en/latest/specifications/pylock-toml/).
+>
+>   Compte tenu du caractère récent de ces spécifications,
+>   l'usage des fichiers `requirements.txt` semble rester d'actualité.
 
 > 👷🛠️ TP : [API REST en JS avec npm](TP%20-%20REST%20API%20npm-ts.md)
 
@@ -561,9 +573,17 @@ de l'apparition de certains des systèmes de packages précédemment cités :
 
 > 👷🛠️ TP : API REST en PHP avec composer (TODO)
 
+> 👷🛠️ TP : API REST en Go avec `go get` et `go build` (TODO)
+>
+> Memo :
+> - https://go.dev/ref/mod#go-mod-init
+> - https://go.dev/doc/modules/managing-dependencies
+> - https://go.dev/doc/modules/gomod-ref
+> - https://go.dev/doc/tutorial/compile-install
+
 > 👷🛠️ TP : [API REST en Rust avec cargo](TP%20-%20REST%20API%20cargo-rust.md)
 
-> 👷🛠️ TP : Image Linux avec buildroot (TODO)
+> 👷🛠️ TP : Image Linux avec buildroot (TODO, penser à enregistrer le fichier *defconfig*)
 
 Si le fait d'utiliser des librairies tierces permet de faciliter et d'accélérer les développements,
 cela ne va pas sans certains inconvénients.
@@ -809,13 +829,326 @@ Ce type de déploiement peut présenter les avantages suivants :
 
 ## 2.4. Build
 
+Après avoir choisi un langage pour le développement, ainsi qu'un IDE,
+après avoir sélectionné des frameworks et des librairies,
+il est l'heure de *builder* notre application,
+c'est-à-dire produire le livrable exécutable.
+
+Selon le langage utilisé, on va considérer différents types de *builds*.
+
+Le tableau ci-après propose une vue d'ensemble des modes de *build* pour chaque technologie,
+et des outils projet associés permettant de réaliser ces *builds* :
+
+| Techno     | Type de build   | Commande / outil de build | Outil projet | Fichiers projet          |
+|------------|-----------------|---------------------------|--------------|--------------------------|
+| C / C++    | Compilation (2) | gcc, g++                  | make, CMake  | Makefile, CMakeLists.txt |
+| Java       | Compilation (3) | javac, jar                | Maven        | pom.xml                  |
+| Javascript | Bundling        | Webpack, Metro, esbuild, Vite | npm, yarn, pnpm | package.json, webpack.config.js, metro.config.js, vite.config.js |
+| Typescript | Transpilation   | tsc                       | tsc          | tsconfig.json            |
+| PHP (1)    | -               | -                         | -            | -                        |
+| Python (1) | -               | -                         | -            | -                        |
+| Rust       | Compilation (2) | rustc                     | cargo        | Cargo.toml               |
+| Go         | Compilation (2) | `go build`                | `go build`   | go.mod                   |
+
+> ℹ️ **Notes**
+>
+> - (1) Les langages interprétés n'ont pas de build en général,
+>   puisque par nature ils sont directement exécutables.
+>   A l'exception de Javascript qui embarque une notion de *bundling* qu'on va détailler après.
+>
+> Les autres notes sont détaillées dans les chapitres correspondants, à suivre.
+
+
 ### 2.4.1. Compilateurs / linkers
 
+Les langages dits compilés ne peuvent généralement être exécutés directement,
+car ils requièrent une étape de transformation du code source en code machine.
 
-### 2.4.2. Bundlers
+> ℹ️ **Notes**
+>
+> - (2) En C / C++, Rust, Go, le binaire final est du code machine
+>   dépendant de l'architecture processeur sur lequel il va s'exécuter (ARM, X86, ... Big/Little Endian, 32 / 64 bits)
+>   ainsi que du système d'exploitation
+>   (Windows, Linux, ... cf. https://stackoverflow.com/questions/48235579/why-do-we-need-to-compile-for-different-platforms-e-g-windows-linux#48236231).
+> - (3) En Java, le *bytecode* généré est prévu pour être portable,
+>   car interprété par une JVM *(Java Virtual Machine)*.
+
+En règle générale, chaque fichier source est d'abord compilé unitairement,
+pour constituer un fichier intermédiaire de code machine :
+- C / C++ : fichiers objets *.o*.
+- Java : fichiers *.class*.
+- Rust : *(sans objet)*
+  > L'étape de build étant complètement intégrée par Cargo (cf. [§2.4.4.3](#2443-des-configurations-de-mieux-en-mieux-int%C3%A9gr%C3%A9es)),
+  > les développeurs ne voient pas passer les fichiers objets générés de manière intermédiaire.
+- Go : *(sans objet), à confirmer*
+  > N'ayant pas d'expérience personnelle en Go,
+  > je suppose que, comme en Rust, les développeurs ne voient pas les fichiers objets intermédiaires.
+
+Ensuite ces différents fichiers objets sont généralement *linkés* ensemble pour constituer l'exécutable final.
+
+> ℹ️ **Java Archive**
+>
+> En java, on ne parle pas vraiment de link, mais d'archive *.jar* *(Java Archive)*.
 
 
-### 2.4.3. Gestionnaires de projets
+### 2.4.2. Bundlers Javascript
+
+Les langages interprétés, par nature, ne nécessitent pas d'étape de *build*.
+Javascript introduit toutefois une notion de *bundling*
+adaptée au contexte du Web.
+
+En effet, le bundling Javascript permet d'assembler plusieurs fichiers source en un seul,
+ce qui permet de développer de façon confortable dans plusieurs fichiers (et non dans un seul fichier énorme),
+mais de livrer un fichier Javascript unique, plus facile à télécharger par les navigateurs.
+
+Le bundling permet d'assembler des sources Javascript,
+mais également d'embarquer des ressources telles que des styles CSS et des images.
+
+Une opération de bundling précise également la version ECMAScript souhaitée
+pour le Javascript produit.
+Cette *transpilation* permet d'assurer une compatibilité maximale avec les différents navigateurs en sortie
+(ES5, voir tableau ci-après),
+tout en gardant le confort des dernières versions du standard en développement.
+
+> ❗ **Standards ECMAScript**
+>
+> L'[Ecma International](https://ecma-international.org/)
+> est une [association d'acteurs industriels](https://ecma-international.org/members/)
+> qui définit et publie différents standards,
+> dont le standard ECMAScript pour le langage Javascript :
+> https://ecma-international.org/technical-committees/tc39/.
+>
+> Le tableau ci-après recense quelques versions majeures du standard :
+>
+> > Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+>
+> | Nom                       | Date | Fonctionnalités majeures | Compatibilité avec les navigateurs | Utilisation en développement |
+> |---------------------------|------|--------------------------|------------------------------------|------------------------------|
+> | ECMAScript 1 (ES1)        | 1997 | Première standardisation. | Très limitée, support historique. | Obsolète. |
+> | ... |
+> | ECMAScript 5 (ES5)        | 2009 | **Mode strict**, **JSON natif**, méthodes pour les tableaux (map, filter, reduce), propriétés getters/setters. | **Excellente, support universel.** | **Version la plus compatible**, encore utilisée pour le support des anciens navigateurs. |
+> | ECMAScript 6 (ES6/ES2015) | 2015 | **Classes**, **modules**, **promesses**, **`let`/`const`**, ***arrow functions***, littéraux de gabarits, déstructuration, paramètres par défaut, opérateur de repos/spread. | Bonne, transpilation souvent nécessaire. | **Révolution majeure**, très utilisée en développement moderne. |
+> | ECMAScript 2016 (ES2016)  | 2016 | **Opérateur d'exponentiation (\*\*)**, méthode Array.prototype.includes, amélioration des fonctions asynchrones (**`async`/`await`**). | Bonne, transpilation parfois nécessaire. | Utilisée pour les fonctionnalités asynchrones avancées. |
+> | ...|
+> | ECMAScript 2020 (ES2020)  | 2020 | Opérateur de coalescence nulle (**`??`**), opérateur optionnel d’enchaînement (**`?.`**), import() dynamique, **BigInt**, Promise.allSettled, String.matchAll. | Très bonne, support large. | Utilisée pour une gestion plus robuste des valeurs nulles et des promesses, ainsi que pour les grands entiers. |
+> | ...|
+> | ECMAScript 2025 (ES2025)  | 2025 | Records & Tuples (types de données immutables), amélioration des décorateurs, nouvelles méthodes pour les tableaux et objets. | Partielle, en cours d’adoption. | Dernière version publiée. |
+> | ESNext                    | -    | - | - | Disponible pour tester les nouvelles fonctionnalités. A réserver pour des usages expérimentaux. |
+>
+> A noter qu'à compter de 2015, une version sort tous les ans, au mois de juin.
+> Aussi, le réalignement en développement sur la toute dernière version n'est pas forcément indispensable.
+> A jauger en fonction des fonctionnalités apportées.
+
+Le bundling embarque généralement une opération dite *minify*
+qui réduit la taille du code Javascript généré, pour en accélérer le téléchargement sur Internet.
+Pour ce faire, cette étape :
+- supprime les espaces et indentations,
+  utiles pour la maintenance du logiciel dans les fichiers source d'origine,
+  mais pas dans la production livrable en exécution,
+- réduit la taille des noms de variables locales.
+
+> 💡 **uglify**
+>
+> Le bundling peut également embarquer une opération dite *uglify*
+> constituant une obfuscation de premier niveau,
+> pour éviter le rétro-engineering du code livré pour exécution.
+
+> ⚠️ **Javascript : un écosystème en constante évolution**
+>
+> Javascript est un écosystème riche, mais en constante évolution.
+>
+> L'angle mort de cette vivacité est une cohérence d'ensemble pas toujours assurée.
+>
+> Il en résulte souvent beaucoup de temps perdu dans la configuration des outils
+> en raison de problèmes de compatibilité,
+> notamment entre les différentes normes ECMAScript ou formats de modules
+> (passage ES5 / ES6 souvent compliqué).
+
+> 💡 **Visualisation de la vivacité de l'écosystème Javascript**
+>
+> Le site https://stateofjs.com/en-US donne des illustrations graphiques très intéressantes
+> sur l'évolution des différentes technologies dans le monde Javascript.
+>
+> Chercher notamment les graphiques *Changes Over Time*.
+>
+> ![stateofjs 2025 Build Tools](images/stateofjs.com%20-%202025%20-%20Libraries%20-%20Changes%20Over%20Time%20-%20Build%20Tools.png)
+>
+> Source : https://2025.stateofjs.com/en-US/libraries/#tools_arrows
+>
+> On voit graphiquement la perte de popularité de Webpack, bien que bénéficiant toujours d'une forte notoriété,
+> alors que esbuild et Vite gagnent fortement en notoriété et en popularité sur l'ensemble,
+> avec toutefois un petit retrait de popularité pour esbuild dernièrement.
+>
+> Autre site pouvant permettre de comparer différentes alternatives de solutions JS (mais pas que) :
+> https://stackshare.io/stackups/trending
+
+> ⚠️ **Des vitesses d'exécution des bundlers variables, impactantes pour la productivité**
+>
+> L'écosystème Javascript est un écosystème très riche,
+> proposant de nombreux bundlers,
+> avec des performances très variables.
+>
+> D'expérience personnelle,
+> certains bundlers tels Webpack et Metro sont extrêmement lents,
+> et pénalisent la productivité des développements.
+>
+> Le site https://esbuild.github.io/ présente une animation amusante,
+> illustrant les différences de performances qu'on peut observer entre Webpack et esbuild notamment.
+> Bien que cette animation serve la promotion de la solution esbuild elle-même,
+> je peux personnellement attester d'un certain réalisme de cette animation,
+> de par les gains de performances ressentis en migrant de Metro à esbuild (développement React Native).
+>
+> Or cette différence de performances de l'outillage au quotidien
+> peut faire une vraie différence sur la productivité des activités de développement.
+> Faire l'effort de changer de bundler peut s'avérer payant à moyen voire à court terme.
+
+> 👷🛠️ TP : Bundling d'une application React Native avec Vite (TODO)
+>
+> Memo :
+> - https://github.com/codepilots/ReactNativeVite
+
+
+### 2.4.3. Transpilation Typescript
+
+Typescript constituant une extension de Javascript avec l'adjonction d'informations de typage,
+la transformation de code Typescript en Javascript ne constitue pas réellement une *compilation*
+mais une *transpilation*.
+En effet le code produit reste un langage de programmation (et non du code machine),
+qui plus est du code Javascript fortement similaire au code source d'origine.
+
+Une transpilation Typescript peut permettre la production d'un code Javascript unique
+à partir de plusieurs fichiers Typescript en entrée.
+En ce sens, une transpilation Typescript peut opérer comme un bundler.
+
+Mais la transpilation Typescript est plus généralement intégrée
+dans une opération de bundling prenant des fichiers Typescript en entrée à transpiler,
+puis à bundler ensuite.
+
+
+### 2.4.4. Gestionnaires de projets
+
+L'opération de build peut requérir plusieurs étapes,
+et donc nécessiter un gestionnaire de projet permettant de réaliser cela.
+
+
+#### 2.4.4.1. Makefile, les origines
+
+En C / C++, il fallait souvent en faire beaucoup "à la main" avec les fichiers Makefile.
+Dès lors, on était régulièrement amené à débugguer ces fichiers.
+
+| Langage    | Outil projet    | Fichier projet              | Documentation |
+|------------|-----------------|-----------------------------|---------------|
+| C / C++    | make            | Makefile                    | https://www.gnu.org/software/make/manual/html_node/index.html |
+
+Comme beaucoup de projets C / C++ actifs utilisent encore des Makefile,
+il est intéressant d'en présenter rapidement les principes généraux :
+- Les Makefiles sont globalement des collections de [règles](https://www.gnu.org/software/make/manual/html_node/Rule-Introduction.html) :
+  ```Makefile
+  target: dep1 dep2
+  	command1 --options arg1 arg2
+  	command2 --options arg1 arg2
+  ```
+    - La première règle dans le fichier constitue la règle par défaut.
+    - Une règle permet de résoudre une *target*.
+        - La target est classiquement un fichier à construire.
+        - Mais il peut aussi d'agir d'une target [phony](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html)
+          i.e. une règle nommée, sans correspondance avec un fichier réel,
+          (typiquement une règle `clean`).
+    - Une règle définit des dépendances (*dep1*, *dep2* dans l'exemple ci-dessus).
+        - Ces dépendances correspondent à d'autres règles dans le fichier Makefile,
+          ou des fichiers sources.
+        - Typiquement, une règle pour la construction d'un fichier *.o*
+          dépend du fichier *.c* ou *.cpp* du même nom,
+          ainsi que des headers *.h* duquel le code *.c* ou *.cpp* est dépendant, directement ou indirectement.
+        - Les dépendances d'une règle se basent généralement sur la date de modification des fichiers :
+          si la date d'une dépendance est postérieure à la target,
+          alors la target doit être reconstruite.
+        - Dans le cas d'une règle phony, les dépendances sont systématiquement exécutées.
+    - Une règle définit finalement un jeu de commandes (*command1*, *command2* dans l'exemple ci-dessus).
+        - Typiquement des appels à `gcc` ou `g++`,
+          pour compiler les fichiers source en fichiers objets,
+          ou pour linker finalement les fichiers objets en binaire exécutable.
+        - Le jeu de commandes d'une règle n'est exécuté que si l'analyse des dépendances l'indique.
+    - Les règles peuvent être écrites de manière générique.
+        - La caractère `%` peut être utilisé dans les targets et les dépendances.
+        - Les variables spéciales `$@` et `$<` permettent respectivement
+          de référencer la target et la dépendance dans le jeu de commandes d'une règle donnée.
+- Les Makefiles permettent de définir des [variables](https://www.gnu.org/software/make/manual/html_node/Variables-Simplify.html).
+- Ils mettent également à disposition un ensemble riche de [fonctions](https://www.gnu.org/software/make/manual/html_node/Functions.html)
+  permettant de calculer les variables de manière générique.
+
+Ce système de dépendances par date permet d'optimiser les temps de compilation.
+En effet, seuls les fichiers objets pour les sources modifiés sont recompilés,
+puis l'application finale relinkée.
+
+Problème :
+la gestion des dépendances inter-fichiers source étant elle-même dépendante des fichiers source eux-mêmes,
+toute modification des fichiers source nécessiterait de mettre à jour le fichier Makefile en conséquence...
+Fastidieux !
+
+C'est pourquoi, on peut utiliser `gcc` pour générer une liste des dépendances de règles,
+qu'on n'a plus qu'à [inclure](https://www.gnu.org/software/make/manual/html_node/Include.html) dans notre fichier Makefile.
+
+Problème résiduel :
+ce sous-Makefile de dépendances n'est pas généré automatiquement.
+Il faut donc rajouter une règle permettant de le mettre à jour à partir de l'état actuel des sources...
+Et il faut également penser à le committer dans l'historique git...
+Un peu mieux, mais ça reste encore fastidieux, et source d'erreurs.
+
+> 👷🛠️ TP : Syntaxe Makefile
+>
+> Parcourir la ressource suivante pour une illustration rapide de la syntaxe Makefile :
+> https://dev.to/ashcript/comprendre-le-makefile-exemple-avec-le-langage-c-47n9.
+
+> 💡 **Astuce : Utiliser Makefile pour autre chose**
+>
+> ...pour autre chose que des compilations de code.
+>
+> Le système de gestion de dépendances par date peut être exploité
+> pour d'autres usages impliquant des transformations de fichiers en d'autres :
+> - transformations XSL,
+> - productions documentaires,
+> - ...
+
+
+#### 2.4.4.2. CMake
+
+Lorsqu'on peut en faire le choix,
+CMake constitue une alternative plus simple que les Makefiles pour les compilations C / C++.
+
+| Langage    | Outil projet    | Fichier projet              | Documentation |
+|------------|-----------------|-----------------------------|---------------|
+| C / C++    | CMake           | CMakeLists.txt              | https://cmake.org/cmake/help/book/mastering-cmake/chapter/Writing%20CMakeLists%20Files.html |
+
+> 👷🛠️ TP : CMake
+>
+> Parcourir le tutoriel officiel proposé par CMake :
+> https://cmake.org/cmake/help/latest/guide/tutorial/index.html#guide:CMake%20Tutorial.
+
+
+#### 2.4.4.3. Des configurations de mieux en mieux intégrées
+
+Avec les nouveaux langages, la mise en oeuvre du build de mieux en mieux intégrée
+au-travers des outils projet,
+et des configurations possibles dans les fichiers associés :
+
+| Langage    | Outil projet    | Fichier projet              | Documentation |
+|------------|-----------------|-----------------------------|---------------|
+| Java       | Maven           | pom.xml                     | https://maven.apache.org/guides/introduction/introduction-to-the-pom.html |
+| Javascript | npm, yarn, pnpm | package.json                | https://nodejs.org/api/packages.html |
+|            | Webpack         | webpack.config.js           | https://webpack.js.org/configuration/ |
+|            | Metro           | metro.config.js             | https://metrobundler.dev/docs/configuration/ |
+|            | esbuild         | *Configuration par API* (4) | https://esbuild.github.io/api/ |
+|            | Vite            | vite.config.js              | https://vite.dev/config/ |
+| Typescript | tsc             | tsconfig.json               | https://www.typescriptlang.org/tsconfig/ |
+| Rust       | cargo           | Cargo.toml                  | https://doc.rust-lang.org/cargo/reference/manifest.html, https://doc.rust-lang.org/cargo/reference/config.html |
+| Go         | `go build`      | go.mod                      | https://go.dev/doc/modules/gomod-ref |
+
+> ℹ️ **Notes**
+>
+> - (4) Pas vraiment de fichier de configuration pour esbuild.
+>   Pour configurer cet outil, la seule façon de faire est de créer un script launcher
+>   passant des configurations à esbuild de manière programmatique (par API *(Application Programming Interface)*).
 
 
 ## 2.5. Industrialisation
