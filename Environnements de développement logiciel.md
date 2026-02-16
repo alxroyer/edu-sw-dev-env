@@ -1326,6 +1326,55 @@ Parmi les langages de scripting les plus utilisés pour le besoin, on peut citer
 
 #### 2.5.4.2. Chaîne CI
 
+Une chaîne d'intégration continue (CI pour *Continuous Integration*)
+permet d'automatiser des scripts, ou pipelines,
+soit de manière chronique,
+soit sur occurrence d'événement.
+
+Parmi les opérations classiquement automatisées en CI :
+- vérifications de règles de codage,
+- vérifications de typage,
+- compilation,
+- exécution des tests unitaires,
+- exécution de tests de non-régression,
+- exécution de campagnes de tests complètes,
+- ...
+
+Ces opérations peuvent être déclenchées :
+- manuellement à la demande,
+- de manière chronique : toutes les nuits, tous les weekends, ...
+- avant ou après le merge d'une pull-request,
+- ...
+
+Le tableau ci-après liste quelques outils principaux de CI :
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Solution | URL | Type de licence | Type de solution | Commentaires | Date |
+|----------|-----|-----------------|------------------|--------------|------|
+| Jenkins | https://www.jenkins.io/ | Open Source | On Premise (1) | Pionnier de la CI, nombreux plugins, coûts de maintenance et de configuration manuelle | 2011 |
+| CircleCI | https://circleci.com/ | Freemium | Cloud & On Premise | Simplicité et rapidité d’exécution, petits déploiements | 2011 |
+| GitLab CI/CD | https://docs.gitlab.com/ci/ | Open Source, Freemium | Cloud & On Premise | Intégré à GitLab, suite complète CI/CD, simplicité d’utilisation, moins performant pour des pipelines complexes | 2015 |
+| Azure DevOps   | https://azure.microsoft.com/en-us/products/devops/pipelines | Commercial | Cloud & On Premise | Solution Microsoft, suite complète CI/CD | 2018 |
+| GitHub Actions | https://github.com/features/actions | Freemium | Cloud & On Premise (2) | Intégré nativement à GitHub, moins flexible | 2019 |
+
+> ℹ️ **Notes**
+>
+> - (1) Un déploiement dans le cloud reste possible.
+> - (2) Voire hybride : possibilité de mixer cloud et On Premise.
+
+Les outils de CI peuvent collecter des indicateurs
+qui permettent de suivre l'état de santé du projet dans le temps.
+
+> Source : https://plugins.jenkins.io/test-results-analyzer/
+![Jenkins - Table report](images/Jenkins%20-%20Test%20Results%20Analyzer%20-%20table-report-2.1.png)
+
+> Source : https://plugins.jenkins.io/test-results-analyzer/
+![Jenkins - Line chart](images/Jenkins%20-%20Test%20Results%20Analyzer%20-%20line-chart-2.1.png)
+
+> 👷🛠️ TP : Jenkins - CI (TODO)
+
+> 👷🛠️ TP : [GitHub Actions](TP%20-%20GitHub%20Actions.md) (réserver la partie CD pour plus le [§4.3.2](#432-cha%C3%AEne-cd))
+
 
 ### 2.5.5. Conteneurs Docker d'outillages
 
