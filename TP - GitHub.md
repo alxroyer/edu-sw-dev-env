@@ -206,9 +206,7 @@ TODO :
 
 # 5. CI/CD
 
-TODO :
-- https://docs.github.com/en/actions/get-started/continuous-integration
-- https://docs.github.com/en/actions/tutorials/build-and-test-code
+Cf. TP dédié : [GitHub Actions](TP%20-%20GitHub%20Actions.md).
 
 
 # 6. Annexes
