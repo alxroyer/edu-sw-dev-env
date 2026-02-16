@@ -1451,6 +1451,21 @@ avec quelques caractéristiques utiles :
 L'utilisation d'outils tels que Kibana peut s'avérer utile
 pour exploiter ces logs.
 
+Le tableau ci-après donne une liste d'outils de gestion des logs parmi les plus connus :
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Solution | Type de licence | Type de solution | Commentaires | Date |
+|----------|-----------------|------------------|--------------|------|
+| Splunk | Commercial | On-premises & cloud | Orientée sécurité, langage de requête spécifique | 2003 |
+| Datadog | Commercial | Cloud | Référence du marché | 2010 |
+| Graylog | SSPL, commercial | On-premises & cloud | Robuste et conviviale, moins adaptée aux grands volumes | 2011 |
+| ELK (Elasticsearch, Logstash, Kibana) | AGPLv3, SSPL, commercial | On-premises & cloud | Open Source, flexible, adaptée aux grands volumes, coûts de mise en œuvre technique | 2012 |
+| Grafana Loki | Open Source, Freemium | On-premises (1) | Extension Grafana (métriques) pour gestion de logs, moins mature | 2018 |
+
+> ℹ️ **Notes**
+>
+> - (1) S'installe en tant qu'extension de Grafana, donc plutôt on-premises.
+
 
 # 4. Delivery / déploiement
 
