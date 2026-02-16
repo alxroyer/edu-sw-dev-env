@@ -9,27 +9,25 @@ notamment à l'aide des commandes `git blame`, `git bisect` et `git show`.
 
 <!-- TOC -->
 
-- [1. Cas de test](#1-cas-de-test)
-    - [1.1. Prérequis](#11-pr%C3%A9requis)
-    - [1.2. Téléchargement](#12-t%C3%A9l%C3%A9chargement)
-    - [1.3. Présentation des éléments](#13-pr%C3%A9sentation-des-%C3%A9l%C3%A9ments)
-    - [1.4. Présentation du bug](#14-pr%C3%A9sentation-du-bug)
-- [2. Corriger le bug en mode debug](#2-corriger-le-bug-en-mode-debug)
-- [3. Analyser avec git blame](#3-analyser-avec-git-blame)
-- [4. Trouver la régression avec git bisect](#4-trouver-la-r%C3%A9gression-avec-git-bisect)
-    - [4.1. Dichotomie simple](#41-dichotomie-simple)
-    - [4.2. Recherche dichotomique et gestion des chemins multiples](#42-recherche-dichotomique-et-gestion-des-chemins-multiples)
-    - [4.3. Analyse du commit fautif](#43-analyse-du-commit-fautif)
-- [5. Annexes](#5-annexes)
-    - [5.1. Documentation utile](#51-documentation-utile)
-    - [5.2. Explication de la régression](#52-explication-de-la-r%C3%A9gression)
+- [1. Prérequis](#1-pr%C3%A9requis)
+- [2. Cas de test](#2-cas-de-test)
+    - [2.1. Téléchargement](#21-t%C3%A9l%C3%A9chargement)
+    - [2.2. Présentation des éléments](#22-pr%C3%A9sentation-des-%C3%A9l%C3%A9ments)
+    - [2.3. Présentation du bug](#23-pr%C3%A9sentation-du-bug)
+- [3. Corriger le bug en mode debug](#3-corriger-le-bug-en-mode-debug)
+- [4. Analyser avec git blame](#4-analyser-avec-git-blame)
+- [5. Trouver la régression avec git bisect](#5-trouver-la-r%C3%A9gression-avec-git-bisect)
+    - [5.1. Dichotomie simple](#51-dichotomie-simple)
+    - [5.2. Recherche dichotomique et gestion des chemins multiples](#52-recherche-dichotomique-et-gestion-des-chemins-multiples)
+    - [5.3. Analyse du commit fautif](#53-analyse-du-commit-fautif)
+- [6. Annexes](#6-annexes)
+    - [6.1. Documentation utile](#61-documentation-utile)
+    - [6.2. Explication de la régression](#62-explication-de-la-r%C3%A9gression)
 
 <!-- /TOC -->
 
 
-# 1. Cas de test
-
-## 1.1. Prérequis
+# 1. Prérequis
 
 - Disposer de Python3 : fonctionne avec Python 3.12,
   mais toute version Python3 devrait normalement fonctionner.
@@ -37,7 +35,9 @@ notamment à l'aide des commandes `git blame`, `git bisect` et `git show`.
   pour pouvoir lire et écrire des fichiers YAML.
 
 
-## 1.2. Téléchargement
+# 2. Cas de test
+
+## 2.1. Téléchargement
 
 Télécharger le cas de test à l'aide des commandes suivantes :
 ```bash
@@ -67,7 +67,7 @@ git -C matrix/ fetch origin matrix:matrix
 >       tel que le kernel Linux par exemple.
 
 
-## 1.3. Présentation des éléments
+## 2.2. Présentation des éléments
 
 Observer l'historique du dépôt téléchargé :
 ```bash
@@ -105,7 +105,7 @@ python matrix.py
 Tester quelques cas de test décrits dans le plan de test.
 
 
-## 1.4. Présentation du bug
+## 2.3. Présentation du bug
 
 L'intérêt de ce cas de test est de présenter un bug,
 alors même que le développeur l'assure avec applomb :
@@ -116,7 +116,7 @@ Sur exécution de l'opération `R = A * C + B * D`, on obtient l'erreur suivante
 "Error: Matrices must have the same dimensions for addition."
 
 
-# 2. Corriger le bug en mode debug
+# 3. Corriger le bug en mode debug
 
 Une des premières options pour corriger un tel bug serait d'investiguer le code Python
 en utilisant les fonctions de debug d'un IDE notamment
@@ -127,7 +127,7 @@ comment on peut utiliser git pour aider à la résolution de problèmes,
 on va considérer que le bug que nous avons n'est pas facile à corriger de façon directe.
 
 
-# 3. Analyser avec git blame
+# 4. Analyser avec git blame
 
 Si on suspecte une ligne en particulier dans le code source,
 on peut utiliser la commande `git blame` :
@@ -147,7 +147,7 @@ Et si le commit référence des tickets associés (issues, ...),
 cela fournit encore plus d'informations sur l'objet des dernières modifications.
 
 
-# 4. Trouver la régression avec git bisect
+# 5. Trouver la régression avec git bisect
 
 Le développeur a la certitude que le programme a fonctionné, au moins à un moment.
 Si on en croit ses mots, le problème observé serait donc une régression.
@@ -204,7 +204,7 @@ exit
 ```
 
 
-## 4.1. Dichotomie simple
+## 5.1. Dichotomie simple
 
 Lancer gitk, de sorte à pouvoir observer le comportement de git au cours des opérations suivantes :
 ```bash
@@ -368,7 +368,7 @@ git bisect reset
 ```
 
 
-## 4.2. Recherche dichotomique et gestion des chemins multiples
+## 5.2. Recherche dichotomique et gestion des chemins multiples
 
 La recherche dichotomique précédente s'était résolue assez facilement,
 de par les noeuds parcourus de façon linéaire, sur la branche `matrix-py` uniquement.
@@ -399,7 +399,7 @@ Poursuivre la recherche dichotomique :
 `git bisect` finit par pointer le même commit fautif que précédemment, le `817413d` ("Improve documentation").
 
 
-## 4.3. Analyse du commit fautif
+## 5.3. Analyse du commit fautif
 
 Observer le commit log du commit identifié : "Improve documentation".
 Cela nous donne le contexte de l'intention du commit.
@@ -609,16 +609,16 @@ C'est donc techniquement la fin de ce TP.
 > Pour véritablement conclure les esprits curieux, voir l'explication de la régression annexes.
 
 
-# 5. Annexes
+# 6. Annexes
 
-## 5.1. Documentation utile
+## 6.1. Documentation utile
 
 Commandes git utiles :
 - https://git-scm.com/docs/git-blame
 - https://git-scm.com/docs/git-bisect
 
 
-## 5.2. Explication de la régression
+## 6.2. Explication de la régression
 
 Pour ne pas rester sur un goût d'inachevé,
 expliquons dans cette annexe la régression qui a été introduite dans ce programme Python.
