@@ -74,6 +74,11 @@ Mémo:
         - [2.5.5. Conteneurs Docker d'outillages](#255-conteneurs-docker-doutillages)
         - [2.5.6. Documentation](#256-documentation)
 - [3. Exécution](#3-ex%C3%A9cution)
+    - [3.1. Exécution des applications PC](#31-ex%C3%A9cution-des-applications-pc)
+    - [3.2. Exécution des applications Web](#32-ex%C3%A9cution-des-applications-web)
+    - [3.3. Exécution des applications mobile](#33-ex%C3%A9cution-des-applications-mobile)
+    - [3.4. Exécution des logiciels embarqués](#34-ex%C3%A9cution-des-logiciels-embarqu%C3%A9s)
+    - [3.5. Stratégie de logs](#35-strat%C3%A9gie-de-logs)
 - [4. Delivery / déploiement](#4-delivery--d%C3%A9ploiement)
     - [4.1. Enregistrements de livrables](#41-enregistrements-de-livrables)
     - [4.2. Applications PC](#42-applications-pc)
@@ -451,17 +456,8 @@ On note finalement que les investigations par debugging ont leurs limitent :
   à afficher dans l'IHM de debug,
   ces exécutions surnuméraires pouvant provoquer des effets de bords indésirables selon les cas.
 
-En raison de ces limitations, la bonne vieille technique du debugging "à la trace" ne doit pas être négligée.
-
-Plus encore, il convient de mettre en place un système de logs efficace dès le début du projet,
-avec quelques fonctions utiles :
-- Niveaux de criticité : debug, info, warning, erreur classiquement.
-- Colorisation : savoir faire apparaître les erreurs en rouge a minima.
-- Indentation : utile pour analyser les logs de traitements récursifs.
-- Filtrages : par fonction, par module.
-
-L'utilisation d'outils tels que Kibana peut également s'avérer utile
-pour exploiter ces logs.
+En raison de ces limitations, la bonne vieille technique du debugging "à la trace" ne doit pas être négligée
+(cf. [§3.5](#35-strat%C3%A9gie-de-logs)).
 
 
 ## 2.3. Bibliothèques de packages
@@ -1293,6 +1289,37 @@ il s'avère intéressant de savoir exécuter notre production aux différentes �
 - en cours de développement, pour des tests unitaires, ou tests d'intégration libres,
 - sur des versions intermédiaires, pour des tests de non-régression quotidiens par exemple,
 - sur des versions identifiées, pour des campagnes de test avant livraison.
+
+
+## 3.1. Exécution des applications PC
+
+
+## 3.2. Exécution des applications Web
+
+
+## 3.3. Exécution des applications mobile
+
+
+## 3.4. Exécution des logiciels embarqués
+
+
+## 3.5. Stratégie de logs
+
+On a vu précédemment qu'on pouvait débugguer les logiciels en exécution,
+mais que le debugging avait ses limites (cf. [§2.2](#22-debugging)).
+
+Il reste effectivement judicieux de mettre en place une stratégie de logs dès le début du projet,
+avec quelques caractéristiques utiles :
+- Format des logs : simple texte, syslog, JSON, ...
+- Données : informations enregistrées dans les logs.
+- Datation : T0, synchronisation (NTP), précision.
+- Niveaux de criticité : debug, info, warning, erreur classiquement.
+- Colorisation : mettre en évidence les erreurs et warning notamment.
+- Indentation : utile pour analyser les logs de traitements récursifs.
+- Filtrages : par fonction, par module, configuration.
+
+L'utilisation d'outils tels que Kibana peut s'avérer utile
+pour exploiter ces logs.
 
 
 # 4. Delivery / déploiement
