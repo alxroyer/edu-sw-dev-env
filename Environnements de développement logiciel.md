@@ -348,7 +348,7 @@ L'usage d'un IDE présente de nombreux intérêts :
   > Bien se renseigner sur les usages possibles ou non.
   >
   > Possible que l'entreprise dispose d'un contrat de confidentialité avec une IA donnée,
-  > voire héberge une solution d'IA *on premise*,
+  > voire héberge une solution d'IA *on-premises*,
   > auquel cas on pourra configurer les IDE pour utiliser cette IA validée par l'entreprise.
 
 On liste ci-après des IDE connus (liste non exhaustive) :
@@ -1351,16 +1351,16 @@ Le tableau ci-après liste quelques outils principaux de CI :
 
 | Solution | URL | Type de licence | Type de solution | Commentaires | Date |
 |----------|-----|-----------------|------------------|--------------|------|
-| Jenkins | https://www.jenkins.io/ | Open Source | On Premise (1) | Pionnier de la CI, nombreux plugins, coûts de maintenance et de configuration manuelle | 2011 |
-| CircleCI | https://circleci.com/ | Freemium | Cloud & On Premise | Simplicité et rapidité d’exécution, petits déploiements | 2011 |
-| GitLab CI/CD | https://docs.gitlab.com/ci/ | Open Source, Freemium | Cloud & On Premise | Intégré à GitLab, suite complète CI/CD, simplicité d’utilisation, moins performant pour des pipelines complexes | 2015 |
-| Azure DevOps   | https://azure.microsoft.com/en-us/products/devops/pipelines | Commercial | Cloud & On Premise | Solution Microsoft, suite complète CI/CD | 2018 |
-| GitHub Actions | https://github.com/features/actions | Freemium | Cloud & On Premise (2) | Intégré nativement à GitHub, moins flexible | 2019 |
+| Jenkins | https://www.jenkins.io/ | Open Source | On-premises (1) | Pionnier de la CI, nombreux plugins, coûts de maintenance et de configuration manuelle | 2011 |
+| CircleCI | https://circleci.com/ | Freemium | Cloud & on-premises | Simplicité et rapidité d’exécution, petits déploiements | 2011 |
+| GitLab CI/CD | https://docs.gitlab.com/ci/ | Open Source, Freemium | Cloud & on-premises | Intégré à GitLab, suite complète CI/CD, simplicité d’utilisation, moins performant pour des pipelines complexes | 2015 |
+| Azure DevOps | https://azure.microsoft.com/en-us/products/devops/pipelines | Commercial | Cloud & on-premises | Solution Microsoft, suite complète CI/CD | 2018 |
+| GitHub Actions | https://github.com/features/actions | Freemium | Cloud & on-premises (2) | Intégré nativement à GitHub, moins flexible | 2019 |
 
 > ℹ️ **Notes**
 >
 > - (1) Un déploiement dans le cloud reste possible.
-> - (2) Voire hybride : possibilité de mixer cloud et On Premise.
+> - (2) Voire hybride : possibilité de mixer cloud et on-premises.
 
 Les outils de CI peuvent collecter des indicateurs
 qui permettent de suivre l'état de santé du projet dans le temps.
