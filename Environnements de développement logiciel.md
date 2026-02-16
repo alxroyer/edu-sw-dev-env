@@ -88,6 +88,11 @@ Mémo:
     - [5.1. Versionning / Gestion de configuration](#51-versionning--gestion-de-configuration)
         - [5.1.1. SemVer](#511-semver)
         - [5.1.2. Source control - git](#512-source-control---git)
+            - [5.1.2.1. Git, les bases](#5121-git-les-bases)
+            - [5.1.2.2. Investiguer avec git](#5122-investiguer-avec-git)
+            - [5.1.2.3. Stratégie git](#5123-strat%C3%A9gie-git)
+            - [5.1.2.4. Plateformes git](#5124-plateformes-git)
+            - [5.1.2.5. Git, mode expert](#5125-git-mode-expert)
         - [5.1.3. Ticketing](#513-ticketing)
         - [5.1.4. Index de configuration](#514-index-de-configuration)
         - [5.1.5. PLM - Product Lifecicle Management](#515-plm---product-lifecicle-management)
@@ -1326,6 +1331,20 @@ il s'avère intéressant de savoir exécuter notre production aux différentes �
 
 
 ### 5.1.2. Source control - git
+
+#### 5.1.2.1. Git, les bases
+
+
+#### 5.1.2.2. Investiguer avec git
+
+
+#### 5.1.2.3. Stratégie git
+
+
+#### 5.1.2.4. Plateformes git
+
+
+#### 5.1.2.5. Git, mode expert
 
 
 ### 5.1.3. Ticketing
