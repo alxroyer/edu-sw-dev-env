@@ -1185,6 +1185,79 @@ et font partie de la stratégie de branching du projet
 
 ### 2.5.2. Règles de codage
 
+Il est commun de définir des règles de codage pour assurer la qualité du logiciel,
+et notamment sa maintenabilité.
+
+Pour ce faire, on pourra utiliser des outils tels que :
+- des vérificateurs de typage : pour vérifier les règles de typage (mypy pour Python)
+- des linters : pour vérifier des règles de codage (taille de fichier, taille de fonction, nombre de fonctions, cyclométrie, ...),
+- des formatters : pour assurer une identation homogène dans les fichiers source.
+
+On pourra veiller à certaines règles de formattage
+pour assurer une meilleure interaction avec le suivi de version sous git,
+et limiter ainsi les merges conflictuels.
+
+> 💡 **Astuce : une ligne par élément**
+>
+> De sorte à limiter le contenu identifié comme diff sous git,
+> on pourra suivre une première règle pour les paramètres de fonctions,
+> ou items de tableaux et de dictionnaire,
+> de passer à la ligne pour chaque élément.
+>
+> Ainsi, une modification d'un nom de fonction,
+> ou de nom de paramètre,
+> ou de valeur de paramètre,
+> ou une modification de la liste des éléments
+> limitera l'identification du diff sur les seuls éléments modifiés,
+> et non l'intégralité de la ligne.
+>
+> Exemple :
+>
+> Le diff
+> ```diff
+> 19c19
+> < _parser: argparse.ArgumentParser = argparse.ArgumentParser(description="Check cross reference in a TOC enabled .md file.", add_help=False)
+> ---
+> > _parser: argparse.ArgumentParser = argparse.ArgumentParser(description="Check cross references in a TOC enabled .md file.", add_help=False)
+> ```
+>
+> pour le code Python suivant :
+> ```Python
+> _parser: argparse.ArgumentParser = argparse.ArgumentParser(description="Check cross references in a TOC enabled .md file.", add_help=False)
+> ```
+>
+> est moins clair que :
+> ```diff
+> 20c20
+> <     description="Check cross reference in a TOC enabled .md file.",
+> ---
+> >     description="Check cross references in a TOC enabled .md file.",
+> ```
+>
+> lorsque le code est formatté comme suit :
+> ```Python
+> _parser: argparse.ArgumentParser = argparse.ArgumentParser(
+>     description="Check cross references in a TOC enabled .md file.",
+>     add_help=False,
+> )
+> ```
+>
+> Le diff fait le focus sur la modification liée au paramètre `description` uniquement.
+
+> 💡 **Astuce : *final trailing comma***
+>
+> Noter par ailleurs, dans l'exemple précédent, la virgule positionnée après le paramètre `add_help`.
+>
+> Python autorise cette virgule optionnelle dans la syntaxe sur le dernier élément,
+> virgule optionnelle qu'on positionne volontairement.
+>
+> Cette *final trailing comma* permet d'assurer que la dernière ligne n'apparaîtra pas en diff
+> si on rajoute des paramètres après le paramètre `add_help`.
+>
+> Note : Tous les langages n'autorisent pas cette virgule finale,
+> comme la syntaxe C par exemple,
+> ce qui est bien dommage.
+
 
 ### 2.5.3. Git
 
