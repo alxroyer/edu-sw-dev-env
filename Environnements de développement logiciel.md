@@ -1174,6 +1174,14 @@ permettant d'assurer la maîtrise des éléments.
 
 ### 2.5.1. Pratiques d'équipe
 
+Les revues de pairs contribuent grandement à la sécurisation des développements,
+et peuvent être outillées,
+notamment au-travers des pull-requests.
+
+Les pull-requests sont des fonctionnalités attachées aux plateformes git,
+et font partie de la stratégie de branching du projet
+(cf. [§5.1.2.3](#5123-strat%C3%A9gie-git)).
+
 
 ### 2.5.2. Règles de codage
 
