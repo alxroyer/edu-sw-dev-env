@@ -76,6 +76,9 @@ Mémo:
 - [3. Exécution](#3-ex%C3%A9cution)
     - [3.1. Exécution des applications PC](#31-ex%C3%A9cution-des-applications-pc)
     - [3.2. Exécution des applications Web](#32-ex%C3%A9cution-des-applications-web)
+        - [3.2.1. Exécution locale](#321-ex%C3%A9cution-locale)
+        - [3.2.2. Exécution distante + développement en Remote SSH](#322-ex%C3%A9cution-distante--d%C3%A9veloppement-en-remote-ssh)
+        - [3.2.3. Conteneurs Dockers](#323-conteneurs-dockers)
     - [3.3. Exécution des applications mobile](#33-ex%C3%A9cution-des-applications-mobile)
     - [3.4. Exécution des logiciels embarqués](#34-ex%C3%A9cution-des-logiciels-embarqu%C3%A9s)
     - [3.5. Stratégie de logs](#35-strat%C3%A9gie-de-logs)
@@ -1439,6 +1442,20 @@ Pour pallier cette problématique, on pourra :
 
 
 ## 3.2. Exécution des applications Web
+
+Pour le cas des applications Web,
+la difficulté supplémentaire réside dans le fait
+qu'on doive faire tourner un ensemble de services constituant le système d'information :
+serveur HTTP et base de données a minima.
+
+
+### 3.2.1. Exécution locale
+
+
+### 3.2.2. Exécution distante + développement en Remote SSH
+
+
+### 3.2.3. Conteneurs Dockers
 
 
 ## 3.3. Exécution des applications mobile
