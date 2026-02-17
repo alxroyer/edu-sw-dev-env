@@ -182,3 +182,4 @@ Images :
 - https://www.pexels.com/fr-fr/
 - https://fr.freepik.com/
 - https://pixabay.com/fr/
+- https://dashboardicons.com/ (logos)

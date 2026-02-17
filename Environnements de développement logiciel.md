@@ -1490,6 +1490,29 @@ La machine distante pouvant être :
 
 ### 3.2.3. Conteneurs Dockers locaux
 
+Depuis le développement de la conteneurisation,
+le déploiement de différents services avec Docker offre une alternative intéressante :
+- Des conteneurs Docker sont lancés pour chacun des services :
+  serveur HTTP, base de données, ... voire moteur CGI PHP dans un conteneur dédié.
+- Le code source reste sur la machine hôte,
+  et monté dans les conteneurs au moyen de *volumes*.
+
+![Local Web dev with Docker](schemas/local-docker-config.drawio.png)
+
+Ce type de déploiement apporte un certain nombre d'avantages :
+- Les Dockerfiles sont gérés en local, et suivis sous git.
+- On peut s'arranger pour suivre exactement la configuration des versions cibles :
+  serveur HTTP, Java, PHP, base de données.
+- Le lancement des différents services est scriptable,
+  permettant un usage facilité au quotidien.
+
+> 👷🛠️ TP : Développement Web avec Docker (TODO)
+>
+> Memo :
+> - Reproduction de la config cible de l'hébergeur.
+> - https://www.docker.com/blog/docker-for-web-developers/
+> - https://www.geeksforgeeks.org/blogs/how-to-use-docker-for-web-development/
+
 
 ### 3.2.4. Chaîne CD sur plateforme de test
 
