@@ -81,6 +81,10 @@ Mémo:
         - [3.2.3. Conteneurs Dockers locaux](#323-conteneurs-dockers-locaux)
         - [3.2.4. Chaîne CD sur plateforme de test](#324-cha%C3%AEne-cd-sur-plateforme-de-test)
     - [3.3. Exécution des applications mobile](#33-ex%C3%A9cution-des-applications-mobile)
+        - [3.3.1. Exécution sur smartphone physique](#331-ex%C3%A9cution-sur-smartphone-physique)
+        - [3.3.2. Emulateurs sur poste de développement](#332-emulateurs-sur-poste-de-d%C3%A9veloppement)
+        - [3.3.3. Emulateurs dans le cloud](#333-emulateurs-dans-le-cloud)
+        - [3.3.4. Expo & Expo Go](#334-expo--expo-go)
     - [3.4. Exécution des logiciels embarqués](#34-ex%C3%A9cution-des-logiciels-embarqu%C3%A9s)
     - [3.5. Stratégie de logs](#35-strat%C3%A9gie-de-logs)
 - [4. Delivery / déploiement](#4-delivery--d%C3%A9ploiement)
@@ -1534,6 +1538,78 @@ Adapté pour des phases de test / validation.
 
 
 ## 3.3. Exécution des applications mobile
+
+D'expérience personnelle, l'exécution des applications mobiles constitue une difficulté en développement.
+
+
+### 3.3.1. Exécution sur smartphone physique
+
+La première option pour exécuter une application mobile est de la tester sur un terminal matériel.
+
+Ca fonctionne, mais c'est extrêment cher dans l'absolu,
+car il faudrait acheter un certain nombre de modèles de téléphones ou tablettes.
+
+
+### 3.3.2. Emulateurs sur poste de développement
+
+Il existe des émulateurs qui permettent de simuler le fonctionnement d'un terminal mobile :
+- Android :
+    - Emulateurs basés sur la technologie Qemu.
+    - A configurer et lancer à partir de Android Studio (1).
+- iOS :
+    - Testflight, https://testflight.apple.com/ (pas eu l'occasion de tester, à confirmer).
+
+Parmi les intérêts de ces émulateurs :
+- coût 0, pas besoin d'acheter de terminaux hardware,
+- capacité à émuler un grand nombre de modèles (type de processeur, taille d'écran, ...).
+
+Ces émulateurs peuvent toutefois présenter des limitations de fonctionnement,
+et surtout patissent généralement de lenteurs qui pénalisent l'activité de développement.
+
+> ⚠️ **(1) Retour d'expérience Android Studio mitigé**
+>
+> Cela n'engage que moi, mais je n'ai pas un très bon retour d'expérience avec l'IDE Android Studio :
+> - C'est de mémoire assez lent, ce qui rajoute à la lenteur des émulateurs.
+> - Les configurations sont assez complexes à réaliser.
+>
+> Travaillant en React Native, je travaillais principalement avec VS Code,
+> et ne lançais Android Studio qu'en cas de nécessité.
+
+
+### 3.3.3. Emulateurs dans le cloud
+
+En cherchant rapidement sur Internet, on trouve des noms de plateformes permettant d'émuler des terminaux mobiles
+(LDCloud, RedFinger, ...)
+
+L'avantage que l'on peut attendre de ces plateformes par rapport à un PC local
+est que les hébergeurs peuvent avoir dimensionné les configurations matérielles
+permettant de supporter les contraintes liées à ces technologies d'émulation.
+
+Je n'ai personnellement pas eu l'occasion de tester ces solutions.
+Solutions qui fonctionnent certainement, mais certainement pas gratuites non plus.
+
+
+### 3.3.4. Expo & Expo Go
+
+A noter finalement l'existence de la solution Expo (https://expo.dev/).
+
+Expo est basé sur React Native (https://reactnative.dev/),
+un framework cross-plateform permettant de développer des interfaces pour différentes cibles :
+- Android,
+- iOS,
+- Applications Web.
+
+Expo propose un mode Expo Go (https://expo.dev/go)
+qui consiste à ne construire que le Javascript bundlé,
+interprété ensuite par un moteur Expo Go,
+soit sur téléphone, soit en ligne (à confirmer).
+
+Cette option peut permettre d'aller plus vite sur le développement initial de l'application.
+
+Une fois l'application développée,
+il ne reste plus qu'à construire l'application finale,
+exécutable sans nécessiter le moteur Expo Go (à confirmer).
+Cf. https://docs.expo.dev/develop/development-builds/expo-go-to-dev-build/.
 
 
 ## 3.4. Exécution des logiciels embarqués
