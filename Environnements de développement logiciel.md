@@ -1423,6 +1423,20 @@ il s'avère intéressant de savoir exécuter notre production aux différentes �
 
 ## 3.1. Exécution des applications PC
 
+Le cas le plus simple :
+on développe en général sur une machine étant directement la cible du logiciel développé.
+
+Restent les problématiques d'OS : Windows, Linux, Mac.
+
+Apple reste la plateforme la plus fermée en la matière :
+pour développer des applications pour MacOS,
+il faut compiler avec Xcode sur un poste Mac,
+pour pouvoir ensuite pousser une appli dans l'App Store.
+
+Pour pallier cette problématique, on pourra :
+- utiliser des machines virtuelles, en local ou dans le cloud,
+- disposer de différentes machines sur les différents OS.
+
 
 ## 3.2. Exécution des applications Web
 
