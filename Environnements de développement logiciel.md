@@ -1459,6 +1459,33 @@ ont été populaires pour leur simplicité d'installation et d'administration.
 
 ### 3.2.2. Exécution distante + développement en Remote SSH
 
+Si on a accès en SSH à une machine distante exécutant notre code,
+on peut aussi travailler en *remote SSH* :
+- Le code source est hébergé et s'exécute sur la machine distante.
+- On dispose d'un IDE sur le poste local.
+- L'IDE travaille sur les fichiers source à distance via le lien SSH.
+
+> Source : https://code.visualstudio.com/docs/remote/ssh
+![Remote SSH](images/VSCode%20-%20Remote%20SSH%20-%20architecture-ssh.png)
+
+> 💡 **Astuce : Extension VSCode Remote - SSH**
+>
+> L'extension VSCode [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+> permet ce travail à distance sur un code source.
+>
+> Cf. https://code.visualstudio.com/docs/remote/ssh.
+
+La machine distante pouvant être :
+- une machine physique,
+  mais c'est de plus en plus rare aujourd'hui ;
+- une machine virtuelle
+    - tournant on-premises sur une solution de virtualisation telle VMware ou Proxmox,
+    - ou dans le cloud ;
+- des conteneurs Dockers, c'est moins probable,
+  car on basculera certainement alors sur la stratégie d'exécution suivante.
+
+> 👷🛠️ TP : Développement Web en Remote SSH avec VSCode (TODO)
+
 
 ### 3.2.3. Conteneurs Dockers
 
