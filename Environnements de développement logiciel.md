@@ -1524,6 +1524,11 @@ Solution la plus riche, car elle nécessite :
 - et probablement une solution de logging permettant d'investiguer plus efficacement en cas de problème
   (cf. [§3.5](#35-strat%C3%A9gie-de-logs)).
 
+Moins réactif que l'option précédente,
+car nécessite des redéploiements de conteneurs Dockers.
+
+Adapté pour des phases de test / validation.
+
 
 ## 3.3. Exécution des applications mobile
 
