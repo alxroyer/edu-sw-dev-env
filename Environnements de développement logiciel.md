@@ -78,7 +78,8 @@ Mémo:
     - [3.2. Exécution des applications Web](#32-ex%C3%A9cution-des-applications-web)
         - [3.2.1. Exécution locale](#321-ex%C3%A9cution-locale)
         - [3.2.2. Exécution distante + développement en Remote SSH](#322-ex%C3%A9cution-distante--d%C3%A9veloppement-en-remote-ssh)
-        - [3.2.3. Conteneurs Dockers](#323-conteneurs-dockers)
+        - [3.2.3. Conteneurs Dockers locaux](#323-conteneurs-dockers-locaux)
+        - [3.2.4. Chaîne CD sur plateforme de test](#324-cha%C3%AEne-cd-sur-plateforme-de-test)
     - [3.3. Exécution des applications mobile](#33-ex%C3%A9cution-des-applications-mobile)
     - [3.4. Exécution des logiciels embarqués](#34-ex%C3%A9cution-des-logiciels-embarqu%C3%A9s)
     - [3.5. Stratégie de logs](#35-strat%C3%A9gie-de-logs)
@@ -1487,7 +1488,18 @@ La machine distante pouvant être :
 > 👷🛠️ TP : Développement Web en Remote SSH avec VSCode (TODO)
 
 
-### 3.2.3. Conteneurs Dockers
+### 3.2.3. Conteneurs Dockers locaux
+
+
+### 3.2.4. Chaîne CD sur plateforme de test
+
+Solution la plus riche, car elle nécessite :
+- la mobilisation de ressources matérielles pouvant héberger l'exécution de machines virtuelles,
+  typiquement des PC bare-metal, en baie, avec VMware ou Proxmox ;
+- le déploiement d'une solution de CD (cf. [§4.3.2](#432-cha%C3%AEne-cd))
+  pour instancier des POD Docker pour nos services ;
+- et probablement une solution de logging permettant d'investiguer plus efficacement en cas de problème
+  (cf. [§3.5](#35-strat%C3%A9gie-de-logs)).
 
 
 ## 3.3. Exécution des applications mobile
