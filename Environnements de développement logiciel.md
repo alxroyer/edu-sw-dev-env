@@ -1451,6 +1451,11 @@ serveur HTTP et base de données a minima.
 
 ### 3.2.1. Exécution locale
 
+Première option : lancer en local tous les services, et les faire interopérer.
+
+Les packs LAMP et WAMP (Linux/Windows Apache MySQL PHP)
+ont été populaires pour leur simplicité d'installation et d'administration.
+
 
 ### 3.2.2. Exécution distante + développement en Remote SSH
 
