@@ -991,7 +991,7 @@ Pour ce faire, cette étape :
 >
 > ![stateofjs 2025 Build Tools](images/stateofjs.com%20-%202025%20-%20Libraries%20-%20Changes%20Over%20Time%20-%20Build%20Tools.png)
 >
-> Source : https://2025.stateofjs.com/en-US/libraries/#tools_arrows
+> > Source : https://2025.stateofjs.com/en-US/libraries/#tools_arrows
 >
 > On voit graphiquement la perte de popularité de Webpack, bien que bénéficiant toujours d'une forte notoriété,
 > alors que esbuild et Vite gagnent fortement en notoriété et en popularité sur l'ensemble,
@@ -1369,11 +1369,13 @@ Le tableau ci-après liste quelques outils principaux de CI :
 Les outils de CI peuvent collecter des indicateurs
 qui permettent de suivre l'état de santé du projet dans le temps.
 
-> Source : https://plugins.jenkins.io/test-results-analyzer/
 ![Jenkins - Table report](images/Jenkins%20-%20Test%20Results%20Analyzer%20-%20table-report-2.1.png)
 
 > Source : https://plugins.jenkins.io/test-results-analyzer/
+
 ![Jenkins - Line chart](images/Jenkins%20-%20Test%20Results%20Analyzer%20-%20line-chart-2.1.png)
+
+> Source : https://plugins.jenkins.io/test-results-analyzer/
 
 > 👷🛠️ TP : Jenkins - CI (TODO)
 
@@ -1466,8 +1468,9 @@ on peut aussi travailler en *remote SSH* :
 - On dispose d'un IDE sur le poste local.
 - L'IDE travaille sur les fichiers source à distance via le lien SSH.
 
-> Source : https://code.visualstudio.com/docs/remote/ssh
 ![Remote SSH](images/VSCode%20-%20Remote%20SSH%20-%20architecture-ssh.png)
+
+> Source : https://code.visualstudio.com/docs/remote/ssh
 
 > 💡 **Astuce : Extension VSCode Remote - SSH**
 >
