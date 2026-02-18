@@ -57,7 +57,7 @@ Il propose enfin une brève introduction au langage Typescript.
   >
   > Sur Windows, une option rapide et pratique est d'utiliser GitBash.
 
-- Un éditeur de code (VSCode, ...)
+- Un éditeur de code (VS Code, ...)
 
 
 # 2. Initialiser un projet npm
