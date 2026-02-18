@@ -86,6 +86,12 @@ Mémo:
         - [3.3.3. Emulateurs dans le cloud](#333-emulateurs-dans-le-cloud)
         - [3.3.4. Expo & Expo Go](#334-expo--expo-go)
     - [3.4. Exécution des logiciels embarqués](#34-ex%C3%A9cution-des-logiciels-embarqu%C3%A9s)
+        - [3.4.1. Exécution sur cible hardware](#341-ex%C3%A9cution-sur-cible-hardware)
+            - [3.4.1.1. OS riche](#3411-os-riche)
+            - [3.4.1.2. Bootloader](#3412-bootloader)
+            - [3.4.1.3. Programmation mémoire](#3413-programmation-m%C3%A9moire)
+        - [3.4.2. Exécution dans un émulateur](#342-ex%C3%A9cution-dans-un-%C3%A9mulateur)
+        - [3.4.3. Exécution en mode simulé X86](#343-ex%C3%A9cution-en-mode-simul%C3%A9-x86)
     - [3.5. Stratégie de logs](#35-strat%C3%A9gie-de-logs)
 - [4. Delivery / déploiement](#4-delivery--d%C3%A9ploiement)
     - [4.1. Enregistrements de livrables](#41-enregistrements-de-livrables)
@@ -1613,6 +1619,182 @@ Cf. https://docs.expo.dev/develop/development-builds/expo-go-to-dev-build/.
 
 
 ## 3.4. Exécution des logiciels embarqués
+
+### 3.4.1. Exécution sur cible hardware
+
+Pour l'exécution des logiciels embarqués sur la cible hardware,
+il faut commencer par charger le logiciel à exécuter sur la cible.
+
+
+#### 3.4.1.1. OS riche
+
+Lorsqu'on est sur des cibles avec un OS riche,
+tel Raspbian/Linux sur Raspberry,
+le chargement du logiciel sur la cible peut se faire relativement facilement,
+via SSH / scp notamment.
+
+Dans ce type de déploiement, lancer le logiciel est assez direct également.
+
+> ℹ️ **OS embarqué**
+>
+> Dans les autres cas présentés après, c'est souvent notre logiciel qui embarque l'OS :
+> Linux (avec buildroot), vxWorks, µC-OS, ...
+
+
+#### 3.4.1.2. Bootloader
+
+Il existe également des cas où notre logiciel embarqué
+peut être lancé par un bootloader.
+
+C'est typiquement le cas des images Linux construites avec buildroot,
+et qu'on pourra lancer avec un bootloader UEFI présent sur la carte.
+
+Un bootloader UEFI permet de lancer une image depuis une partition disque,
+mais également depuis un device USB, ou en TFTP depuis un serveur,
+ce qui offre des facilités d'exécution sur la cible.
+
+> 💡 **Dev "à chaud" avec Linux embarqué**
+>
+> Et une fois qu'on a notre image Linux qui tourne,
+> on peut aussi faire des modifications "à chaud" :
+> - modifier des scripts et des configurations avec `vi`,
+> - exécuter des commandes système,
+> - recompiler et upgrader via SSH certains programmes embarqués.
+
+
+#### 3.4.1.3. Programmation mémoire
+
+Il existe enfin des cas où notre logiciel embarqué est directement chargé par le processeur,
+depuis un composant mémoire afférent sur la carte.
+Il faut donc programmer ce composant mémoire sur la carte.
+
+Pour ce faire, deux options à ma connaissance :
+
+- **Utilisation d'une sonde branchée sur un connecteur JTAG**
+
+  ![JTAG](./images/jtag_connections_diagram_v3.png)
+
+  > Source : https://www.actuatedrobots.com/debugging-with-jtag/
+
+  Une sonde JTAG est un matériel spécifique
+  (tel les sondes Lauterbach - https://www.lauterbach.com/)
+  qui permet de piloter le processeur sur une carte.
+
+  Elle permet de charger le logiciel à exécuter,
+  exécuter des commandes processeur,
+  et débugguer l'exécution du logiciel sur le processeur.
+
+  On peut ainsi charger le logiciel et le débugguer directement,
+  ou le charger et l'écrire dans une mémoire afférente au processeur.
+
+- **Programmation de la mémoire cible à l'aide d'une fonction logicielle**
+
+  Les sondes JTAG étant du matériel spécifique, potentiellement cher,
+  on pourra chercher à se passer de celles-ci au quotidien.
+
+  Pour ce faire, on pourra développer des fonctions logicielles,
+  exécutées par le processeur lui-même ou d'autres processeurs sur la carte,
+  permettant de reprogrammer la mémoire contenant le logiciel à exécuter.
+
+  Pour le transfert du logiciel, selon les interfaces disponibles sur la carte,
+  on pourra utiliser :
+  - des ports USB permettant de brancher une clé,
+  - des liens réseaux : FTP, TFTP, SSH, ...
+  - un lien série : avec utilisation d'un protocole Xmodem, Ymodem, Zmodem, Kermit...
+    pour le transfert des données binaires.
+
+  On programme, on reboote, et on croise les doigts pour que ça reboote correctement.
+  Si ça ne reboote pas, il faudra revenir à la sonde.
+
+Dans tous les cas, l'exécution sur cible hardware requiert la disponibilité de la cible hardware elle-même,
+voire d'une sonde JTAG spécifique pour le processeur cible.
+Du matériel qui selon les cas peut se chiffrer à plusieurs milliers d'euros.
+
+
+### 3.4.2. Exécution dans un émulateur
+
+De sorte à réduire les coûts,
+on peut aussi utiliser des émulateurs de processeurs.
+
+Qemu (https://www.qemu.org/) permet de mettre en oeuvre de tels émulateurs.
+
+Cela nécessite toutefois un peu de travail préliminaire
+pour bien configurer son émulateur de sorte à ce qu'il corresponde à la cible hardware visée.
+
+Cela nécessite également du travail d'outillage autour du Qemu
+pour émuler toutes les interfaces d'entrée / sortie du processeur.
+
+> ⚠️ **Lenteur des émulateurs**
+>
+> On note un problème récurrent de lenteur d'exécution des émulateurs.
+>
+> Ce problème peut s'avérer assez pénalisant pour la productivité
+> des activités de développement et intégration,
+> ainsi que des activités de tests également.
+
+> 💡 **Snapshots Qemu**
+>
+> Il existe une fonction de *snapshot* avec Qemu.
+>
+> Je n'ai pas eu l'occasion de tester,
+> mais cela peut probablement accélérer le démarrage des tests dans des conditions initiales données.
+> On pourrait effectivement envisager constituer des snapshots
+> pour chaques conditions initiales identifiées dans le plan de test.
+
+
+### 3.4.3. Exécution en mode simulé X86
+
+L'idée ici n'est pas d'exécuter le logiciel sur la cible,
+ou un émulateur équivalent à la cible,
+mais de le faire tourner directement sur la machine de développement en X86.
+
+Ce n'est donc probablement pas représentatif de l'architecture hardware cible
+(32/64 bits, big/little endian),
+mais cela peut permettre de pré-debugguer déjà une bonne partie du fonctionnel
+avant de finir par une intégration hard/soft finale sur la cible.
+
+Cette solution peut également présenter l'avantage de simplifier l'effort d'outillage
+pour les interfaces d'entrée / sortie,
+car on peut décider de détourer le périmètre de simulation là où c'est le plus efficace.
+
+> 💡 **Retex simulation X86 / instrumentation des API drivers**
+>
+> J'ai eu l'occasion de mener une stratégie de test avec un logiciel simulé tel que décrit ici,
+> expérience couronnée d'un certain succès soit dit en passant.
+>
+> Le logiciel simulé X86 embarquait :
+> - Un OS minimaliste,
+> - Le code applicatif utilisant l'API des drivers.
+>
+> L'implémentation des drivers était remplacée par du code d'outillage
+> permettant une interaction avec un environnement de test en Python.
+>
+> ![Exécution simulé - API drivers instrumentée](schemas/simulate-embedded-X86-driver-API.drawio.png)
+>
+> Comme indiqué, l'expérience avait été couronnée d'un certain succès,
+> notamment pour les raisons suivantes :
+> - **Facilité de mise en oeuvre :**
+>   Le développement du code d'outillage remplaçant les drivers
+>   était d'une complexité abordable.
+>   Pas besoin de descendre dans des spécifications matérielles
+>   pour émuler les entrées / sorties,
+>   on reste sur un niveau programmatique d'API drivers.
+> - **Facilité de déploiement :**
+>   Le code X86, une fois compilé, est directement utilisable par l'environnement de test.
+>   Bien plus rapide que de charger le logiciel sur la carte pour chaque test qu'on veut réaliser.
+> - **Facilité de reproduction des problèmes :**
+>   Grâce au couplage avec l'environnement de test,
+>   il est facile de rejouer un test en erreur,
+>   ou d'adapter un test existant,
+>   pour reproduire un problème sur lequel on investigue.
+> - **Facilité de debugging :**
+>   Une fois le problème reproduit avec l'environnement de test,
+>   il est plus rapide de débugguer le code directement à partir de la machine de développement
+>   que sur une cible hardware distante.
+> - **Rapidité d'exécution des tests :**
+>   En évitant des temps de chargement, et des temps de reset hardware,
+>   une campagne de tests se trouve grandement accélérée.
+>   Le déroulement d'une campagne de non-régression de quelques centaines de test passait en 10-20 minutes seulement.
 
 
 ## 3.5. Stratégie de logs

@@ -183,3 +183,4 @@ Images :
 - https://fr.freepik.com/
 - https://pixabay.com/fr/
 - https://dashboardicons.com/ (logos)
+- https://www.logo.wine/ (logos)
