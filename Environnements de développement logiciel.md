@@ -104,7 +104,7 @@ Mémo:
     - [4.4. Applications mobiles](#44-applications-mobiles)
     - [4.5. Logiciels embarqués](#45-logiciels-embarqu%C3%A9s)
 - [5. Assurance qualité](#5-assurance-qualit%C3%A9)
-    - [5.1. Versionning / Gestion de configuration](#51-versionning--gestion-de-configuration)
+    - [5.1. Versioning / Gestion de configuration](#51-versioning--gestion-de-configuration)
         - [5.1.1. SemVer](#511-semver)
         - [5.1.2. Source control - git](#512-source-control---git)
             - [5.1.2.1. Git, les bases](#5121-git-les-bases)
@@ -1861,7 +1861,7 @@ Le tableau ci-après donne une liste d'outils de gestion des logs parmi les plus
 
 # 5. Assurance qualité
 
-## 5.1. Versionning / Gestion de configuration
+## 5.1. Versioning / Gestion de configuration
 
 ### 5.1.1. SemVer
 
