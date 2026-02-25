@@ -431,11 +431,11 @@ Les IDE intègrent très bien les débuggeurs,
 et permettent ainsi de basculer très rapidement entre les modes édition de code et debugging / intégration.
 
 Parmi les fonctions utiles d'un debugger, on note :
-- la possibilité de positionner des points d'arrêt (*breakpoints*)
+- la possibilité de positionner des points d'arrêt *(breakpoints)*,
 - l'exécution pas à pas, i.e. ligne à ligne,
 - l'observation des valeurs de variables,
 - rentrer dans l'exécution des fonctions (et en ressortir)
-- l'affichage de la pile d'appels (*callstack*)
+- l'affichage de la pile d'appels *(callstack)*
 - la possibilité de définir un point d'arrêt sur modification de valeur :
   très utile pour investiguer des problèmes de débordement mémoire
 - la capacité à modifier des valeurs de données :
@@ -2084,7 +2084,7 @@ cela constitue généralement un risque en moins d'erreurs manuelles.
 Pour cela, la mise en oeuvre de scripts peut remplir cet objectif
 (cf. [§2.5.4.1](#2541-scripting)).
 
-L'utilisation d'une chaîne CI (*Continuous Integration*)
+L'utilisation d'une chaîne CI *(Continuous Integration)*
 permet en plus d'automatiser le déclenchement de traitements
 (cf. [§2.5.4.2](#2542-cha%C3%AEne-ci)).
 
@@ -2105,7 +2105,7 @@ permet en plus d'automatiser le déclenchement de traitements
 > enregistrement fiable (idéalement sous git) et documentation a minima.
 
 Pour les développements Web,
-la mise en oeuvre d'une chaîne CD (*Continuous Delivery*)
+la mise en oeuvre d'une chaîne CD *(Continuous Delivery)*
 prolonge la CI jusqu'à la livraison en production (cf. [§4.3.2](#432-cha%C3%AEne-cd)),
 idéalement en *deploy as code* (cf. [§4.3.3](#433-deploy-as-code)).
 
