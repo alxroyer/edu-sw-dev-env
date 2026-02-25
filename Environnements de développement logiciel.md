@@ -100,6 +100,9 @@ Mémo:
         - [4.1.3. Dépôt de binaires](#413-d%C3%A9p%C3%B4t-de-binaires)
         - [4.1.4. Enregistrement dans les dépôts publics](#414-enregistrement-dans-les-d%C3%A9p%C3%B4ts-publics)
     - [4.2. Applications PC](#42-applications-pc)
+        - [4.2.1. Applications Windows](#421-applications-windows)
+        - [4.2.2. Applications Linux](#422-applications-linux)
+        - [4.2.3. Applications Mac](#423-applications-mac)
     - [4.3. Applications Web](#43-applications-web)
         - [4.3.1. Scalabilité](#431-scalabilit%C3%A9)
         - [4.3.2. Chaîne CD](#432-cha%C3%AEne-cd)
@@ -1933,6 +1936,88 @@ les versions logicielles dans les dépôts publiques :
 
 
 ## 4.2. Applications PC
+
+### 4.2.1. Applications Windows
+
+La livraison d'une application Windows passe généralement
+par la génération d'un programme d'installation (ou *setup*).
+
+Pour produire des programmes d'installation, plusieurs outils possibles :
+- InstallShield (https://www.revenera.com/install/products/installshield),
+- Inno Setup (https://jrsoftware.org/isinfo.php),
+- InstallForge (https://installforge.net/gallery/),
+- Wix (https://www.firegiant.com/wixtoolset/),
+- ...
+
+Il semble qu'aujourd'hui l'IDE Visual Studio permette de générer directement
+des programmes d'installation (à confirmer).
+
+> 👷🛠️ TP : Génération de programme d'installation avec Inno Setup (TODO)
+
+> 👷🛠️ TP : Génération de programme d'installation avec Visual Studio (TODO)
+
+Pour autant, une fois le programme d'installation généré,
+on n'identifie pas de canal de distribution de référence pour distribuer un logiciel Windows (1).
+
+Il existe effectivement le *Microsoft Store*,
+pour le cas spécifique des *Windows Apps*,
+mais il ne semble pas que cela constitue un canal de distribution majeur (1).
+
+Les logiciels restent aujourd'hui majoritairement téléchargeables
+via des sites non gérés par Microsoft (1) :
+- SourceForge (https://sourceforge.net/),
+- Clubic (https://www.clubic.com/telecharger),
+- Steam (https://store.steampowered.com/, spécialisé dans la diffusion de jeux vidéos),
+- ...
+
+> ⚠️ **(1) Disclaimer**
+>
+> Sur la base d'observations poersonnelles.
+> A étayer.
+
+Il existe également quelques initiatives de distributions de packages
+"à la Linux" pour Windows :
+- Chocolatey (https://chocolatey.org/),
+- WinGet (https://learn.microsoft.com/fr-fr/windows/package-manager/winget/),
+- ...
+
+L'utilisation de ces systèmes reste toutefois confidentielle,
+limitée essentiellement à un usage de développement.
+
+
+### 4.2.2. Applications Linux
+
+Les logiciels Linux sont essentiellement distribués via des dépôts de packages.
+
+Deux grands systèmes de packages principaux sous Linux :
+- **Packages *.deb* :**
+  Packages Debian.
+  Téléchargés et installés à l'aide de la commande `apt` (*Advanced Package Tool*, https://manpages.debian.org/trixie/apt/apt.8.en.html).
+- **Packages RPM :**
+  Initialement *RedHat Package Manager* (https://rpm.org/).
+
+> 👷🛠️ TP : Génération d'un package .deb (TODO)
+
+> 👷🛠️ TP : Génération d'un package RPM (TODO)
+
+Depuis quelques temps,
+Canonical (société mettant à disposition Ubuntu)
+a également développé le système *snap* (https://snapcraft.io/),
+un système de packages conteneurisés.
+
+> ℹ️ **Intérêt d'un système de packages conteneurisés**
+>
+> L'intérêt de conteneuriser les installations
+> est certainement de limiter les conflits potentiels
+> entre les différentes applications installées sur un même poste (à confirmer).
+
+
+### 4.2.3. Applications Mac
+
+> ❗ **Distribution d'applications Mac (TODO)**
+>
+> N'ayant pas d'expérience significative dans le développement d'applications Mac,
+> cette section reste à documenter.
 
 
 ## 4.3. Applications Web
