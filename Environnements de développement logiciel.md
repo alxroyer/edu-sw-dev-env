@@ -2069,6 +2069,53 @@ un système de packages conteneurisés.
 
 ### 5.1.4. Index de configuration
 
+> ❗ **Importance de l'index de configuration**
+>
+> Lorsqu'il est constitué,
+> un index de configuration devient rapidement un elément central
+> de la conduite d'un projet.
+>
+> Il permet d'assurer la maîtrise dans le temps
+> des jeux des documents, logiciels et outils applicables
+> pour chacune des *baselines*.
+
+Il s'agit typiquement d'un tableau à double entrées :
+1. Dans un premier axe, on recense tous les éléments constitutifs du projet :
+   documents, logiciels produits, librairies utilisées ou COTS *(Commercial Off-The-Shelf)*, outils, ...
+   On présente une ligne par version pour chaque élément.
+2. Dans un second axe, on identifie des *baselines*,
+   i.e. des dates clés dans l'avancement du projet :
+   jalons, revues, changements de périmètre, livraisons de versions, ...
+
+Ensuite, par un système de croix,
+on fait correspondre les versions applicables de chaque élément
+pour chaque *baseline*.
+
+![Configuration index](files/configuration-index.png)
+
+> 💡 **Astuces de présentation dans un tableur**
+>
+> On pourra utiliser la fonction de filtres sur les colonnes de *baselines*
+> pour retrouver rapidement la liste des éléments applicables pour une *baseline* donnée.
+>
+> On pourra également utiliser la fonction de groupement des lignes
+> pour permettre de replier / déplier toutes les versions d'un même élément.
+
+Voir l'exemple de tableau correspondant au visuel présenté juste avant :
+[configuration-index.ods](files/configuration-index.ods).
+
+> 💡 **Index de configuration & index documentaire**
+>
+> En ajoutant simplement une colonne donnant le lieu d'enregistrement de chaque version d'élément,
+> un index de configuration peut faire office d'index documentaire par la même occasion.
+
+> 💡 **Index de configuration & conformité juridique**
+>
+> Penser à ajouter une colonne indiquant la licence des librairies et outils utilisés.
+>
+> En faisant cela, on s'assure de se poser la question de la conformité juridique
+> pour chaque élément concerné.
+
 
 ### 5.1.5. PLM - Product Lifecicle Management
 
