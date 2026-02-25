@@ -55,7 +55,7 @@ Mémo:
             - [2.3.3.2. Licences Open Source](#2332-licences-open-source)
             - [2.3.3.3. Licences hybrides](#2333-licences-hybrides)
         - [2.3.4. Risques de sécurité](#234-risques-de-s%C3%A9curit%C3%A9)
-        - [2.3.5. Utilisation d'un repo local](#235-utilisation-dun-repo-local)
+        - [2.3.5. Utilisation d'un miroir local](#235-utilisation-dun-miroir-local)
     - [2.4. Build](#24-build)
         - [2.4.1. Compilateurs / linkers](#241-compilateurs--linkers)
         - [2.4.2. Bundlers Javascript](#242-bundlers-javascript)
@@ -95,6 +95,10 @@ Mémo:
     - [3.5. Stratégie de logs](#35-strat%C3%A9gie-de-logs)
 - [4. Delivery / déploiement](#4-delivery--d%C3%A9ploiement)
     - [4.1. Enregistrements de livrables](#41-enregistrements-de-livrables)
+        - [4.1.1. Répertoires partagés, GED](#411-r%C3%A9pertoires-partag%C3%A9s-ged)
+        - [4.1.2. Enregistrement sous git](#412-enregistrement-sous-git)
+        - [4.1.3. Dépôt de binaires](#413-d%C3%A9p%C3%B4t-de-binaires)
+        - [4.1.4. Enregistrement dans les dépôts publics](#414-enregistrement-dans-les-d%C3%A9p%C3%B4ts-publics)
     - [4.2. Applications PC](#42-applications-pc)
     - [4.3. Applications Web](#43-applications-web)
         - [4.3.1. Scalabilité](#431-scalabilit%C3%A9)
@@ -817,28 +821,16 @@ par le gestionnaire de packages.
 > - `pnpm-lock.yaml`.
 
 
-### 2.3.5. Utilisation d'un repo local
+### 2.3.5. Utilisation d'un miroir local
 
 Les grandes entreprises déploient généralement un serveur intermédiaire
 entre les registries officielles sur Internet et le SI de l'entreprise.
 
-![fezfez](schemas/local-package-repository.drawio.png)
+![Local package mirror](schemas/local-package-repository.drawio.png)
 
-On trouve plusieurs noms possibles pour ce type de serveur intermédiaire :
-- Binary Repository Manager,
-- Artifact Repository,
-- Package Repository,
-- Software Repository,
-- ...
-
-Ce type d'outil permet l'enregistrement de fichiers binaires potentiellement volumineux, tels que :
-- des programmes d'installation,
-- des images de conteneurs ou de machines virtuelles,
-- des résultats de compilations,
-- des données de test,
-- des configurations,
-- des archives,
-- ...
+Ces outils, présentés au [§4.1.3](#413-d%C3%A9p%C3%B4t-de-binaires)
+permettent d'enregistrer et mettre à disposition
+des fichiers binaires volumineux.
 
 Ces outils peuvent également être configurés en relais de serveurs de packages.
 
@@ -1839,6 +1831,105 @@ vient le moment de le livrer, voire de le déployer.
 
 
 ## 4.1. Enregistrements de livrables
+
+Une des premières actions de livraison,
+consiste à enregistrer proprement le logiciel produit.
+
+Le logiciel produit est rarement le code source tel que, mais plutôt :
+- le produit d'une compilation,
+- ou la livraison sous la forme d'un package,
+- ou la livraison sous la forme d'une image Docker,
+- ...
+
+Cet enregistrement se fait généralement sur des moyens internes.
+
+Pour ce faire, différentes options possibles.
+
+
+### 4.1.1. Répertoires partagés, GED
+
+Une des premières options consiste à utiliser les espaces partagés
+pour l'enregistrement des documents du projets.
+
+Ces espaces peuvent être des répertoires partagés,
+ou un outil de GED (Gestion Electronique des Documents) tels Sharepoint, ...
+
+C'est une solution assez naturelle,
+car c'est le prolongement des autres enregistrements (de documents notamment)
+déjà réalisés pour le compte du projet.
+
+Cette solution a toutefois l'inconvénient
+d'enregistrer un volume de données conséquent dans un espace pas toujours adapté.
+En effet, les logiciels produits peuvent se présenter sous la forme de fichiers binaires volumineux.
+Dans tous les cas, à force des versions successives,
+cela finit souvent par représenter des volumes de données conséquents.
+
+Les espaces partagés finissent régulièrement saturés dans le temps,
+et du ménage doit souvent être réalisé sur ces espaces.
+
+
+### 4.1.2. Enregistrement sous git
+
+Lorque cela s'y prête, on peut envisager d'enregistrer le logiciel produit sous git,
+comme une librairie JS bundlée par exemple.
+
+Mais c'est rarement une option adaptée sinon,
+git étant avant tout fait pour enregistrer des fichiers sources,
+et non des fichiers binaires.
+
+
+### 4.1.3. Dépôt de binaires
+
+Il existe également des outils permettant d'enregistrer des fichiers binaires
+potentiellement volumineux, tels que :
+- des programmes d'installation,
+- des images de conteneurs ou de machines virtuelles,
+- des résultats de compilations,
+- des données de test,
+- des configurations,
+- des archives,
+- ...
+
+On trouve plusieurs noms possibles pour ce type d'outil :
+- Binary Repository Manager,
+- Artifact Repository,
+- Package Repository,
+- Software Repository,
+- ...
+
+Lorsqu'on dispose d'un tel outil,
+alors c'est un espace de stockage particulièrement adapté
+pour les enregistrement des versions logicielles produites.
+
+
+### 4.1.4. Enregistrement dans les dépôts publics
+
+Lorsque le projet s'y prête, on peut également enregistrer
+les versions logicielles dans les dépôts publiques :
+- JS, sur npmjs.org
+- Python, sur pypi.org
+- PHP, sur packagist.org
+- Rust, sur crates.io
+- Docker, sur Docker Hub
+- ...
+
+> 👷🛠️ TP : Publication de logiciel JS sur npmjs.org (TODO)
+
+> 👷🛠️ TP : Publication de logiciel Python sur pypi.org (TODO)
+>
+> Memo :
+> - `python -m build`
+> - https://realpython.com/pypi-publish-python-package/#publish-your-package-to-pypi
+
+> 👷🛠️ TP : Publication de logiciel PHP sur packagist.org (TODO)
+>
+> Memo :
+> - https://packagist.org/ => §"Publishing Packages"
+> - https://packagist.org/about => §"How to submit packages?"
+
+> 👷🛠️ TP : Publication de logiciel Rust sur crates.io (TODO)
+
+> 👷🛠️ TP : Publication d'une image Docker sur Docker Hub (TODO)
 
 
 ## 4.2. Applications PC
