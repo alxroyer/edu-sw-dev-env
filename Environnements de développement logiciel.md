@@ -1833,6 +1833,11 @@ Le tableau ci-après donne une liste d'outils de gestion des logs parmi les plus
 
 # 4. Delivery / déploiement
 
+Après avoir développé le logiciel,
+puis s'être doté des moyens de l'exécuter (notamment pour le tester),
+vient le moment de le livrer, voire de le déployer.
+
+
 ## 4.1. Enregistrements de livrables
 
 
