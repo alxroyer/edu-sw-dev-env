@@ -70,7 +70,7 @@ Mémo:
         - [2.5.3. Git](#253-git)
         - [2.5.4. Automatisations](#254-automatisations)
             - [2.5.4.1. Scripting](#2541-scripting)
-            - [2.5.4.2. Chaîne CI](#2542-cha%C3%AEne-ci)
+            - [2.5.4.2. Chaîne CI - Continuous Integration](#2542-cha%C3%AEne-ci---continuous-integration)
         - [2.5.5. Conteneurs Docker d'outillages](#255-conteneurs-docker-doutillages)
         - [2.5.6. Documentation](#256-documentation)
 - [3. Exécution](#3-ex%C3%A9cution)
@@ -104,10 +104,11 @@ Mémo:
         - [4.2.2. Applications Linux](#422-applications-linux)
         - [4.2.3. Applications Mac](#423-applications-mac)
     - [4.3. Applications Web](#43-applications-web)
-        - [4.3.1. Scalabilité](#431-scalabilit%C3%A9)
-        - [4.3.2. Chaîne CD](#432-cha%C3%AEne-cd)
-        - [4.3.3. Deploy as code](#433-deploy-as-code)
-        - [4.3.4. DevOps](#434-devops)
+        - [4.3.1. Chaîne CD - Continuous Delivery ou Continuous Deployment](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment)
+        - [4.3.2. Deploy as code](#432-deploy-as-code)
+        - [4.3.3. DevOps](#433-devops)
+        - [4.3.4. Points de vigilance](#434-points-de-vigilance)
+        - [4.3.5. Scalabilité](#435-scalabilit%C3%A9)
     - [4.4. Applications mobiles](#44-applications-mobiles)
     - [4.5. Logiciels embarqués](#45-logiciels-embarqu%C3%A9s)
 - [5. Assurance qualité](#5-assurance-qualit%C3%A9)
@@ -1333,7 +1334,7 @@ Parmi les langages de scripting les plus utilisés pour le besoin, on peut citer
 > - `#!/usr/bin/env python`
 
 
-#### 2.5.4.2. Chaîne CI
+#### 2.5.4.2. Chaîne CI - Continuous Integration
 
 Une chaîne d'intégration continue (CI pour *Continuous Integration*)
 permet d'automatiser des scripts, ou pipelines,
@@ -1384,7 +1385,8 @@ qui permettent de suivre l'état de santé du projet dans le temps.
 
 > 👷🛠️ TP : Jenkins - CI (TODO)
 
-> 👷🛠️ TP : [GitHub Actions](TP%20-%20GitHub%20Actions.md) (réserver la partie CD pour plus le [§4.3.2](#432-cha%C3%AEne-cd))
+> 👷🛠️ TP : [GitHub Actions](TP%20-%20GitHub%20Actions.md)
+> (réserver la partie CD pour plus le [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment))
 
 
 ### 2.5.5. Conteneurs Docker d'outillages
@@ -1527,7 +1529,7 @@ Ce type de déploiement apporte un certain nombre d'avantages :
 Solution la plus riche, car elle nécessite :
 - la mobilisation de ressources matérielles pouvant héberger l'exécution de machines virtuelles,
   typiquement des PC bare-metal, en baie, avec VMware ou Proxmox ;
-- le déploiement d'une solution de CD (cf. [§4.3.2](#432-cha%C3%AEne-cd))
+- le déploiement d'une solution de CD (cf. [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment))
   pour instancier des POD Docker pour nos services ;
 - et probablement une solution de logging permettant d'investiguer plus efficacement en cas de problème
   (cf. [§3.5](#35-strat%C3%A9gie-de-logs)).
@@ -2034,16 +2036,19 @@ un système de packages conteneurisés.
 
 ## 4.3. Applications Web
 
-### 4.3.1. Scalabilité
+### 4.3.1. Chaîne CD - Continuous Delivery ou Continuous Deployment
+
+### 4.3.2. Deploy as code
 
 
-### 4.3.2. Chaîne CD
+
+### 4.3.3. DevOps
 
 
-### 4.3.3. Deploy as code
+### 4.3.4. Points de vigilance
 
 
-### 4.3.4. DevOps
+### 4.3.5. Scalabilité
 
 
 ## 4.4. Applications mobiles
@@ -2145,7 +2150,7 @@ Pour cela, la mise en oeuvre de scripts peut remplir cet objectif
 
 L'utilisation d'une chaîne CI *(Continuous Integration)*
 permet en plus d'automatiser le déclenchement de traitements
-(cf. [§2.5.4.2](#2542-cha%C3%AEne-ci)).
+(cf. [§2.5.4.2](#2542-cha%C3%AEne-ci---continuous-integration)).
 
 > ⚠️ **Risque : Automatisation, de la magie à l'obscurantisme**
 >
@@ -2165,8 +2170,8 @@ permet en plus d'automatiser le déclenchement de traitements
 
 Pour les développements Web,
 la mise en oeuvre d'une chaîne CD *(Continuous Delivery)*
-prolonge la CI jusqu'à la livraison en production (cf. [§4.3.2](#432-cha%C3%AEne-cd)),
-idéalement en *deploy as code* (cf. [§4.3.3](#433-deploy-as-code)).
+prolonge la CI jusqu'à la livraison en production (cf. [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment)),
+idéalement en *deploy as code* (cf. [§4.3.2](#432-deploy-as-code)).
 
 
 ## 5.3. Documentation
