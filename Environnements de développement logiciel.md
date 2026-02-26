@@ -1942,6 +1942,9 @@ les versions logicielles dans les dépôts publiques :
 
 ## 4.2. Applications PC
 
+La livraison des applications PC dépend avant tout du système d'exploitation cible.
+
+
 ### 4.2.1. Applications Windows
 
 La livraison d'une application Windows passe généralement
