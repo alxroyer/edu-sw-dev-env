@@ -1832,6 +1832,11 @@ Après avoir développé le logiciel,
 puis s'être doté des moyens de l'exécuter (notamment pour le tester),
 vient le moment de le livrer, voire de le déployer.
 
+On identifie une première étape d'enregistrement du livrable,
+probablement sur des moyens internes.
+Puis on détaille la livraison du logiciel produit,
+dépendante du type de logiciel avant tout.
+
 
 ## 4.1. Enregistrements de livrables
 
