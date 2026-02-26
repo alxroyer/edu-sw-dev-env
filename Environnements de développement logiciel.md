@@ -1921,6 +1921,10 @@ les versions logicielles dans les dépôts publiques :
 - Docker, sur Docker Hub
 - ...
 
+Un enregistrement dans les dépôts publics
+constitue une forme de livraison en soit,
+pour un public de développeurs.
+
 > 👷🛠️ TP : Publication de logiciel JS sur npmjs.org (TODO)
 
 > 👷🛠️ TP : Publication de logiciel Python sur pypi.org (TODO)
