@@ -2164,6 +2164,26 @@ https://blog.cellenza.com/cloud-2/strategie-de-ci-cd-sur-kubernetes/.
 
 ## 4.4. Applications mobiles
 
+Les déploiements des applications mobiles passent par la publication dans les stores officiels :
+- Play Store pour les applications Android,
+- App Store pour les applications iOS.
+
+> ⚠️ **Gestion des comptes de publication**
+>
+> Des comptes étant requis pour publier les applications dans les stores officiels,
+> cela peut amener à une certaine difficulté sur la gestion de ces comptes :
+> - quelle adresse email utiliser ?
+> - qui détient le mot de passe ?
+> - ...
+>
+> De sorte à ce que le compte puisse être attaché au produit et à l'entreprise,
+> et non à un individu pouvant sortir du projet à un moment donné,
+> il faudra certainement crée une adresse email dédiée.
+>
+> Pour la confidentialité du mot de passe,
+> on pourra chercher à s'appuyer sur des outils de gestion de secrets,
+> tels Vault, ...
+
 
 ## 4.5. Logiciels embarqués
 
