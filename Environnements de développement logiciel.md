@@ -105,10 +105,10 @@ Mémo:
         - [4.2.3. Applications Mac](#423-applications-mac)
     - [4.3. Applications Web](#43-applications-web)
         - [4.3.1. Chaîne CD - Continuous Delivery ou Continuous Deployment](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment)
-        - [4.3.2. Deploy as code](#432-deploy-as-code)
-        - [4.3.3. DevOps](#433-devops)
-        - [4.3.4. Points de vigilance](#434-points-de-vigilance)
-        - [4.3.5. Scalabilité](#435-scalabilit%C3%A9)
+        - [4.3.2. Infrastructure As Code IaC / GitOps](#432-infrastructure-as-code-iac--gitops)
+        - [4.3.3. Points de vigilance](#433-points-de-vigilance)
+        - [4.3.4. Scalabilité](#434-scalabilit%C3%A9)
+        - [4.3.5. Pour en savoir plus](#435-pour-en-savoir-plus)
     - [4.4. Applications mobiles](#44-applications-mobiles)
     - [4.5. Logiciels embarqués](#45-logiciels-embarqu%C3%A9s)
 - [5. Assurance qualité](#5-assurance-qualit%C3%A9)
@@ -1582,7 +1582,10 @@ et surtout patissent généralement de lenteurs qui pénalisent l'activité de d
 ### 3.3.3. Emulateurs dans le cloud
 
 En cherchant rapidement sur Internet, on trouve des noms de plateformes permettant d'émuler des terminaux mobiles
-(LDCloud, RedFinger, ...)
+(LDCloud, RedFinger, ...).
+
+On trouve également des plateformes de CI/CD dédiées aux développements mobiles
+(Bitrise, ..., cf. [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment)).
 
 L'avantage que l'on peut attendre de ces plateformes par rapport à un PC local
 est que les hébergeurs peuvent avoir dimensionné les configurations matérielles
@@ -2036,19 +2039,127 @@ un système de packages conteneurisés.
 
 ## 4.3. Applications Web
 
+En règle général, lorsqu'on développe une application Web,
+on l'opère soi-même.
+
+La livrer signifie donc la déployer en production.
+
+
 ### 4.3.1. Chaîne CD - Continuous Delivery ou Continuous Deployment
 
-### 4.3.2. Deploy as code
+Dans la continuité de la CI (*Continuous Integration*, cf. [§2.5.4.2](#2542-cha%C3%AEne-ci---continuous-integration))
+on parle de CD, pour *Continuous Delivery* ou *Continuous Deployment*.
+
+L'objectif est de déployer le plus simplement possible les services Web développés,
+à l'aides de configurations et quelques clics.
+
+Le tableau suivant présente un aperçu des principaux outils du marché.
+> Sources : https://thectoclub.com/tools/best-ci-cd-tools/ + https://chat.mistral.ai/,
+> sous réserve de confirmation des informations.
+
+| Solution | URL | Type de licence | Commentaires | Date |
+|----------|-----|-----------------|--------------|------|
+| Jenkins | https://www.jenkins.io/ | Open Source (MIT) | L'un des outils CI/CD les plus anciens et les plus flexibles. Extensible via des plugins. Nécessite maintenance et configuration manuelle importantes. | 2011 |
+| CircleCI | https://circleci.com/ | Freemium | Rapidité et facilité d'utilisation, notamment dans les environnements cloud. Capacités de parallélisation et d'intégration avec Docker et Kubernetes. | 2011 |
+| Octopus Deploy | https://octopus.com/ | Commercial | Déploiement automatisé et gestion des releases. Particulièrement adapté .NET et Windows. Déploiements complexes et multi-environnements, sécurité et conformité. | 2012 |
+| GitLab CI/CD | https://docs.gitlab.com/ci/ | Open Source, Freemium | Intégré nativement à GitLab. Approche déclarative et intégration native Kubernetes. | 2014 |
+| Terraform | https://developer.hashicorp.com/terraform | Open Source (MPL), commercial | Outil d'infrastructure as code (IaC, pas CI/CD à proprement parler). Permet de provisionner et de gérer des infrastructures multi-cloud de manière déclarative. | 2014 |
+| Bitrise | https://bitrise.io/ | Commercial | Spécialement conçu pour le développement mobile. | 2015 |
+| Google Cloud Build | https://cloud.google.com/build | Commercial | Solution CI/CD Google Cloud. | 2018 |
+| Azure DevOps | https://azure.microsoft.com/en-us/products/devops | Commercial | Solution CI/CD Microsoft Azure. | 2018 |
+| OpenShift Pipelines | https://docs.redhat.com/en/documentation/red_hat_openshift_pipelines | Open Source (Apache 2.0), commerciale | Solution CI/CD native pour Kubernetes, basée sur Tekton. Solution sécurisée, scalable et intégrée à une infrastructure conteneurisée. | 2019 |
+| GitHub Actions | https://github.com/features/actions | Commercial | Directement intégré dans GitHub. Permet d'automatiser les workflows CI/CD directement depuis les dépôts GitHub. | 2019 |
+
+> ℹ️ **DevOps**
+>
+> Le DevOps est avant tout une culture de rapprochement
+> des équipes de développement d'une part (dev)
+> et des équipes opérationnelles d'autre part (ops).
+>
+> La culture DevOps prône également l'automatisation et le monitoring
+> de toutes les étapes de la création d'un logiciel jusqu'à son déploiement.
+>
+> En ce sens, les outils de CD contribuent à la démarche DevOps.
 
 
+### 4.3.2. Infrastructure As Code (IaC) / GitOps
 
-### 4.3.3. DevOps
+Dans sa version ultime,
+la CD reposera uniquement sur des configurations enregistrées sous git,
+les opérations manuelles en prod étant proscrites.
+
+On parle alors d'approche *Infrastructure As Code (IaC)* ou GitOps.
+
+Cette stratégie permet d'assurer un grand niveau de maîtrise des éléments déployés :
+- le code de l'application Web, géré sous git,
+- les configurations associées, gérées sous git également,
+- les configurations de conteneurisation
+  (DockerFiles, docker-compose, ou autres configurations en fonction de l'outil de CD),
+  gérées sous git également,
+- les configurations réseaux, comme celles des WAF *(Web Application Firewall)*,
+  gérées sous git également,
+- ...
+
+En effet, avec cette stratégie,
+on a la connaissance de ce qui tourne en prod à partir du dépôt,
+les configurations qui ont évolué et pour quels motifs.
 
 
-### 4.3.4. Points de vigilance
+### 4.3.3. Points de vigilance
+
+A propos des mises en production, quelques points de vigilance sont à observer.
+
+> ⚠️ **Compatibilité des données**
+>
+> En cas d'évolution du schéma des données,
+> la mise en production ne signifie pas seulement mettre en service le nouveau logiciel,
+> mais également assurer la compatibilité des données N - 1
+> pour la nouvelle version N déployée.
+>
+> Pour ce faire,
+> cela passe généralement par des scripts de migration des données.
+
+> ⚠️ **Continuité de service**
+>
+> Dans tous les cas, la question de la continuité de service peut se poser :
+> - Peut-on arrếter la version N - 1, pour redémarrer le service ensuite avec la nouvelle version N ?
+> - Ou doit-on s'assurer de la continuité du service pendant la mise en production ?
+>
+> L'article https://blog.cellenza.com/cloud-2/strategie-de-ci-cd-sur-kubernetes/
+> identifie différentes stratégies de déploiement :
+> - Rolling Update
+> - Blue-Green
+> - Canary Release
+> - A/B Testing
 
 
-### 4.3.5. Scalabilité
+### 4.3.4. Scalabilité
+
+Pour terminer ce chapitre sur le déploiement des applications Web,
+on évoque la question de la scalabilité des systèmes d'information,
+c'est-à-dire la possibilité d'augmenter la capacité de traitement du système d'information.
+
+Quelques points de design permettent de tendre vers cette scalabilité :
+- Respecter un **découpage en couches**,
+  permettant de faciliter la maintenance et l'évolutivité du système.
+- Privilégier les **traitements *stateless***, tels que les API REST.
+  On peut ainsi multi-instancier les PODs de traitement derrière une adresse virtuelle.
+
+Cette scalabilité représente un atout pour le système d'information,
+capable d'évoluer vers plus de performances.
+Mais c'est dans le même temps une contrainte pour les activités de déploiement,
+car on a dès lors autant de PODs que de couches considérées,
+et potentiellement multipliés par le nombre de PODs en parallèle pour les services muli-instanciés.
+
+Les exigences de scalabilité justifient d'autant l'adoption d'un outil de CD
+pour pouvoir gérer plus simplement tous les PODs déployés.
+
+
+### 4.3.5. Pour en savoir plus
+
+Pour en savoir plus sur les stratégies de CD,
+se reporter au très bon article déjà cité précédemment :
+https://blog.cellenza.com/cloud-2/strategie-de-ci-cd-sur-kubernetes/.
 
 
 ## 4.4. Applications mobiles
@@ -2171,7 +2282,7 @@ permet en plus d'automatiser le déclenchement de traitements
 Pour les développements Web,
 la mise en oeuvre d'une chaîne CD *(Continuous Delivery)*
 prolonge la CI jusqu'à la livraison en production (cf. [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment)),
-idéalement en *deploy as code* (cf. [§4.3.2](#432-deploy-as-code)).
+idéalement en GitOps (cf. [§4.3.2](#432-infrastructure-as-code-iac--gitops)).
 
 
 ## 5.3. Documentation
