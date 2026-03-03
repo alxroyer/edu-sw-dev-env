@@ -2265,6 +2265,29 @@ est la gestion de configuration (*configuration tracking* ou *versioning*).
 
 ### 5.1.1. SemVer
 
+Pour commencer, il est utile de savoir nommer ses versions logicielles efficacement.
+
+Pour ce faire, SemVer vient aujourd'hui comme un standard en la matière :
+https://semver.org/.
+
+SemVer, pour *Semantic Versioning*,
+préconise le nommage des versions avec 3 indices `MAJOR.MINOR.PATCH` :
+1. `MAJOR` :
+    - Un changement d'indice majeur dénote d'une rupture d'API.
+    - L'indice MAJOR 0 (0.x.y) correspond aux développements initiaux.
+      La stabilité de l'API n'est pas garantie tant qu'on n'a pas publié une version 1.0.0.
+2. `MINOR` :
+    - Ajout de fonctionnalités sans rupture d'API.
+3. `PATCH` :
+    - Corrections de bugs sans rupture d'API.
+
+On utilise souvent le verbe *bump* en Anglais
+lorsqu'on incrémente l'un des indices ci-dessus.
+
+Le concept clé reste la question de la rupture d'API.
+C'est ce qui permet notamment de faciliter les calculs de dépendances de packages
+(cf. [§2.3](#23-biblioth%C3%A8ques-de-packages)).
+
 
 ### 5.1.2. Source control - git
 
