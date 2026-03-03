@@ -111,6 +111,8 @@ Mémo:
         - [4.3.5. Pour en savoir plus](#435-pour-en-savoir-plus)
     - [4.4. Applications mobiles](#44-applications-mobiles)
     - [4.5. Logiciels embarqués](#45-logiciels-embarqu%C3%A9s)
+        - [4.5.1. Programmation initiale](#451-programmation-initiale)
+        - [4.5.2. Mises à jour logicielles](#452-mises-%C3%A0-jour-logicielles)
 - [5. Assurance qualité](#5-assurance-qualit%C3%A9)
     - [5.1. Versioning / Gestion de configuration](#51-versioning--gestion-de-configuration)
         - [5.1.1. SemVer](#511-semver)
@@ -2186,6 +2188,64 @@ Les déploiements des applications mobiles passent par la publication dans les s
 
 
 ## 4.5. Logiciels embarqués
+
+Pour les logiciels embarqués,
+il n'existe pas vraiment de canal de référence pour le déploiement du logiciel.
+
+
+### 4.5.1. Programmation initiale
+
+Au début du cycle de vie du produit, le logiciel est programmé en usine,
+par une opération diverse, en fonction du hardware cible :
+- écriture d'un composant mémoire par un matériel spécifique avant soudure sur la carte,
+- réécriture d'un logiciel de boot par procédure de flashage,
+- chargement d'un binaire par TFTP,
+- ...
+
+
+### 4.5.2. Mises à jour logicielles
+
+Ensuite, pour les mises à jour logicielles,
+cela dépend de la solution développée.
+
+Pour les systèmes non connectés ou non administrés,
+la mise à jour à distance n'est pas possible.
+Dès lors, tout besoin de mise à jour logicielle nécessite un *retour usine*,
+contraignant et généralement coûteux.
+
+Exemples de systèmes non connectés ou non administrés,
+nécessitant des retours usine :
+- le logiciel gérant les programmes d'un lave-linge,
+- le logiciel d'ABS sur un modèle de voiture,
+- ...
+
+Les systèmes connectés et administrés prévoient généralement
+une fonction de mise à jour logicielle à distance :
+le logiciel est envoyé par réseau à l'équipement,
+qui le programme dans sa mémoire,
+puis redémarre avec le nouveau logiciel.
+
+Exemples de systèmes administrés à distance :
+- boxes Internet,
+- chiffreurs IPsec Mistral (https://www.youtube.com/watch?v=OyP1JigSLgg),
+- ...
+
+> ⚠️ **Précautions sur mises à jour logicielles à distance**
+>
+> Pour éviter le plantage à distance,
+> et l'obligation d'un retour usine coûteux,
+> surenchéri de l'instisfaction client dû à l'indisponibilité du service,
+> les fonctions de mise à jour logicielle à distance doivent anticiper quelques cas d'erreurs possibles :
+> - Vérification de l'intégrité du logiciel reçu (voire de la signature, pour éviter des attaques),
+>   avant de tenter de le programmer et de redémarrer dessus.
+> - Dépassement des capacités matérielles de la cible,
+>   en cas de plusieurs versions de hardwares,
+>   notamment les capacités des mémoires (RAM ou de stockage).
+> - Compatibilité des données en mémoire stockée entre les différentes versions logicielles.
+>   Privilégier des formats de données extensibles : TLV, XML, JSON, YAML.
+> - Conservation du logiciel précédent en double zone mémoire,
+>   pour un mécanisme de récupération, ou *failsafe*,
+>   en dernier recours en cas d'erreur non gérée.
 
 
 # 5. Assurance qualité
