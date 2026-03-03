@@ -2250,6 +2250,13 @@ Exemples de systèmes administrés à distance :
 
 # 5. Assurance qualité
 
+Comme évoqué en introduction (cf. [§1.3](#13-environnements-de-d%C3%A9veloppement-et-qualit%C3%A9-logicielle)),
+l'environnement de développement contribue à la qualité du logiciel développé.
+
+Revenons finalement sur quelques principes généraux
+permettant d'assurer cette qualité tout au long du développement.
+
+
 ## 5.1. Versioning / Gestion de configuration
 
 ### 5.1.1. SemVer
