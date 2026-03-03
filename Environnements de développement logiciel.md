@@ -2259,6 +2259,10 @@ permettant d'assurer cette qualité tout au long du développement.
 
 ## 5.1. Versioning / Gestion de configuration
 
+Un des premiers piliers de l'assurance qualité dans le développement logiciel
+est la gestion de configuration (*configuration tracking* ou *versioning*).
+
+
 ### 5.1.1. SemVer
 
 
