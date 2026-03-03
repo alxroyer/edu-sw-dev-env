@@ -116,10 +116,15 @@ Mémo:
 - [5. Assurance qualité](#5-assurance-qualit%C3%A9)
     - [5.1. Versioning / Gestion de configuration](#51-versioning--gestion-de-configuration)
         - [5.1.1. SemVer](#511-semver)
-        - [5.1.2. Source control - git](#512-source-control---git)
+        - [5.1.2. SCM - git](#512-scm---git)
             - [5.1.2.1. Git, les bases](#5121-git-les-bases)
             - [5.1.2.2. Investiguer avec git](#5122-investiguer-avec-git)
             - [5.1.2.3. Stratégie git](#5123-strat%C3%A9gie-git)
+                - [5.1.2.3.1. Format des commit logs](#51231-format-des-commit-logs)
+                - [5.1.2.3.2. Commit initial](#51232-commit-initial)
+                - [5.1.2.3.3. Merge v/s rebase](#51233-merge-vs-rebase)
+                - [5.1.2.3.4. Stratégie de branching](#51234-strat%C3%A9gie-de-branching)
+                - [5.1.2.3.5. Tags](#51235-tags)
             - [5.1.2.4. Plateformes git](#5124-plateformes-git)
             - [5.1.2.5. Git, mode expert](#5125-git-mode-expert)
         - [5.1.3. Ticketing](#513-ticketing)
@@ -1281,7 +1286,7 @@ mais également de tous les fichiers projet évoqués précédemment.
 De fait, en tirant le dépôt du projet,
 on s'assure d'une répétabilité sur ces éléments.
 
-Se reporter au [§5.1.2](#512-source-control---git) pour une découverte approfondie de l'outil git.
+Se reporter au [§5.1.2](#512-scm---git) pour une découverte approfondie de l'outil git.
 
 
 ### 2.5.4. Automatisations
@@ -2289,21 +2294,246 @@ C'est ce qui permet notamment de faciliter les calculs de dépendances de packag
 (cf. [§2.3](#23-biblioth%C3%A8ques-de-packages)).
 
 
-### 5.1.2. Source control - git
+### 5.1.2. SCM - git
+
+Pour le suivi des modifications du code source,
+un outil de SCM (*Source Control Management* ou *Source Code Management*)
+est un socle indispensable.
+
+Après CVS (1990), puis Subversion (2000, Apache),
+git (2005, Linus Torvalds, auteur du kernel Linux)
+s'est imposé dans les années 2010 comme l'option de référence
+jusqu'à aujourd'hui.
+
 
 #### 5.1.2.1. Git, les bases
+
+Pour découvrir les fonctionnalités de base de git,
+parcourir le TP proposé ci-après.
+
+> 👷🛠️ TP : [Git, les bases](TP%20-%20Git%20base.md) (TODO : à finaliser)
 
 
 #### 5.1.2.2. Investiguer avec git
 
+L'intérêt d'un SCM tel que git
+est de savoir suivre l'historique du code source de manière fine.
+
+On peut même reposer sur cette gestion d'historique
+pour nous aider à investiguer sur des problèmes.
+
+> 👷🛠️ TP : [Investiguer avec git](TP%20-%20Git%20investigate.md)
+
 
 #### 5.1.2.3. Stratégie git
+
+Une des premières choses à décider au moment de démarrer un projet avec git
+est la stratégie de branches et de merges qu'on va suivre.
+
+
+##### 5.1.2.3.1. Format des commit logs
+
+La qualité et l'homogénéité des commit logs est importante pour la maintenabilité.
+
+C'est d'autant plus vrai lorsqu'on livre du code source à un client,
+auquel cas l'historique git peut être considéré comme un livrable à part entière.
+
+> 👷🛠️ TP : Good git commit log (TODO)
+>
+> Memo :
+> - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
+> - https://www.conventionalcommits.org/en/v1.0.0/
+> - https://opencommits.org/
+
+
+##### 5.1.2.3.2. Commit initial
+
+Pas vraiment un élément de stratégie,
+mais un point de détail au moment de démarrer l'historique git :
+on voudra certainement partir sur une branche de développement,
+laquelle devra être tirée d'un commit initial.
+
+Quoi mettre donc dans ce commit initial ?
+
+Git ne permettant pas de créer un commit vide par défaut,
+une solution de contournement peut être d'ajouter un fichier `README.md` vide,
+à compléter par une première branche de développement livrée.
+
+Ou probablement mieux : on pourra utiliser l'option `--allow-empty`
+pour forcer la création d'un premier commit vide.
+
+
+##### 5.1.2.3.3. Merge v/s rebase
+
+Avant toute chose, il convient d'expliquer la différence entre un *merge* et un *rebase* sous git.
+
+Un ***merge*** entre deux branches ayant divergé
+constitue à créer un nouveau noeud de fusion entre les deux branches concernées.
+
+Dans la mesure du possible, git fusionne les deux historiques automatiquement.
+Dans le cas contraire, les conflits de fusion doivent être résolus
+avant de pouvoir enregistrer le commit de merge.
+
+> ℹ️ **Fast-forward**
+>
+> Lorsque la branche mergée est simplement en retard par rapport à la branche cible,
+> git propose un *fast-forward*,
+> c'est-à-dire un réalignement trivial
+> en faisant glisser la branche mergée jusqu'à la branche cible,
+> sans ajouter de commit de merge.
+>
+> Ce comportement par défaut peut être interdit à l'aide d'une option `--no-ff`.
+> Il peut être vérifié / assuré à l'aide d'une option `--ff-only`.
+
+> ⚠️ ***Merges* et suppression de branches**
+>
+> Si on a mergé une branche de développement dans la branche principale,
+> la branche de développement ne pourra plus être supprimée,
+> car le nouveau commit de la branche principale
+> devient dépendant des commits de la branche de développement mergée.
+
+Un ***rebase*** entre deux branches ayant divergé
+consiste à déplacer les noeuds de la branche rebasée à la suite de la branche cible.
+
+Cela est équivalent à faire des *cherry-picks* (i.e. applications de patches) successifs
+des commits de la branche rebasée sur la branche cible,
+puis la branche rebasée est supprimée.
+
+Pour chaque commit rebasé, si conflits de fusion,
+ceux-ci doivent être résolus avant de pouvoir rebaser le commit suivant.
+
+> ⚠️ ***Rebases* et modification d'historique**
+>
+> Il faut avoir conscience qu'un *rebase* implique un déplacement des commits
+> et donc une modification d'historique.
+>
+> Pour réaligner une branche de développement avec la branche principale,
+> il est généralement préférable de privilégier un *merge* à un *rebase*,
+> de sorte à éviter ce déplacement de commits,
+> et donc la perte d'un niveau de qualification associé,
+> pour pouvoir faire des `git bisect` notamment
+> (cf. [§5.1.2.2](#5122-investiguer-avec-git)).
+
+
+##### 5.1.2.3.4. Stratégie de branching
+
+On identifie plusieurs stratégies de branching dans la littérature sur Internet :
+- **Trunk-Based Development :**
+    - Tout le monde travaille sur un une seule branche.
+    - Induit des *rebases* fréquents.
+    - Pros :
+        - Limite les risques de divergences et donc de merges conflictuels.
+        - Stratégie privilégiée en CI/CD.
+    - Cons :
+        - Permet plus difficilement de qualifier des états stables et livrables
+          sur la branche principale.
+- **GitFlow :**
+    - Cf. https://nvie.com/posts/a-successful-git-branching-model/
+- **GitHub Flow :**
+    - Cf. https://docs.github.com/en/get-started/using-github/github-flow
+- **GitLab Flow :**
+    - Cf. https://about.gitlab.com/fr-fr/topics/version-control/what-is-gitlab-flow/
+
+N'ayant pas encore pris le temps d'étudier dans le détail
+les différentes options GitFlow, GitHub Flow ou GitLab Flow,
+je présente à défaut une stratégie de branching que j'ai déjà pratiquée
+et qui a fait ses preuves à mon sens :
+- Une branche de développement par feature développée.
+    - Réalignements de la branche principale vers les branches de développement en *merges* standard.
+- Avant de livrer :
+    - Réalignement final de la branche principal vers la branche de développement avec un *merge* standard.
+    - Déroulement des vérifications : compilation, qualimétrie, tests de non-régression, ...
+    - Stratégie de pull-request en *merge* avec les options suivantes :
+        - `--ff-only` pour s'assurer que la branche de développement
+          est bien alignée la dernière version de la branche principale,
+          et donc que les vérifications réalisées sont viables pour l'état courant de la branche principale.
+        - `--squash` pour créer un unique noeud de synthèse pour la fonctionnalité mergée sur la branche principale,
+          sans dépendance avec la branche de développement.
+        - Faire l'effort de synthétiser le commit log pour le commit de merge.
+- Au moment opportun, les branches de développement peuvent être supprimées.
+
+On ne garde ainsi que le fil de la branche principale,
+avec les livraisons successives des différentes fonctionnalités.
+
+
+##### 5.1.2.3.5. Tags
+
+Rien de très compliqué pour les tags.
+
+On reprendra généralement le numéro de la version SemVer (cf. [§5.1.1](#511-semver)) :
+- soit avec un "v" minuscule devant - pratique répandue, probablement historique (1),
+- soit avec un "V" majuscule devant - moins commun,
+- soit tel quel (1).
+
+L'essentiel est de rester homogène.
+
+Exemples :
+- Le projet Scapy préfixe ses tags avec un "v" minuscule : https://github.com/secdev/scapy/tags.
+- SemVer utilise un préfixe un "v" minuscule également : https://github.com/semver/semver/tags.
+- Cargo utilise la version SemVer sans préfixe : https://github.com/rust-lang/cargo/tags.
+
+> ❓ **(1) Tagging sans préfixe, pratique plus actuelle ?**
+>
+> Quelques références intéressantes sur le sujet :
+> - https://stackoverflow.com/questions/2006265/is-there-a-standard-naming-convention-for-git-tags#2011372
+> - https://semver.org/#is-v123-a-semantic-version
+>
+> Compte tenu de la clarification,
+> puis du retrait de la spécification "vX.Y.Z" de SemVer entre les versions 1.0.0 et 2.0.0,
+> on suppose que l'adoption d'une stratégie de tagging sans préfixe "v" est une pratique plus récente,
+> peut-être en développement dans les nouveaux projets ?
+> tels que les projets de l'écosystème Rust par exemple.
+>
+> Pure supposition, à confirmer.
 
 
 #### 5.1.2.4. Plateformes git
 
+Des plateformes complètent les fonctionnalités de git (programme de base) :
+
+| Plateform Git        | URL                       | Fournisseur | Commentaires | Date |
+|----------------------|---------------------------|-------------|--------------|------|
+| GitHub               | https://github.com/       | Microsoft (achat en 2018) | Plateforme Git de référence, notamment pour l'hébergement des projets Open Source. Gratuit pour un usage personnel. | 2008 |
+| BitBucket (ex Stash) | https://bitbucket.org/    | Atlassian   | Avec Jira (bugtracker) et Confluence (documentation CMS), fait partie du socle édité par Atlassian. | 2008 |
+| GitLab               | https://about.gitlab.com/ | GitLab      | Projet Open Source démarré en 2011, offres commerciales pour les entreprises. | 2011 |
+| Gitea                | https://about.gitea.com/  | Gitea Limited (depuis 2022) | Plateforme disponible gratuitement en version Open Source. Option intéressante pour une installation on-premise. | 2016 |
+
+Parmi les fonctionnalités complémentaires apportées par ces plateformes, on note :
+- l'hébergement d'un dépôt git central,
+- l'organisation des revues de code, au moyen de *pull-requests* ou *merge-requests*,
+- l'intégration et le couplage avec un bugtracker,
+- la mise à disposition d'un CMS (wiki ou Confluence),
+  > 💡 **Astuce : Préférence format texte + git**
+  >
+  > Quitte à écrire de la documentation attachée au dépôt,
+  > préférer probablement l'usage d'un format texte suivi sous git
+  > (cf. [§5.3.3](#533-formats-texte--git)).
+- des fonctions de CI/CD
+  (cf. [§2.5.4.2](#2542-cha%C3%AEne-ci---continuous-integration)
+  et [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment)).
+
+> 💡 **Astuce : éviter les traductions françaises des plateformes git**
+>
+> Eviter les traductions françaises sur les plateformes git,
+> elles sont généralement atroces :
+> - "commit" devient "engagement",
+> - "pull-request" devient "demande de tirage",
+> - ...
+>
+> Prendre le temps d'aller dans les configurations utilisateur
+> pour privilégier la langue anglaise.
+
+> 👷🛠️ TP : [GitHub](TP%20-%20GitHub.md)
+
+> 👷🛠️ TP : Installation Gitea on-premise (TODO)
+
 
 #### 5.1.2.5. Git, mode expert
+
+Pour découvrir des fonctionnalités avancées de git,
+parcourir le TP proposé ci-après.
+
+> 👷🛠️ TP : Git, mode expert (TODO)
 
 
 ### 5.1.3. Ticketing
