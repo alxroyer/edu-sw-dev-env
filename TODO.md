@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="css/styles.css"></link>
+
+<h1>TODO</h1>
+
+
+# Update
+
+In order to update this file :
+```bash
+# From the root directory of this repo:
+head -n $(grep -n "# TODOs" TODO.md | tail -n 1 | sed -e "s/:.*//") TODO.md > TODO.md.tmp
+echo "" >> TODO.md.tmp
+grep -Irn TODO *.md | grep -v "^TODO\.md:" | sed -e "s/^\(.*\)$/- \1/" >> TODO.md.tmp
+mv TODO.md.tmp TODO.md
+```
+
+
+# TODOs
+
+- Environnements de développement logiciel.md:418:> 👷🛠️ TP : Refactoring (TODO)
+- Environnements de développement logiciel.md:472:> <span class="sw-type embedded"></span> 👷🛠️ TP : Debugging C/C++ à distance avec gdbserver (TODO)
+- Environnements de développement logiciel.md:615:> 👷🛠️ TP : API REST en Python avec pip et venv (TODO)
+- Environnements de développement logiciel.md:617:> 👷🛠️ TP : API REST en PHP avec composer (TODO)
+- Environnements de développement logiciel.md:619:> 👷🛠️ TP : API REST en Go avec `go get` et `go build` (TODO)
+- Environnements de développement logiciel.md:629:> 👷🛠️ TP : Image Linux avec buildroot (TODO, penser à enregistrer le fichier *defconfig*)
+- Environnements de développement logiciel.md:1036:> 👷🛠️ TP : Bundling d'une application React Native avec Vite (TODO)
+- Environnements de développement logiciel.md:1393:> 👷🛠️ TP : Jenkins - CI (TODO)
+- Environnements de développement logiciel.md:1414:> 👷🛠️ TP : Toolchain SDK Java avec Docker (TODO)
+- Environnements de développement logiciel.md:1505:> 👷🛠️ TP : Développement Web en Remote SSH avec VS Code (TODO)
+- Environnements de développement logiciel.md:1526:> 👷🛠️ TP : Développement Web avec Docker (TODO)
+- Environnements de développement logiciel.md:1920:TODO : Tableau des outils du marché
+- Environnements de développement logiciel.md:1942:> 👷🛠️ TP : Publication de logiciel JS sur npmjs.org (TODO)
+- Environnements de développement logiciel.md:1944:> 👷🛠️ TP : Publication de logiciel Python sur pypi.org (TODO)
+- Environnements de développement logiciel.md:1950:> 👷🛠️ TP : Publication de logiciel PHP sur packagist.org (TODO)
+- Environnements de développement logiciel.md:1956:> 👷🛠️ TP : Publication de logiciel Rust sur crates.io (TODO)
+- Environnements de développement logiciel.md:1958:> 👷🛠️ TP : Publication d'une image Docker sur Docker Hub (TODO)
+- Environnements de développement logiciel.md:1981:> 👷🛠️ TP : Génération de programme d'installation avec Inno Setup (TODO)
+- Environnements de développement logiciel.md:1983:> 👷🛠️ TP : Génération de programme d'installation avec Visual Studio (TODO)
+- Environnements de développement logiciel.md:2025:> 👷🛠️ TP : Génération d'un package .deb (TODO)
+- Environnements de développement logiciel.md:2027:> 👷🛠️ TP : Génération d'un package RPM (TODO)
+- Environnements de développement logiciel.md:2043:> ❗ **Distribution d'applications Mac (TODO)**
+- Environnements de développement logiciel.md:2316:> 👷🛠️ TP : [Git, les bases](TP%20-%20Git%20base.md) (TODO : à finaliser)
+- Environnements de développement logiciel.md:2343:> 👷🛠️ TP : Good git commit log (TODO)
+- Environnements de développement logiciel.md:2530:> 👷🛠️ TP : Installation Gitea on-premise (TODO)
+- Environnements de développement logiciel.md:2538:> 👷🛠️ TP : Git, mode expert (TODO)
+- Environnements de développement logiciel.md:2543:TODO
+- Environnements de développement logiciel.md:2598:TODO
+- Environnements de développement logiciel.md:2603:TODO
+- Environnements de développement logiciel.md:2644:TODO
+- Environnements de développement logiciel.md:2649:TODO
+- Environnements de développement logiciel.md:2654:TODO
+- TP - GitHub.md:184:TODO :
+- TP - GitHub.md:190:TODO :
+- TP - GitHub.md:203:TODO :
+- TP - Git investigate.md:123:(cf. TP - Debugging PyCharm Python.md (TODO)).
+- TP - IDE VS Code C-Cpp.md:32:            - TODO
+- TP - IDE VS Code C-Cpp.md:213:TODO :
+- TP - IDE VS Code C-Cpp remote.md:47:TODO : Détailler les étapes.
+- TP - REST API cargo-rust.md:160:- TODO : Observer le contenu du répertoire `target/debug/deps/`.
+- TP - REST API npm-ts.md:318:> TODO : Ne fonctionne pas chez moi.

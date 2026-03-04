@@ -1917,6 +1917,8 @@ On trouve plusieurs noms possibles pour ce type d'outil :
 - Software Repository,
 - ...
 
+TODO : Tableau des outils du marché
+
 Lorsqu'on dispose d'un tel outil,
 alors c'est un espace de stockage particulièrement adapté
 pour les enregistrement des versions logicielles produites.
@@ -2538,6 +2540,8 @@ parcourir le TP proposé ci-après.
 
 ### 5.1.3. Ticketing
 
+TODO
+
 
 ### 5.1.4. Index de configuration
 
@@ -2591,8 +2595,12 @@ Voir l'exemple de tableau correspondant au visuel présenté juste avant :
 
 ### 5.1.5. PLM - Product Lifecicle Management
 
+TODO
+
 
 ### 5.1.6. Archivage
+
+TODO
 
 
 ## 5.2. Automatisations
@@ -2633,8 +2641,14 @@ idéalement en GitOps (cf. [§4.3.2](#432-infrastructure-as-code-iac--gitops)).
 
 ### 5.3.1. GED
 
+TODO
+
 
 ### 5.3.2. CMS
 
+TODO
+
 
 ### 5.3.3. Formats texte + git
+
+TODO
