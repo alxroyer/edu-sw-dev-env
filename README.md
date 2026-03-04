@@ -12,8 +12,9 @@
     - [3.2. Référence de TP](#32-r%C3%A9f%C3%A9rence-de-tp)
     - [3.3. Autres icônes utiles](#33-autres-ic%C3%B4nes-utiles)
 - [4. Tables des matières et numérotation des titres](#4-tables-des-mati%C3%A8res-et-num%C3%A9rotation-des-titres)
-- [5. Générer les documents PDF](#5-g%C3%A9n%C3%A9rer-les-documents-pdf)
-- [6. Ressources](#6-ressources)
+- [5. Références croisées](#5-r%C3%A9f%C3%A9rences-crois%C3%A9es)
+- [6. Générer les documents PDF](#6-g%C3%A9n%C3%A9rer-les-documents-pdf)
+- [7. Ressources](#7-ressources)
 
 <!-- /TOC -->
 
@@ -135,8 +136,11 @@ A partir de VS Code :
 
 Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles pour cette extension.
 
-Pour les références croisées dans le document,
-utiliser le script `check-cross-refs.py' pour détecter les liens invalides,
+
+# Références croisées
+
+Pour les références croisées dans un document,
+utiliser le script `scripts/check-cross-refs.py' pour détecter les liens invalides,
 en cas de renumérotation des titres notamment.
 
 
