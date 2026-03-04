@@ -128,6 +128,9 @@ Mémo:
             - [5.1.2.4. Plateformes git](#5124-plateformes-git)
             - [5.1.2.5. Git, mode expert](#5125-git-mode-expert)
         - [5.1.3. Ticketing](#513-ticketing)
+            - [5.1.3.1. Fonctionnement général](#5131-fonctionnement-g%C3%A9n%C3%A9ral)
+            - [5.1.3.2. Organisation du travail d'équipe](#5132-organisation-du-travail-d%C3%A9quipe)
+            - [5.1.3.3. Intégration avec git](#5133-int%C3%A9gration-avec-git)
         - [5.1.4. Index de configuration](#514-index-de-configuration)
         - [5.1.5. PLM - Product Lifecicle Management](#515-plm---product-lifecicle-management)
         - [5.1.6. Archivage](#516-archivage)
@@ -2346,6 +2349,7 @@ auquel cas l'historique git peut être considéré comme un livrable à part ent
 > - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
 > - https://www.conventionalcommits.org/en/v1.0.0/
 > - https://opencommits.org/
+> - Ref ticket associé, cf. [§5.1.3.3](#5133-int%C3%A9gration-avec-git)
 
 
 ##### 5.1.2.3.2. Commit initial
@@ -2540,7 +2544,137 @@ parcourir le TP proposé ci-après.
 
 ### 5.1.3. Ticketing
 
-TODO
+Un système de tickets permet également de contribuer
+à la maîtrise du contenu fonctionnel du logiciel.
+
+
+#### 5.1.3.1. Fonctionnement général
+
+Les plateformes git identifiées précédemment (cf. [§5.1.2.4](#5124-plateformes-git))
+viennent généralement avec leur système de ticketing,
+souvent donné dans une vue nommée *issues*.
+
+> ℹ️ **Suite Atlassian**
+>
+> Pour la suite Atlassian, l'outil appairé à la plateforme git BitBucket
+> se nomme Jira pour la gestion des tickets.
+
+Les tickets permettent de tracer différents faits techniques
+caractérisant le fonctionnement du logiciel :
+- des bugs,
+- des souhaits d'évolutions.
+
+Selon les plateformes (GitHub notamment),
+les pull-requests peuvent également être identifiées et référencées par des numéros de tickets.
+
+> 📌 **Références croisées entre tickets**
+>
+> Les outils de ticketing permettent de faire très simplement des références entre tickets.
+>
+> Sous Jira, il suffit de donner l'identifiant de l'issue,
+> généralement composé d'un nom de projet suivi d'un indice.
+>
+> Sous GitHub, il suffit de préfixer le numéro d'issue avec le caractère `#`.
+>
+> On obtient ainsi un lien permettant de naviguer rapidement entre des sujets corrélés.
+
+> 💡 **Tickets : espaces d'instruction de sujets techniques**
+>
+> On peut voir les tickets comme des espaces ou dossiers
+> permettant d'instruire des sujets techniques.
+>
+> Exemple :
+> - Un dysfonctionnement aléatoire est constaté sur une version logicielle donnée.
+> - On ouvre un ticket de bug permettant d'enregistrer les éléments connus à date :
+>     - version du logiciel,
+>     - contexte d'utilisation,
+>     - données d'entrées,
+>     - logs,
+>     - ...
+> - D'autres informations peuvent être consignées ultérieurement, comme :
+>     - la constatation du même problème sur une autre version du logiciel,
+>     - la constatation du même symptome dans d'autres circonstances,
+>     - des éléments d'analyses techniques,
+>     - des éléments de surveillance du taux d'occurrence,
+>     - ...
+> - Et ce jusqu'à :
+>     - identifier la cause du problème,
+>       et suivre le sujet jusqu'à la correction du problème,
+>     - voire déterminer qu'il s'agissait finalement d'un faux problème,
+>       et clore le sujet en connaissance de cause.
+
+
+#### 5.1.3.2. Organisation du travail d'équipe
+
+Les tickets peuvent également servir à organiser le travail d'équipe.
+
+Des vues type *Release plan* permettent de prioriser et planifier
+la prise en compte des features et corrections
+dans les prochaines versions du logiciel.
+
+![GitHub project template - Feature release](images/GitHub%20project%20template%20-%20Feature%20release.png)
+
+> Source : https://github.com/, fonction *Projects*
+
+Des vues type *Scrum* ou *Kanban* permettent de présenter visuellement les travaux en cours.
+Les tickets sont présentés en colonnes, de gauche à droite,
+les colonnes de gauche correspondant aux travaux à réaliser,
+et les colonnes de droite aux travaux terminés.
+
+![GitHub project template - Kanban](./images/GitHub%20project%20template%20-%20Kanban.png)
+
+> Source : https://github.com/, fonction *Projects*
+
+> ℹ️ **Granularité des tâches**
+>
+> De sorte à permettre le raffinement des taches en sous-taches réalisables dans des temps limités
+> (typiquement un sprint SCRUM),
+> on considère généralement la hiérarchie de tickets suivante :
+
+> - **Epic**
+>
+>   Macro-ticket décrivant une feature complète,
+>   mais nécessitant d'être raffiné en plusieurs User-Stories.
+>
+> - **User-Story**
+>
+>   Ticket décrivant une fonction ou sous-fonction réalisable dans un temps limité.
+>
+> - **Task**
+>
+>   Raffinement possible d'une User-Story.
+>
+>   Utile lorsque :
+>     - le travail est parallélisable,
+>     - le travail nécessite un suivi détaillé pour en assurer l'exhaustivité,
+>     - ...
+
+
+#### 5.1.3.3. Intégration avec git
+
+Comme introduit aux [§5.1.2.2](#5122-investiguer-avec-git) et [§5.1.2.4](#5124-plateformes-git),
+les plateformes git réalisent une intégration bien utile
+entre git d'une part, et le système de ticketing d'autre part.
+
+- **De git vers les tickets**
+
+  De la même manière qu'il est possible de créer des références croisées entre tickets
+  dans l'outil de ticketing (cf. [§5.1.3.1](#5131-fonctionnement-g%C3%A9n%C3%A9ral)),
+  la même syntaxe peut être utilisée dans les commit logs.
+
+  C'est d'ailleurs un standard que de donner dans l'entête du commit log
+  la référence du ticket motivant la modification des sources
+  (cf. [§5.1.2.3.1](#51231-format-des-commit-logs)).
+
+  Ceci permet de naviguer rapidement depuis l'historique git vers les tickets associés,
+  donnant ainsi de l'information complémentaire sur l'objet des modifications.
+
+- **Des tickets vers git**
+
+  Inversement, dans l'outil de ticketing,
+  les tickets présentent les commits, les branches et les pull-requests associés au ticket.
+
+  Ceci permet de naviguer rapidement depuis un ticket vers les historiques git correspondants.
 
 
 ### 5.1.4. Index de configuration

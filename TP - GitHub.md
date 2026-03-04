@@ -183,6 +183,8 @@ on utilise la commande `ssh-keygen`.
 
 TODO :
 - Utilisation du format Markdown
+- Démontrer l'intégration croisée entre git et les issues (et les pull-requests)
+- Création de *Projects* : https://docs.github.com/en/issues/planning-and-tracking-with-projects
 
 
 # 3. Stratégies de merges / reviews / pull-requests
