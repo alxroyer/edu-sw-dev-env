@@ -1427,7 +1427,7 @@ qui permettent de suivre l'état de santé du projet dans le temps.
 > 👷🛠️ TP : Jenkins - CI (TODO)
 
 > 👷🛠️ TP : [GitHub Actions](TP%20-%20GitHub%20Actions.md)
-> (réserver la partie CD pour plus le [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment))
+> (réserver la partie CD pour le [§4.3.1](#431-cha%C3%AEne-cd---continuous-delivery-ou-continuous-deployment))
 
 
 ### 2.5.5. Conteneurs Docker d'outillages
