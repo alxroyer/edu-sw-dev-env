@@ -2096,6 +2096,9 @@ on parle de CD, pour *Continuous Delivery* ou *Continuous Deployment*.
 L'objectif est de déployer le plus simplement possible les services Web développés,
 à l'aides de configurations et quelques clics.
 
+Un bon outil de CD permet également de monitorer efficacement
+le parc des services déployés.
+
 Le tableau suivant présente un aperçu des principaux outils du marché.
 > Sources : https://thectoclub.com/tools/best-ci-cd-tools/ + https://chat.mistral.ai/,
 > sous réserve de confirmation des informations.
@@ -2123,6 +2126,10 @@ Le tableau suivant présente un aperçu des principaux outils du marché.
 > de toutes les étapes de la création d'un logiciel jusqu'à son déploiement.
 >
 > En ce sens, les outils de CD contribuent à la démarche DevOps.
+
+> 👷🛠️ TP : [GitHub Actions](TP%20-%20GitHub%20Actions.md) (partie CD)
+
+> 👷🛠️ TP : Déploiement de services Web avec OpenShift (TODO)
 
 
 ### 4.3.2. Infrastructure As Code (IaC) / GitOps
