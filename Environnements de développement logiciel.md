@@ -1691,7 +1691,7 @@ Pour ce faire, deux options à ma connaissance :
 
 - **Utilisation d'une sonde branchée sur un connecteur JTAG**
 
-  ![JTAG](./images/jtag_connections_diagram_v3.png)
+  ![JTAG](images/jtag_connections_diagram_v3.png)
 
   > Source : https://www.actuatedrobots.com/debugging-with-jtag/
 
@@ -2630,7 +2630,7 @@ Les tickets sont présentés en colonnes, de gauche à droite,
 les colonnes de gauche correspondant aux travaux à réaliser,
 et les colonnes de droite aux travaux terminés.
 
-![GitHub project template - Kanban](./images/GitHub%20project%20template%20-%20Kanban.png)
+![GitHub project template - Kanban](images/GitHub%20project%20template%20-%20Kanban.png)
 
 > Source : https://github.com/, fonction *Projects*
 
