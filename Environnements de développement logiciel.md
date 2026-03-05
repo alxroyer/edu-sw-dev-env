@@ -292,7 +292,7 @@ Entre autres (1) :
 - Maintenabilité
 - Portabilité
 
-Une partie de ces dimensions reste essentiellement portée par le logciel développé.
+Une partie de ces dimensions reste essentiellement portée par le logiciel développé.
 
 Toutefois, l'environnement de développement peut contribue à certaines de ces dimensions, notamment :
 - Fiabilité :
