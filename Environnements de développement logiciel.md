@@ -3113,7 +3113,49 @@ Des outils en ligne permettent de tester la syntaxe :
 
 ### 5.3.4. Documentation d'API
 
-TODO
+Les différents langages viennent généralement avec leur format de documentation d'API.
+
+Ces formats de documentation permettent une documentation des API au plus proche du code :
+- packages,
+- classes,
+- variables et attributs de classes,
+- fonctions et méthodes,
+- paramètres de fonctions et méthodes,
+- valeurs de retour,
+- exceptions potentiellement générées,
+- ...
+
+Le tableau ci-après identifie les formats de documentation associés à chaque langage :
+
+| Langage         | Format de documentation | URLs |
+|-----------------|-------------------------|------|
+| C/C++           | Doxygen                 | https://www.doxygen.nl/ |
+| Java            | Javadoc                 | https://docs.oracle.com/en/java/javase/25/docs/specs/javadoc/doc-comment-spec.html |
+| JS / Typescript | JSDoc                   | https://jsdoc.app/ |
+| PHP             | PHPDoc                  | https://phpdoc.org/ |
+| Rust            | rustdoc                 | https://doc.rust-lang.org/nightly/rustdoc/how-to-write-documentation.html |
+| Python          | Docstrings              | https://peps.python.org/pep-0257/, https://realpython.com/how-to-write-docstrings-in-python/ |
+| Go              | Go Doc                  | https://go.dev/doc/comment |
+
+A noter que, à l'exception de Python et Go,
+tous ces formats de documentation ont tendance à ressembler au format Javadoc (probablement le plus ancien).
+
+Une fois les API documentées dans le code,
+on peut extraire cette documentation sous forme de pages HTML ou document PDF.
+
+> 👷🛠️ TP : Documentation Doxygen de code C/C++ (TODO)
+
+> 👷🛠️ TP : Documentation Javadoc de code Java (TODO)
+
+> 👷🛠️ TP : Documentation JSDoc de code Javascript et Typescript (TODO)
+
+> 👷🛠️ TP : Documentation PHPDoc de code PHP (TODO)
+
+> 👷🛠️ TP : Documentation rustdoc de code Rust (TODO)
+
+> 👷🛠️ TP : Documentation Docstrings de code Python (TODO)
+
+> 👷🛠️ TP : Documentation Go Doc de code Go (TODO)
 
 
 # 6. Annexes

@@ -44,7 +44,13 @@ In order to update this file :
 - Environnements de développement logiciel.md:3025:> 👷🛠️ TP : Format ReStructured Text (TODO)
 - Environnements de développement logiciel.md:3053:> 👷🛠️ TP : Format PlantUML (TODO)
 - Environnements de développement logiciel.md:3100:> 👷🛠️ TP : Format Mermaid (TODO)
-- Environnements de développement logiciel.md:3116:TODO
+- Environnements de développement logiciel.md:3146:> 👷🛠️ TP : Documentation Doxygen de code C/C++ (TODO)
+- Environnements de développement logiciel.md:3148:> 👷🛠️ TP : Documentation Javadoc de code Java (TODO)
+- Environnements de développement logiciel.md:3150:> 👷🛠️ TP : Documentation JSDoc de code Javascript et Typescript (TODO)
+- Environnements de développement logiciel.md:3152:> 👷🛠️ TP : Documentation PHPDoc de code PHP (TODO)
+- Environnements de développement logiciel.md:3154:> 👷🛠️ TP : Documentation rustdoc de code Rust (TODO)
+- Environnements de développement logiciel.md:3156:> 👷🛠️ TP : Documentation Docstrings de code Python (TODO)
+- Environnements de développement logiciel.md:3158:> 👷🛠️ TP : Documentation Go Doc de code Go (TODO)
 - TP - GitHub.md:184:TODO :
 - TP - GitHub.md:192:TODO :
 - TP - GitHub.md:205:TODO :
