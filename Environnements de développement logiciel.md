@@ -2785,7 +2785,42 @@ notamment dans le cas des logiciels embarqués.
 
 ### 5.1.6. Archivage
 
-TODO
+Dernier rempart de la gestion de configuration : l'archivage.
+
+L'objectif est de savoir remettre en place les activités de développement a posteriori :
+maintenance à long terme,
+ou restauration en cas de sinistre.
+
+En matière de résilience aux sinistres (piratage, incendie, inondations, ...),
+on parle de PCA (Plan de Continuité d'Activité)
+et de PRA (Plan de Reprise d'Activité).
+Les archivages contribuent plutôt aux PRA.
+
+On prendra soin d'archiver :
+- les code sources,
+- les binaires produits,
+- ⚠️ sans oublier les outils !
+  de sorte à pouvoir restaurer l'ensemble de l'environnement de développement.
+
+> 📌 **Tester les archives**
+>
+> Archiver c'est bien,
+> mais tant qu'on n'a pas testé nos archives et nos PRA,
+> on n'est jamais certain que nos archives sont valides et se suffisent à elles-mêmes.
+>
+> C'est pourquoi il est de bon ton de tester les procédures de PRA régulièrement.
+>
+> 💡 **Profiter de l'arrivée des nouveaux membres dans l'équipe**
+>
+> Profiter de l'arrivée des nouveaux pour tester ces PRA.
+>
+> C'est censé être suffisamment bien documenté pour qu'ils puissent être autonomes,
+> et c'est formateur.
+>
+> C'est par ailleurs une bonne "épreuve du feu" pour le PRA,
+> car le nouvel arrivant n'a pas de connaissances présupposées sur le projet.
+> S'il manque des précisions, voire des éléments,
+> c'est l'occasion d'améliorer la documentation, voire de compléter les archives.
 
 
 ## 5.2. Automatisations
