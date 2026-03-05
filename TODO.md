@@ -14,35 +14,36 @@ In order to update this file :
 
 # TODOs
 
-- Environnements de développement logiciel.md:430:> 👷🛠️ TP : Refactoring (TODO)
-- Environnements de développement logiciel.md:484:> <span class="sw-type embedded"></span> 👷🛠️ TP : Debugging C/C++ à distance avec gdbserver (TODO)
-- Environnements de développement logiciel.md:627:> 👷🛠️ TP : API REST en Python avec pip et venv (TODO)
-- Environnements de développement logiciel.md:629:> 👷🛠️ TP : API REST en PHP avec composer (TODO)
-- Environnements de développement logiciel.md:631:> 👷🛠️ TP : API REST en Go avec `go get` et `go build` (TODO)
-- Environnements de développement logiciel.md:641:> 👷🛠️ TP : Image Linux avec buildroot (TODO, penser à enregistrer le fichier *defconfig*)
-- Environnements de développement logiciel.md:1048:> 👷🛠️ TP : Bundling d'une application React Native avec Vite (TODO)
-- Environnements de développement logiciel.md:1405:> 👷🛠️ TP : Jenkins - CI (TODO)
-- Environnements de développement logiciel.md:1426:> 👷🛠️ TP : Toolchain SDK Java avec Docker (TODO)
-- Environnements de développement logiciel.md:1517:> 👷🛠️ TP : Développement Web en Remote SSH avec VS Code (TODO)
-- Environnements de développement logiciel.md:1538:> 👷🛠️ TP : Développement Web avec Docker (TODO)
-- Environnements de développement logiciel.md:1932:TODO : Tableau des outils du marché
-- Environnements de développement logiciel.md:1954:> 👷🛠️ TP : Publication de logiciel JS sur npmjs.org (TODO)
-- Environnements de développement logiciel.md:1956:> 👷🛠️ TP : Publication de logiciel Python sur pypi.org (TODO)
-- Environnements de développement logiciel.md:1962:> 👷🛠️ TP : Publication de logiciel PHP sur packagist.org (TODO)
-- Environnements de développement logiciel.md:1968:> 👷🛠️ TP : Publication de logiciel Rust sur crates.io (TODO)
-- Environnements de développement logiciel.md:1970:> 👷🛠️ TP : Publication d'une image Docker sur Docker Hub (TODO)
-- Environnements de développement logiciel.md:1993:> 👷🛠️ TP : Génération de programme d'installation avec Inno Setup (TODO)
-- Environnements de développement logiciel.md:1995:> 👷🛠️ TP : Génération de programme d'installation avec Visual Studio (TODO)
-- Environnements de développement logiciel.md:2037:> 👷🛠️ TP : Génération d'un package .deb (TODO)
-- Environnements de développement logiciel.md:2039:> 👷🛠️ TP : Génération d'un package RPM (TODO)
-- Environnements de développement logiciel.md:2055:> ❗ **Distribution d'applications Mac (TODO)**
-- Environnements de développement logiciel.md:2328:> 👷🛠️ TP : [Git, les bases](TP%20-%20Git%20base.md) (TODO : à finaliser)
-- Environnements de développement logiciel.md:2355:> 👷🛠️ TP : Good git commit log (TODO)
-- Environnements de développement logiciel.md:2543:> 👷🛠️ TP : Installation Gitea on-premise (TODO)
-- Environnements de développement logiciel.md:2551:> 👷🛠️ TP : Git, mode expert (TODO)
-- Environnements de développement logiciel.md:2864:TODO
-- Environnements de développement logiciel.md:2869:TODO
-- Environnements de développement logiciel.md:2874:TODO
+- Environnements de développement logiciel.md:431:> 👷🛠️ TP : Refactoring (TODO)
+- Environnements de développement logiciel.md:485:> <span class="sw-type embedded"></span> 👷🛠️ TP : Debugging C/C++ à distance avec gdbserver (TODO)
+- Environnements de développement logiciel.md:628:> 👷🛠️ TP : API REST en Python avec pip et venv (TODO)
+- Environnements de développement logiciel.md:630:> 👷🛠️ TP : API REST en PHP avec composer (TODO)
+- Environnements de développement logiciel.md:632:> 👷🛠️ TP : API REST en Go avec `go get` et `go build` (TODO)
+- Environnements de développement logiciel.md:642:> 👷🛠️ TP : Image Linux avec buildroot (TODO, penser à enregistrer le fichier *defconfig*)
+- Environnements de développement logiciel.md:1049:> 👷🛠️ TP : Bundling d'une application React Native avec Vite (TODO)
+- Environnements de développement logiciel.md:1406:> 👷🛠️ TP : Jenkins - CI (TODO)
+- Environnements de développement logiciel.md:1427:> 👷🛠️ TP : Toolchain SDK Java avec Docker (TODO)
+- Environnements de développement logiciel.md:1518:> 👷🛠️ TP : Développement Web en Remote SSH avec VS Code (TODO)
+- Environnements de développement logiciel.md:1539:> 👷🛠️ TP : Développement Web avec Docker (TODO)
+- Environnements de développement logiciel.md:1933:TODO : Tableau des outils du marché
+- Environnements de développement logiciel.md:1955:> 👷🛠️ TP : Publication de logiciel JS sur npmjs.org (TODO)
+- Environnements de développement logiciel.md:1957:> 👷🛠️ TP : Publication de logiciel Python sur pypi.org (TODO)
+- Environnements de développement logiciel.md:1963:> 👷🛠️ TP : Publication de logiciel PHP sur packagist.org (TODO)
+- Environnements de développement logiciel.md:1969:> 👷🛠️ TP : Publication de logiciel Rust sur crates.io (TODO)
+- Environnements de développement logiciel.md:1971:> 👷🛠️ TP : Publication d'une image Docker sur Docker Hub (TODO)
+- Environnements de développement logiciel.md:1994:> 👷🛠️ TP : Génération de programme d'installation avec Inno Setup (TODO)
+- Environnements de développement logiciel.md:1996:> 👷🛠️ TP : Génération de programme d'installation avec Visual Studio (TODO)
+- Environnements de développement logiciel.md:2038:> 👷🛠️ TP : Génération d'un package .deb (TODO)
+- Environnements de développement logiciel.md:2040:> 👷🛠️ TP : Génération d'un package RPM (TODO)
+- Environnements de développement logiciel.md:2056:> ❗ **Distribution d'applications Mac (TODO)**
+- Environnements de développement logiciel.md:2329:> 👷🛠️ TP : [Git, les bases](TP%20-%20Git%20base.md) (TODO : à finaliser)
+- Environnements de développement logiciel.md:2356:> 👷🛠️ TP : Good git commit log (TODO)
+- Environnements de développement logiciel.md:2544:> 👷🛠️ TP : Installation Gitea on-premise (TODO)
+- Environnements de développement logiciel.md:2552:> 👷🛠️ TP : Git, mode expert (TODO)
+- Environnements de développement logiciel.md:2903:TODO
+- Environnements de développement logiciel.md:2908:TODO
+- Environnements de développement logiciel.md:2913:TODO
+- Environnements de développement logiciel.md:2918:TODO
 - TP - GitHub.md:184:TODO :
 - TP - GitHub.md:192:TODO :
 - TP - GitHub.md:205:TODO :

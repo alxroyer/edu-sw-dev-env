@@ -145,6 +145,7 @@ Mémo:
         - [5.3.1. GED](#531-ged)
         - [5.3.2. CMS](#532-cms)
         - [5.3.3. Formats texte + git](#533-formats-texte--git)
+        - [5.3.4. Documentation d'API](#534-documentation-dapi)
 - [6. Annexes](#6-annexes)
     - [6.1. Licence](#61-licence)
     - [6.2. Ressources](#62-ressources)
@@ -2859,6 +2860,44 @@ idéalement en GitOps (cf. [§4.3.2](#432-infrastructure-as-code-iac--gitops)).
 
 ## 5.3. Documentation
 
+On a déjà vanté les mérites de la documentation
+notamment pour l'industrialisation de l'environnement de développement
+(cf. [§2.5.6](#256-documentation)).
+
+Cette section est dédiée à la gestion de la documentation :
+enregistrement, format, ...
+
+> ⚠️ **Ecrire des docs utiles**
+>
+> Attention toutefois à ne pas tomber dans des excès.
+>
+> Garder en tête qu'écrire de la documentation,
+> cela implique également l'engagement de la maintenir dans le temps.
+>
+> On risque sinon de se retrouver dans une situation
+> avec un volume conséquent de documentation,
+> dont une bonne partie obsolète,
+> et sans savoir quelle documentation est obsolète ou pertinente.
+
+> 💡 **Anticiper le caractère temporel d'une doc**
+>
+> Pour limiter les risques de manque de discernement sur le caractère obsolète ou non de la documentation,
+> on pourra avoir le réflexe de tagguer la caractère temporel de celle-ci
+> lorsque cela s'y prête.
+>
+> Cela pourra se faire simplement en spécifiant une information de date
+> dans le titre du document par exemple.
+>
+> Exemples :
+> - Inventaire **en date du xx/xx/xxxx**,
+> - Analyse technique **en date du xx/xx/xxxx**,
+> - ...
+>
+> On pourra aussi reposer sur les tickets (cf. [§5.1.3](#513-ticketing))
+> pour attacher les informations liées à un sujet temporel donné,
+> plutôt qu'enregistrer une doc temporaire dans l'espace général.
+
+
 ### 5.3.1. GED
 
 TODO
@@ -2872,6 +2911,12 @@ TODO
 ### 5.3.3. Formats texte + git
 
 TODO
+
+
+### 5.3.4. Documentation d'API
+
+TODO
+
 
 # 6. Annexes
 
