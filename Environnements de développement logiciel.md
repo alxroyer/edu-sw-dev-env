@@ -142,8 +142,8 @@ Mémo:
         - [5.1.6. Archivage](#516-archivage)
     - [5.2. Automatisations](#52-automatisations)
     - [5.3. Documentation](#53-documentation)
-        - [5.3.1. GED](#531-ged)
-        - [5.3.2. CMS](#532-cms)
+        - [5.3.1. GED / répertoires partagés](#531-ged--r%C3%A9pertoires-partag%C3%A9s)
+        - [5.3.2. CMS / Wiki](#532-cms--wiki)
         - [5.3.3. Formats texte + git](#533-formats-texte--git)
         - [5.3.4. Documentation d'API](#534-documentation-dapi)
 - [6. Annexes](#6-annexes)
@@ -2898,14 +2898,67 @@ enregistrement, format, ...
 > plutôt qu'enregistrer une doc temporaire dans l'espace général.
 
 
-### 5.3.1. GED
+### 5.3.1. GED / répertoires partagés
 
-TODO
+Un premier support de documentation naturellement pratiqué
+est l'utilisation de formats type Office (Miscrosoft ou version libre)
+pour les documents : Word, Excel, ou PowerPoint principalement.
+
+Il reste le besoin de disposer d'un espace d'enregistrement central,
+de sorte à ce que l'ensemble de l'équipe puisse interagir autour de ces documents :
+
+- **Répertoires partagés**
+
+  C'est une solution assez directe, facilement accessible depuis un poste standard.
+
+  Les répertoires partagés ne gèrent pas nativement la dimension "gestion de configuration".
+  C'est pourquoi on est régulèrement contraints
+  de rajouter des informations de dates dans les noms de fichiers et de répertoires.
+
+- **GED**
+
+  Les outils de GED (Gestion Electronique de Documents),
+  tels Sharepoint par exemple,
+  intègrent nativement une dimension de versioning des documents.
+
+  Attention toutefois à la lourdeur d'utilisation de certaines solutions,
+  qui peut gréver l'efficacité pour la manipulation de documents.
 
 
-### 5.3.2. CMS
+### 5.3.2. CMS / Wiki
 
-TODO
+Autre solution souvent plébiscitée dans les entreprises :
+l'utilisation d'un CMS *(Content Management System)* ou Wiki,
+notamment la solution Confluence d'Atlassian.
+
+Ce type de solution présente l'avantage de rapidement écrire de la documentation
+joliment présentée,
+facilement accessible en mode Web,
+avec des fonctions de recherches dans l'ensemble des pages.
+
+Ces systèmes viennent également avec un certain nombre d'objets
+permettant de faire des mises en forme sympatiques.
+
+> ⚠️ **CMS & piège de l'obsolescence des infos**
+>
+> De mon expérience personnelle,
+> on arrive régulièrement à une situation d'obsolescence de l'information dans les Wikis.
+>
+> En effet, avec ce côté presque ludique,
+> on peut facilement écrire de la documentation bien présentée,
+> faire des recherches,
+> la référencer via des liens,
+> ...
+>
+> Mais l'engagement de maintenir la documentation n'est pas assuré.
+>
+> Face à de l'information potentiellement obsolète,
+> je crois voir qu'il existe un sentiment de manque de légitimité pour corriger la documentation :
+> "ce n'est pas moi qui ai écrit cette doc, je ne sais pas si j'ai bien le droit de la modifier".
+>
+> Dans cette situation, le réflexe est souvent de créer de nouvelles pages.
+> La base documentaire ne fait que grossir,
+> sans discernement évident entre les infos pertinentes ou obsolètes.
 
 
 ### 5.3.3. Formats texte + git
