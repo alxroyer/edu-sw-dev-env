@@ -30,6 +30,13 @@ Accès au cours :
 
 # 2. Licence
 
+Cours mis à disposition sous licence CC BY-NC-SA 4.0.
+
+![CC](https://mirrors.creativecommons.org/presskit/icons/cc.svg)
+![BY](https://mirrors.creativecommons.org/presskit/icons/by.svg)
+![NC](https://mirrors.creativecommons.org/presskit/icons/nc.svg)
+![SA](https://mirrors.creativecommons.org/presskit/icons/sa.svg)
+
 Voir le [contrat de licence](LICENSE.txt).
 
 

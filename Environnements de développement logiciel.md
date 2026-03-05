@@ -29,6 +29,12 @@ ainsi que les capacités de suivi de version et de travail collaboratif apporté
 
 ---
 
+Cours mis à disposition sous licence Creative Common.
+
+Voir le [§6.1](#61-licence).
+
+---
+
 
 Sommaire :
 
@@ -139,6 +145,9 @@ Mémo:
         - [5.3.1. GED](#531-ged)
         - [5.3.2. CMS](#532-cms)
         - [5.3.3. Formats texte + git](#533-formats-texte--git)
+- [6. Annexes](#6-annexes)
+    - [6.1. Licence](#61-licence)
+    - [6.2. Ressources](#62-ressources)
 
 <!-- /TOC -->
 
@@ -2786,3 +2795,37 @@ TODO
 ### 5.3.3. Formats texte + git
 
 TODO
+
+# 6. Annexes
+
+## 6.1. Licence
+
+Cours mis à disposition sous licence CC BY-NC-SA 4.0.
+
+![CC](https://mirrors.creativecommons.org/presskit/icons/cc.svg)
+![BY](https://mirrors.creativecommons.org/presskit/icons/by.svg)
+![NC](https://mirrors.creativecommons.org/presskit/icons/nc.svg)
+![SA](https://mirrors.creativecommons.org/presskit/icons/sa.svg)
+
+[LICENSE.txt](LICENSE.txt) :
+
+---
+
+Software development environment lesson © 2025 by Alexis Royer
+
+https://github.com/alxroyer/edu-sw-dev-env
+
+This work is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+---
+
+
+## 6.2. Ressources
+
+Images :
+- https://www.pexels.com/fr-fr/
+- https://fr.freepik.com/
+- https://pixabay.com/fr/
+- https://dashboardicons.com/ (logos)
+- https://www.logo.wine/ (logos)
