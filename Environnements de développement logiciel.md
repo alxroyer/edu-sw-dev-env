@@ -2714,6 +2714,8 @@ entre git d'une part, et le système de ticketing d'autre part.
 
   Ceci permet de naviguer rapidement depuis un ticket vers les historiques git correspondants.
 
+> 👷🛠️ TP : GitHub issues (TODO)
+
 
 ### 5.1.4. Index de configuration
 
