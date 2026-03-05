@@ -335,22 +335,26 @@ Un des premiers outils qu'on est amené à aborder pour faire du développement 
 
 L'usage d'un IDE présente de nombreux intérêts :
 
-- Edition de code :
+- **Edition de code :**
+
   Basique, un simple notepad (voire `vi` pour les puristes !)
   pourrait faire le job.
 
-- Coloration syntaxique :
+- **Coloration syntaxique :**
+
   Ca change déjà un peu la vie,
   dans la mesure où ça fluidifie la lecture du code.
 
-- Navigation :
+- **Navigation :**
+
   Capacité à aller directement sur le code d'une variable ou d'une fonction,
   ou dans le code Markdown d'un chapitre donné.
   Possibilité de gagner du temps,
   en évitant de scroller et de faire des CTRL+F dans tous les sens
   quand le code commence à prendre du volume.
 
-- Complétion :
+- **Complétion :**
+
   La complétion apporte un vrai plus,
   en évitant des fautes de frappe
   donc des erreurs chronophages au passage.
@@ -365,23 +369,36 @@ L'usage d'un IDE présente de nombreux intérêts :
   > Le cas échéant, avoir le réflexe d'utiliser les fonction de refactoring
   > pour corriger le tir.
 
-- Refactoring :
+- **Refactoring :**
+
   On gagne encore plus du temps.
   On n'hésite plus à renommer une variable, une fonction, une classe,
   pour lui redonner un nom plus adapté, allant dans le sens de la maintenabilité.
 
-- Edition multi-lignes :
+- **Edition multi-lignes :**
+
   Capacité mise à disposition par un certain nombre d'éditeurs de texte,
   à laquelle on s'habitue très vite dès lors qu'on commence à l'utiliser.
 
-- Debugging :
+- **Debugging :**
+
   Dès lors que c'est possible,
   permet d'obtenir plein d'informations utiles
   dans le cadre de résolution d'un bug.
   Possibilité également d'utiliser les fonctions de debugging
   pour tester des injections de fautes.
 
-- IA :
+- **Ecosystème d'extensions :**
+
+  Les IDE les plus répandus viennent généralement avec un écosystème d'extensions riche
+  permettant d'étendre les capacités de l'IDE.
+
+  Ces extensions permettent en premier lieu d'assurer le support des différentes technologies manipulées.
+
+  Elles permettent également d'améliorer l'efficacité au quotidien.
+
+- **IA :**
+
   Les IDE intègrent aujourd'hui des fonctions d'IA
   qui peuvent augmenter la productivité.
 
