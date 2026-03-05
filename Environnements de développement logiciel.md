@@ -146,7 +146,7 @@ Mémo:
         - [5.3.2. CMS / Wiki](#532-cms--wiki)
         - [5.3.3. Formats texte + git](#533-formats-texte--git)
             - [5.3.3.1. Markdown](#5331-markdown)
-            - [5.3.3.2. ReStructured Text](#5332-restructured-text)
+            - [5.3.3.2. RST / ReStructured Text](#5332-rst--restructured-text)
             - [5.3.3.3. PlantUML](#5333-plantuml)
             - [5.3.3.4. Mermaid](#5334-mermaid)
         - [5.3.4. Documentation d'API](#534-documentation-dapi)
@@ -3002,7 +3002,7 @@ d'où l'importance de s'y intéresser.
 > 👷🛠️ TP : Format Markdown (TODO)
 
 
-#### 5.3.3.2. ReStructured Text
+#### 5.3.3.2. RST / ReStructured Text
 
 Si les possibilités du format Mardown ne suffisent pas :
 - gestion des tableaux limitée,
@@ -3027,12 +3027,88 @@ permet une intégration de Sphinx pour la publication de la documentation en lig
 
 #### 5.3.3.3. PlantUML
 
-TODO
+PlantUML est un outil Open Source,
+implémenté en Java,
+sorti en 2009 dans sa première version.
+
+Il propose un formalisme texte pour décrire des schémas UML :
+- Sequence diagram
+- Usecase diagram
+- Class diagram
+- Object diagram
+- Activity diagram
+- Component diagram
+- Deployment diagram
+- State diagram
+- Timing diagram
+- ...
+
+Ressources :
+- Site officiel : https://plantuml.com/
+- GitHub : https://github.com/plantuml/plantuml
+
+Des outils en ligne permettent de tester la syntaxe :
+- https://www.plantuml.com/plantuml/uml/
+
+> 👷🛠️ TP : Format PlantUML (TODO)
+
+> ❓ **Difficultés d'intégration**
+>
+> Etant écrit en Java,
+> PlantUML est probablement moins facile à intégrer que d'autres formats
+> tels que Mermaid présenté ci-après.
+>
+> A confirmer.
+>
+> J'ai eu l'occasion de l'intégrer dans la production d'une documentation RST (cf. [§5.3.3.2](#5332-rst--restructured-text))
+> avec un séquencement à base de Makefile (cf. [§2.4.4.1](#2441-makefile-les-origines)).
+>
+> Cela nécessitait effectivement :
+> - le téléchargement et l'installation d'un jar,
+> - donc l'installation préalable d'une JRE,
+> - l'écriture de quelques règles Makefile,
+> - et donc l'installation préalable d'un binaire `make`.
 
 
 #### 5.3.3.4. Mermaid
 
-TODO
+Mermaid est un outil Open Source,
+implémenté en Typescript / Javascript,
+sorti en 2014 dans sa première version.
+
+De même que PlantUML, il propose un formalisme texte pour décrire des schémas :
+- Flowchart
+- Sequence diagram
+- Gantt chart
+- Class diagram
+- State diagram
+- Pie chart
+- Git graph
+- Bar chart
+- User Journey diagram
+- C4 diagram
+- ...
+
+Ressources :
+- Ancien site officiel : https://mermaid.js.org/
+- Nouveau site officiel : https://mermaid.ai/
+- GitHub : https://github.com/mermaid-js/mermaid
+
+Des outils en ligne permettent de tester la syntaxe :
+- https://mermaid.live/edit
+
+> 👷🛠️ TP : Format Mermaid (TODO)
+
+> ❓ **Facilité d'intégration**
+>
+> Implémenté en Typescript / Javascript,
+> cet outil bénéficie peut-être d'un meilleur niveau d'intégration que PlantUML ?
+>
+> A confirmer.
+>
+> A noter l'abandon en juin 2025 du format PlantUML par draw.io (https://www.drawio.com/)
+> au bénéfice de Mermaid :
+> https://www.drawio.com/blog/plantuml-to-mermaid.
 
 
 ### 5.3.4. Documentation d'API

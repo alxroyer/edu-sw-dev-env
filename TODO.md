@@ -42,9 +42,9 @@ In order to update this file :
 - Environnements de développement logiciel.md:2556:> 👷🛠️ TP : Git, mode expert (TODO)
 - Environnements de développement logiciel.md:3002:> 👷🛠️ TP : Format Markdown (TODO)
 - Environnements de développement logiciel.md:3025:> 👷🛠️ TP : Format ReStructured Text (TODO)
-- Environnements de développement logiciel.md:3030:TODO
-- Environnements de développement logiciel.md:3035:TODO
-- Environnements de développement logiciel.md:3040:TODO
+- Environnements de développement logiciel.md:3053:> 👷🛠️ TP : Format PlantUML (TODO)
+- Environnements de développement logiciel.md:3100:> 👷🛠️ TP : Format Mermaid (TODO)
+- Environnements de développement logiciel.md:3116:TODO
 - TP - GitHub.md:184:TODO :
 - TP - GitHub.md:192:TODO :
 - TP - GitHub.md:205:TODO :
