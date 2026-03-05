@@ -2114,6 +2114,7 @@ Le tableau suivant présente un aperçu des principaux outils du marché.
 | Google Cloud Build | https://cloud.google.com/build | Commercial | Solution CI/CD Google Cloud. | 2018 |
 | Azure DevOps | https://azure.microsoft.com/en-us/products/devops | Commercial | Solution CI/CD Microsoft Azure. | 2018 |
 | OpenShift Pipelines | https://docs.redhat.com/en/documentation/red_hat_openshift_pipelines | Open Source (Apache 2.0), commerciale | Solution CI/CD native pour Kubernetes, basée sur Tekton. Solution sécurisée, scalable et intégrée à une infrastructure conteneurisée. | 2019 |
+| Argo CD | https://argoproj.github.io/cd/ | Open Source (Apache v2) | GitOps continuous delivery tool for Kubernetes | 2019 |
 | GitHub Actions | https://github.com/features/actions | Commercial | Directement intégré dans GitHub. Permet d'automatiser les workflows CI/CD directement depuis les dépôts GitHub. | 2019 |
 
 > ℹ️ **DevOps**
