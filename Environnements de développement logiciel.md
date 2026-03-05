@@ -145,6 +145,10 @@ Mémo:
         - [5.3.1. GED / répertoires partagés](#531-ged--r%C3%A9pertoires-partag%C3%A9s)
         - [5.3.2. CMS / Wiki](#532-cms--wiki)
         - [5.3.3. Formats texte + git](#533-formats-texte--git)
+            - [5.3.3.1. Markdown](#5331-markdown)
+            - [5.3.3.2. ReStructured Text](#5332-restructured-text)
+            - [5.3.3.3. PlantUML](#5333-plantuml)
+            - [5.3.3.4. Mermaid](#5334-mermaid)
         - [5.3.4. Documentation d'API](#534-documentation-dapi)
 - [6. Annexes](#6-annexes)
     - [6.1. Licence](#61-licence)
@@ -2962,6 +2966,71 @@ permettant de faire des mises en forme sympatiques.
 
 
 ### 5.3.3. Formats texte + git
+
+Dès lors qu'une documentation peut être attachée à l'existence d'un dépôt git,
+l'utilisation d'un format texte constitue une option sérieuse.
+
+On bénéficie dès lors de toute la puissance de git pour le suivi de version du fichier texte :
+historique, contributions / merges, ...
+
+Des formats textes permettent également de décrire des schémas,
+ce qui est largement meilleur que de dessiner ses schémas sous Visio ou autre format de fichier binaire,
+impossibles à suivre en historique dans le détail des modifications,
+et encore moins à merger !
+
+
+#### 5.3.3.1. Markdown
+
+En tant que développeur logiciel,
+il convient de s'intéresser en premier lieu au format Markdown.
+
+Ressources :
+- Site officiel : https://daringfireball.net/projects/markdown/
+- Autre guide dédié : https://www.markdownguide.org/
+
+L'intérêt de ce format est de proposer un formalisme texte simple,
+déjà lisible dans sa forme brute,
+et permettant de spécifier des mises en forme documentaires,
+typiquement pour produire du HTML.
+
+On ne peut pas tout faire avec Markdown,
+mais c'est souvent suffisant pour la constitution de docs techniques.
+
+C'est par ailleurs largement diffusé dans les outils (GitHub, ...),
+d'où l'importance de s'y intéresser.
+
+> 👷🛠️ TP : Format Markdown (TODO)
+
+
+#### 5.3.3.2. ReStructured Text
+
+Si les possibilités du format Mardown ne suffisent pas :
+- gestion des tableaux limitée,
+- impossible de splitter une documentation dans plusieurs fichiers Markdown source,
+- ...
+
+on pourra s'intéresser au format ReStructured Text.
+
+Ressources :
+- Référence du format : https://docutils.sourceforge.io/rst.html
+- Guide par Sphinx : https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
+
+Ce format est issu du monde Python,
+Sphinx (https://www.sphinx-doc.org/en/master/index.html)
+étant l'outil permettant de compiler la doc, typiquement en HTML.
+
+La plateforme readthedocs.io (https://docs.readthedocs.com/platform/stable/index.html)
+permet une intégration de Sphinx pour la publication de la documentation en ligne.
+
+> 👷🛠️ TP : Format ReStructured Text (TODO)
+
+
+#### 5.3.3.3. PlantUML
+
+TODO
+
+
+#### 5.3.3.4. Mermaid
 
 TODO
 
