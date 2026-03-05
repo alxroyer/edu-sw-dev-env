@@ -138,7 +138,7 @@ Mémo:
             - [5.1.3.2. Organisation du travail d'équipe](#5132-organisation-du-travail-d%C3%A9quipe)
             - [5.1.3.3. Intégration avec git](#5133-int%C3%A9gration-avec-git)
         - [5.1.4. Index de configuration](#514-index-de-configuration)
-        - [5.1.5. PLM - Product Lifecicle Management](#515-plm---product-lifecicle-management)
+        - [5.1.5. PLM - Product Lifecycle Management](#515-plm---product-lifecycle-management)
         - [5.1.6. Archivage](#516-archivage)
     - [5.2. Automatisations](#52-automatisations)
     - [5.3. Documentation](#53-documentation)
@@ -2736,9 +2736,51 @@ Voir l'exemple de tableau correspondant au visuel présenté juste avant :
 > pour chaque élément concerné.
 
 
-### 5.1.5. PLM - Product Lifecicle Management
+### 5.1.5. PLM - Product Lifecycle Management
 
-TODO
+Le déploiement d'un outil de PLM *(Product Lifecycle Management)*
+est une pratique plutôt issue du monde de l'industrie,
+automobile notamment pour ses origines.
+
+Ces système permettent de décomposer un produit en sous-parties,
+elles-mêmes décomposées en sous-parties,
+jusqu'à l'identification des pièces unitaires.
+
+Ils sont généralement connectés à l'ERP de l'entreprise,
+et permettent de :
+- gérer les stocks de matières premières,
+- éditer des BOMs *(Bills Of Materials)*
+  pour passer des commandes de sous-parties entières à des sous-traitants,
+- tracer les configurations des produits livrés,
+- ...
+
+Ci-après, une liste des principaux outils de PLM :
+> Source : https://chat.mistral.ai/, sous réserve de confirmation des informations.
+
+| Produit | Description | Date |
+|---------|-------------|------|
+| Siemens Teamcenter | Adapté aux grands groupes industriels | 1990's |
+| Oracle Agile PLM | Solution complète, conformité réglementaire, intégration ERP | 1990's |
+| Windchill | Utilisé dans l’aérospatial, la défense, le médical | 1998 |
+| Arena PLM | Interface conviviale, SaaS, adapté aux PME | 2000 |
+| Autodesk Fusion Lifecycle | De la conception à la production, collaboration améliorée, cloud | 2010’s |
+| Odoo PLM | Economique, intégration native avec les autres modules Odoo (ERP, CRM) | 2015 |
+
+Et le logiciel dans tout ça ?
+
+Dans le cas des logiciels embarqués,
+ces derniers sont généralement référencés dans le PLM
+en tant qu'éléments nécessaires à la production d'un produit livrable.
+
+Certaines entreprises enregistrent en sous-parties du logiciel
+les librairies et frameworks embarqués dans le logiciel,
+pouvant faire l'objet de contraintes de licences, Open Source et commerciales notamment
+(cf. [§2.3.3](#233-contraintes-juridiques)),
+et particulièrement des *runtimes* (payables à l'unité).
+
+En ce sens,
+un PLM peut contribuer au contrôle de la conformité commerciale et juridique pour les activités logicielles,
+notamment dans le cas des logiciels embarqués.
 
 
 ### 5.1.6. Archivage

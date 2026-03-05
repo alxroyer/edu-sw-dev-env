@@ -40,11 +40,10 @@ In order to update this file :
 - Environnements de développement logiciel.md:2355:> 👷🛠️ TP : Good git commit log (TODO)
 - Environnements de développement logiciel.md:2543:> 👷🛠️ TP : Installation Gitea on-premise (TODO)
 - Environnements de développement logiciel.md:2551:> 👷🛠️ TP : Git, mode expert (TODO)
-- Environnements de développement logiciel.md:2741:TODO
-- Environnements de développement logiciel.md:2746:TODO
-- Environnements de développement logiciel.md:2787:TODO
-- Environnements de développement logiciel.md:2792:TODO
-- Environnements de développement logiciel.md:2797:TODO
+- Environnements de développement logiciel.md:2788:TODO
+- Environnements de développement logiciel.md:2829:TODO
+- Environnements de développement logiciel.md:2834:TODO
+- Environnements de développement logiciel.md:2839:TODO
 - TP - GitHub.md:184:TODO :
 - TP - GitHub.md:192:TODO :
 - TP - GitHub.md:205:TODO :
