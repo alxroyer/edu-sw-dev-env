@@ -144,14 +144,14 @@ A partir de VS Code :
 Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles pour cette extension.
 
 
-# Références croisées
+# 5. Références croisées
 
 Pour les références croisées dans un document,
 utiliser le script `scripts/check-cross-refs.py' pour détecter les liens invalides,
 en cas de renumérotation des titres notamment.
 
 
-# 5. Générer les documents PDF
+# 6. Générer les documents PDF
 
 A partir de VS Code :
 - Installer l'extension [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) par yzane.
@@ -178,7 +178,7 @@ Note : Le fichier `.vscode/settings.json` enregistre les configurations utiles p
 > - La propriété `color` s'applique, mais la couleur rendue semble distordue.
 
 
-# 6. Ressources
+# 7. Ressources
 
 Ressources intéressantes pour la syntaxe Markdown :
 - https://www.markdownlang.com/fr/basic/blockquotes.html
