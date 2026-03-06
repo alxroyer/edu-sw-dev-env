@@ -3122,6 +3122,10 @@ Des outils en ligne permettent de tester la syntaxe :
 - https://mermaid.live/edit
 
 > 👷🛠️ TP : Format Mermaid (TODO)
+>
+> Memo :
+> - https://mermaid.js.org/ecosystem/tutorials.html
+> - https://www.markdownlang.com/advanced/diagrams.html
 
 > ❓ **Facilité d'intégration**
 >
@@ -3129,6 +3133,10 @@ Des outils en ligne permettent de tester la syntaxe :
 > cet outil bénéficie peut-être d'un meilleur niveau d'intégration que PlantUML ?
 >
 > A confirmer.
+>
+> A noter l'intégration native de la syntaxe Mermaid
+> avec un certain nombre de plateformes git :
+> GitHub, GitLab (à confirmer si PlantUML est supporté également).
 >
 > A noter l'abandon en juin 2025 du format PlantUML par draw.io (https://www.drawio.com/)
 > au bénéfice de Mermaid :
