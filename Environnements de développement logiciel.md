@@ -1445,10 +1445,7 @@ et avec l'assurance d'utiliser les mêmes versions des outils.
 Cette approche a par ailleurs l'avantage de pouvoir être suivie dans l'historique git du projet
 par l'intermédiaire de Dockerfiles.
 
-> 👷🛠️ TP : Toolchain SDK Java avec Docker (TODO)
->
-> Memo :
-> - Démontrer la capacité à upgrader facilement la version du SDK dans le cours du développement.
+> 👷🛠️ TP : [Docker tool Maven JDK](TP%20-%20Docker%20tool%20Maven%20JDK.md)
 
 
 ### 2.5.6. Documentation
