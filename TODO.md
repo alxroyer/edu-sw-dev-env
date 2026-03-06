@@ -22,7 +22,6 @@ In order to update this file :
 - Environnements de développement logiciel.md:663:> 👷🛠️ TP : Image Linux avec buildroot (TODO, penser à enregistrer le fichier *defconfig*)
 - Environnements de développement logiciel.md:1070:> 👷🛠️ TP : Bundling d'une application React Native avec Vite (TODO)
 - Environnements de développement logiciel.md:1427:> 👷🛠️ TP : Jenkins - CI (TODO)
-- Environnements de développement logiciel.md:1536:> 👷🛠️ TP : Développement Web en Remote SSH avec VS Code (TODO)
 - Environnements de développement logiciel.md:1557:> 👷🛠️ TP : Développement Web avec Docker (TODO)
 - Environnements de développement logiciel.md:1951:TODO : Tableau des outils du marché
 - Environnements de développement logiciel.md:1973:> 👷🛠️ TP : Publication de logiciel JS sur npmjs.org (TODO)
@@ -61,5 +60,6 @@ In order to update this file :
 - TP - IDE VS Code C-Cpp.md:32:            - TODO
 - TP - IDE VS Code C-Cpp.md:213:TODO :
 - TP - IDE VS Code C-Cpp remote.md:47:TODO : Détailler les étapes.
+- TP - Remote SSH VS Code Maven JDK.md:6:TODO: Mettre en forme
 - TP - REST API cargo-rust.md:160:- TODO : Observer le contenu du répertoire `target/debug/deps/`.
 - TP - REST API npm-ts.md:318:> TODO : Ne fonctionne pas chez moi.

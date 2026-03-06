@@ -1533,7 +1533,7 @@ La machine distante pouvant être :
 - des conteneurs Dockers, c'est moins probable,
   car on basculera certainement alors sur la stratégie d'exécution suivante.
 
-> 👷🛠️ TP : Développement Web en Remote SSH avec VS Code (TODO)
+> 👷🛠️ TP : [Remote SSH VS Code Maven JDK](./TP%20-%20Remote%20SSH%20VS%20Code%20Maven%20JDK.md)
 
 
 ### 3.2.3. Conteneurs Dockers locaux
