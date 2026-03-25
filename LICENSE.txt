@@ -1,0 +1,6 @@
+Software development environment lesson © 2025 by Alexis Royer
+
+https://github.com/alxroyer/edu-sw-dev-env
+
+This work is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/

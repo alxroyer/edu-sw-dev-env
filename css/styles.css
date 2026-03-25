@@ -1,0 +1,19 @@
+/* Debug: */
+    /* * { border: 1px dotted grey; } */
+
+/* Software types: */
+    /* General .sw-type settings. */
+    span.sw-type {
+        display: inline-block;  /* Ensure fixed width for the span. */
+        width: 30px; height: 30px;  /* Set span size. */
+        background-size: 30px 30px;  /* Set background icon size. */
+        margin-right: 10px;  /* Ensure space with the text following the icon. */
+    }
+    /* Select .sw-type URLs for each. */
+    span.sw-type.pc { background-image: url('../images/laptop_realistic_2_256.png'); }
+    span.sw-type.web { background-image: url('../images/file-7084006_256.png'); }
+    span.sw-type.mobile { background-image: url('../images/smartphone-157082_256.png'); }
+    span.sw-type.embedded { background-image: url('../images/pexels-craigmdennis-57007_256.png'); }
+
+/* Images: */
+    /* Note: Inspired from https://stackoverflow.com/questions/14675913/changing-image-size-in-markdown#14747656. */
