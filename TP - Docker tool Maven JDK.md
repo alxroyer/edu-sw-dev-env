@@ -45,6 +45,16 @@ Sur la machine de développement :
 > - https://stackoverflow.com/questions/51218233/docker-why-do-i-need-to-sudo-in-linux#51218264
 > - https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied#48957722
 
+> ⚠️ **TODO : Déplacer les notes d'installation de docker dans un fichier dédié**
+>
+> Inclure la note ci-dessus.
+>
+> Autres ressources et notes utiles :
+> - https://www.geeksforgeeks.org/devops/install-openshift-in-ubuntu/ (steps 4 et 5)
+> - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04 (better)
+> - https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository (even better)
+> - Windows : Intégration Docker Desktop & WSL => Docker Desktop > Settings > Resources > WSL integration > Activate Ubuntu
+
 
 # 2. Téléchargement du programme Java d'exemple
 

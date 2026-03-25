@@ -135,8 +135,8 @@ Mémo:
             - [5.1.2.5. Git, mode expert](#5125-git-mode-expert)
         - [5.1.3. Ticketing](#513-ticketing)
             - [5.1.3.1. Fonctionnement général](#5131-fonctionnement-g%C3%A9n%C3%A9ral)
-            - [5.1.3.2. Organisation du travail d'équipe](#5132-organisation-du-travail-d%C3%A9quipe)
-            - [5.1.3.3. Intégration avec git](#5133-int%C3%A9gration-avec-git)
+            - [5.1.3.2. Intégration avec git](#5132-int%C3%A9gration-avec-git)
+            - [5.1.3.3. Organisation du travail d'équipe](#5133-organisation-du-travail-d%C3%A9quipe)
         - [5.1.4. Index de configuration](#514-index-de-configuration)
         - [5.1.5. PLM - Product Lifecycle Management](#515-plm---product-lifecycle-management)
         - [5.1.6. Archivage](#516-archivage)
@@ -149,6 +149,7 @@ Mémo:
             - [5.3.3.2. RST / ReStructured Text](#5332-rst--restructured-text)
             - [5.3.3.3. PlantUML](#5333-plantuml)
             - [5.3.3.4. Mermaid](#5334-mermaid)
+            - [5.3.3.5. Slides](#5335-slides)
         - [5.3.4. Documentation d'API](#534-documentation-dapi)
 - [6. Annexes](#6-annexes)
     - [6.1. Licence](#61-licence)
@@ -294,7 +295,7 @@ Entre autres (1) :
 
 Une partie de ces dimensions reste essentiellement portée par le logiciel développé.
 
-Toutefois, l'environnement de développement peut contribue à certaines de ces dimensions, notamment :
+Toutefois, disposer des bons outils peut contribuer à certaines de ces dimensions, notamment :
 - Fiabilité :
     - Mettre en oeuvre des outils d'analyse de code statique, permettant d'éviter des bugs avant même d'exécuter le code.
     - Exécuter régulièrement des tests de non-régression, pour détecter les problèmes au plus tôt.
@@ -352,6 +353,16 @@ L'usage d'un IDE présente de nombreux intérêts :
   Possibilité de gagner du temps,
   en évitant de scroller et de faire des CTRL+F dans tous les sens
   quand le code commence à prendre du volume.
+
+- **Vérification syntaxique :**
+
+  Premier niveau de vérification du code,
+  vis-à-vis de la syntaxe du langage utilisé,
+  et vis-à-vis des références croisées des symboles définis dans le code
+  (noms de variables, de classes, de fonctions, ...).
+
+  Les erreurs détectées sont généralement soulignées avec des vaguelettes rouges,
+  et des marqueurs rouges pointent les fichiers avec erreurs.
 
 - **Complétion :**
 
@@ -652,7 +663,7 @@ de l'apparition de certains des systèmes de packages précédemment cités :
 
 > 👷🛠️ TP : API REST en Go avec `go get` et `go build` (TODO)
 >
-> Memo :
+> Mémo :
 > - https://go.dev/ref/mod#go-mod-init
 > - https://go.dev/doc/modules/managing-dependencies
 > - https://go.dev/doc/modules/gomod-ref
@@ -1069,7 +1080,7 @@ Pour ce faire, cette étape :
 
 > 👷🛠️ TP : Bundling d'une application React Native avec Vite (TODO)
 >
-> Memo :
+> Mémo :
 > - https://github.com/codepilots/ReactNativeVite
 
 
@@ -1548,7 +1559,10 @@ le déploiement de différents services avec Docker offre une alternative intér
 ![Local Web dev with Docker](schemas/local-docker-config.drawio.png)
 
 Ce type de déploiement apporte un certain nombre d'avantages :
-- Les Dockerfiles sont gérés en local, et suivis sous git.
+- Les configurations Docker sont gérées en local, et suivies sous git.
+- On peut travailler à partir d'un dépôt git unique (monorepo)
+  simplifiant la gestion de configuration
+  (par rapport à la gestion de plusieurs dépôts pour chacun des services).
 - On peut s'arranger pour suivre exactement la configuration des versions cibles :
   serveur HTTP, Java, PHP, base de données.
 - Le lancement des différents services est scriptable,
@@ -1556,7 +1570,7 @@ Ce type de déploiement apporte un certain nombre d'avantages :
 
 > 👷🛠️ TP : Développement Web avec Docker (TODO)
 >
-> Memo :
+> Mémo :
 > - Reproduction de la config cible de l'hébergeur.
 > - https://www.docker.com/blog/docker-for-web-developers/
 > - https://www.geeksforgeeks.org/blogs/how-to-use-docker-for-web-development/
@@ -1974,13 +1988,13 @@ pour un public de développeurs.
 
 > 👷🛠️ TP : Publication de logiciel Python sur pypi.org (TODO)
 >
-> Memo :
+> Mémo :
 > - `python -m build`
 > - https://realpython.com/pypi-publish-python-package/#publish-your-package-to-pypi
 
 > 👷🛠️ TP : Publication de logiciel PHP sur packagist.org (TODO)
 >
-> Memo :
+> Mémo :
 > - https://packagist.org/ => §"Publishing Packages"
 > - https://packagist.org/about => §"How to submit packages?"
 
@@ -2349,6 +2363,17 @@ jusqu'à aujourd'hui.
 
 #### 5.1.2.1. Git, les bases
 
+Parmi les intérêts premiers de git, on identifie :
+- **des capacités d'historisation :**
+  Capacité à tracer l'historique des modifications,
+  chaque *commit* représentant un jeu de modifications sur les fichiers du *dépôt*,
+  donnant la possibilité éventuellement de revenir en arrière au besoin.
+- **des auteurs et des commit logs :**
+  Informations associées à chaque commit.
+  Donne des éléments d'explication sur l'objet des modifications apportées.
+- **des branches & des merges :**
+  Permet le travail collaboratif.
+
 Pour découvrir les fonctionnalités de base de git,
 parcourir le TP proposé ci-après.
 
@@ -2381,11 +2406,11 @@ auquel cas l'historique git peut être considéré comme un livrable à part ent
 
 > 👷🛠️ TP : Good git commit log (TODO)
 >
-> Memo :
+> Mémo :
 > - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
 > - https://www.conventionalcommits.org/en/v1.0.0/
 > - https://opencommits.org/
-> - Ref ticket associé, cf. [§5.1.3.3](#5133-int%C3%A9gration-avec-git)
+> - Ref ticket associé, cf. [§5.1.3.2](#5132-int%C3%A9gration-avec-git)
 
 
 ##### 5.1.2.3.2. Commit initial
@@ -2543,7 +2568,10 @@ Des plateformes complètent les fonctionnalités de git (programme de base) :
 Parmi les fonctionnalités complémentaires apportées par ces plateformes, on note :
 - l'hébergement d'un dépôt git central,
 - l'organisation des revues de code, au moyen de *pull-requests* ou *merge-requests*,
-- l'intégration et le couplage avec un bugtracker,
+- l'intégration et le couplage avec un bugtracker
+  (cf. [§5.1.3.1](#5131-fonctionnement-g%C3%A9n%C3%A9ral) et [§5.1.3.3](#5133-int%C3%A9gration-avec-git)),
+- des fonctions d'organisation du travail et de pilotage projet
+  (cf. [§5.1.3.3](#5133-organisation-du-travail-d%C3%A9quipe)),
 - la mise à disposition d'un CMS (wiki ou Confluence),
   > 💡 **Astuce : Préférence format texte + git**
   >
@@ -2640,7 +2668,36 @@ les pull-requests peuvent également être identifiées et référencées par de
 >       et clore le sujet en connaissance de cause.
 
 
-#### 5.1.3.2. Organisation du travail d'équipe
+#### 5.1.3.2. Intégration avec git
+
+Comme introduit aux [§5.1.2.2](#5122-investiguer-avec-git) et [§5.1.2.4](#5124-plateformes-git),
+les plateformes git réalisent une intégration bien utile
+entre git d'une part, et le système de ticketing d'autre part.
+
+- **De git vers les tickets**
+
+  De la même manière qu'il est possible de créer des références croisées entre tickets
+  dans l'outil de ticketing (cf. [§5.1.3.1](#5131-fonctionnement-g%C3%A9n%C3%A9ral)),
+  la même syntaxe peut être utilisée dans les commit logs.
+
+  C'est d'ailleurs un standard que de donner dans l'entête du commit log
+  la référence du ticket motivant la modification des sources
+  (cf. [§5.1.2.3.1](#51231-format-des-commit-logs)).
+
+  Ceci permet de naviguer rapidement depuis l'historique git vers les tickets associés,
+  donnant ainsi de l'information complémentaire sur l'objet des modifications.
+
+- **Des tickets vers git**
+
+  Inversement, dans l'outil de ticketing,
+  les tickets présentent les commits, les branches et les pull-requests associés au ticket.
+
+  Ceci permet de naviguer rapidement depuis un ticket vers les historiques git correspondants.
+
+> 👷🛠️ TP : GitHub issues (TODO)
+
+
+#### 5.1.3.3. Organisation du travail d'équipe
 
 Les tickets peuvent également servir à organiser le travail d'équipe.
 
@@ -2684,35 +2741,6 @@ et les colonnes de droite aux travaux terminés.
 >     - le travail est parallélisable,
 >     - le travail nécessite un suivi détaillé pour en assurer l'exhaustivité,
 >     - ...
-
-
-#### 5.1.3.3. Intégration avec git
-
-Comme introduit aux [§5.1.2.2](#5122-investiguer-avec-git) et [§5.1.2.4](#5124-plateformes-git),
-les plateformes git réalisent une intégration bien utile
-entre git d'une part, et le système de ticketing d'autre part.
-
-- **De git vers les tickets**
-
-  De la même manière qu'il est possible de créer des références croisées entre tickets
-  dans l'outil de ticketing (cf. [§5.1.3.1](#5131-fonctionnement-g%C3%A9n%C3%A9ral)),
-  la même syntaxe peut être utilisée dans les commit logs.
-
-  C'est d'ailleurs un standard que de donner dans l'entête du commit log
-  la référence du ticket motivant la modification des sources
-  (cf. [§5.1.2.3.1](#51231-format-des-commit-logs)).
-
-  Ceci permet de naviguer rapidement depuis l'historique git vers les tickets associés,
-  donnant ainsi de l'information complémentaire sur l'objet des modifications.
-
-- **Des tickets vers git**
-
-  Inversement, dans l'outil de ticketing,
-  les tickets présentent les commits, les branches et les pull-requests associés au ticket.
-
-  Ceci permet de naviguer rapidement depuis un ticket vers les historiques git correspondants.
-
-> 👷🛠️ TP : GitHub issues (TODO)
 
 
 ### 5.1.4. Index de configuration
@@ -3024,6 +3052,9 @@ C'est par ailleurs largement diffusé dans les outils (GitHub, ...),
 d'où l'importance de s'y intéresser.
 
 > 👷🛠️ TP : Format Markdown (TODO)
+>
+> Mémo :
+> - Plugin VS Code utile : [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) par yzane
 
 
 #### 5.3.3.2. RST / ReStructured Text
@@ -3123,9 +3154,34 @@ Des outils en ligne permettent de tester la syntaxe :
 
 > 👷🛠️ TP : Format Mermaid (TODO)
 >
-> Memo :
+> Mémo :
 > - https://mermaid.js.org/ecosystem/tutorials.html
 > - https://www.markdownlang.com/advanced/diagrams.html
+> - Extension VS Code utile : [Mermaid](https://marketplace.visualstudio.com/items?itemName=MermaidChart.vscode-mermaid-chart) plugin officiel
+>   => meilleure visu, possibilité d'export
+> - Diagrammes utiles :
+>     - SW Technical charts:
+>         - Flowcharts
+>         - Sequence diagrams
+>         - Class diagrams
+>         - State diagrams
+>         - Architecture diagrams
+>         - Packet diagrams
+>         - GitGraph diagrams
+>     - Communication & organization:
+>         - Mindmaps
+>         - Gantt diagrams
+>         - Kanban boards
+>     - General charts:
+>         - Pie charts
+>         - XY charts
+>         - Quadrant charts
+>         - Radar diagrams
+>         - Treemap diagrams
+> - ⚠️ Does not work with "Markdown PDF" extension.
+>     - Workaround:
+>         1. Export HTML.
+>         2. Then print to PDF.
 
 > ❓ **Facilité d'intégration**
 >
@@ -3141,6 +3197,13 @@ Des outils en ligne permettent de tester la syntaxe :
 > A noter l'abandon en juin 2025 du format PlantUML par draw.io (https://www.drawio.com/)
 > au bénéfice de Mermaid :
 > https://www.drawio.com/blog/plantuml-to-mermaid.
+
+
+#### 5.3.3.5. Slides
+
+TODO - Slides with Markdown :
+- Extension VS Code utile : [vscode-reveal](https://marketplace.visualstudio.com/items?itemName=evilz.vscode-reveal) par evilz
+- A expérimenter.
 
 
 ### 5.3.4. Documentation d'API
